@@ -9,35 +9,7 @@ import shutil
 from RandFunct import random_number
 from RandFunct2 import random_number2
 from subprocess import call
-
-def permutList(l):
-    if not l:
-            return [[]]
-    res = []
-    for e in l:
-            temp = l[:]
-            temp.remove(e)
-            res.extend([[e] + r for r in permutList(temp)])
-
-    return res
-
-def remaplist(lst):
-    mxval = max(lst)
-    sbval = int(mxval / 4)
-    outlst = []
-    for elem in lst:
-        divedic = random_number(10)
-        if divedic < 8:
-            adr = random_number(sbval)
-            elem += adr
-            if elem > mxval:
-                elem -= mxval
-            outlst.append(elem)
-        if divedic > 7:
-            val = random_number(mxval)
-            outlst.append(val)
-    return outlst
-
+     
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -65,11 +37,11 @@ totrk = 25 #This variable controls length of output playlist
 #cpy = str(input ("Would you like to copy these files to the static folder? To copy is the default. If so, please press 'Y': "))
 
 #if not cpy:
-cpy = "Y" #This variable controls whether we copy the files to the static folder
+#cpy = "Y" #This variable controls whether we copy the files to the static folder
 
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
-srchstr = 'E:\\OriginalAudio\\Songs'
+srchstr = 'F:\\OriginalAudio\\Songs'
 
 #srchstr = 'C:\\Users\\mysti\\Downloads'
 
@@ -79,65 +51,34 @@ print("")
 
 print("Please wait while the processor applies organic logic to your track collection.")
 
-contentdat = {}
+content = []
 
 for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if  filepath.endswith(".wav") :
+        modtim = os.path.getmtime(filepath)
 
-            tim = os.path.getmtime(filepath)
+        sz = os.path.getsize(filepath)
 
-            ctim = os.path.getctime(filepath)
+        if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and (modtim >= 1219000000):
 
-            if int(ctim[:4]) > 2018 and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)):
+                content.append(str(filepath))
 
-                contentdat[filepath] = tim
+clen = len(content)
 
+for ctr in range(totrk):
 
-newply = []
+    xin = random_number(clen)
+    fortrk = content[xin]
+    outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\" + str(time) + "_" + str(ctr + 1) +  ".wav"
+    shutil.copy( fortrk, outstr)
+    print("")
+    print("Copying: " + str(ctr+1))
+    #outlst.append(sttrk)
+    #newply.remove(newply[valu])
 
-newplyd = []
-
-
-for w in sorted(contentdat, key=contentdat.get, reverse=False):
-    newply.append(w)
-    newplyd.append(contentdat[w])
-
-
-leng = len(newply)
-
-newlst = []
-
-startlen = random_number(leng -totrk)
-
-for x in range(startlen, (startlen + totrk)):
-    newlst.append(x)
-
-fonlst = remaplist(newlst)
-
-finlst = [] 
-
-outlst = []
-
-for y in range(totrk):
-
-    valu = fonlst[y]
-    if valu > leng:
-        valu -= random_number(leng)
-    finlst.append(newply[valu])
-    trk =  str(Path(newply[valu]).stem)
-    p = (Path(newply[valu]))
-    trkloc = str(p.parts[-2])
-    sttrk = str(y + 1) + " " + trkloc + ": " + trk
-    if cpy == "Y":
-        outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\" + str(tim) + "_" + str((y + 1)/100) + "_" + trkloc + "-__" + trk + ".wav"
-        shutil.copy(newply[valu], outstr)
-        print("")
-        print("Copying: " + str(y+1))
-    outlst.append(sttrk)
-    newply.remove(newply[valu])
+print("")
 
 #srchstr2 = "C:\\Users\\mysti\\Coding\\MusicPlaylists\\static\\"
 

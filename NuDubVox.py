@@ -8,6 +8,16 @@ from RandFunct import random_number
 from RandFunct2 import random_number2
 from subprocess import call
 
+try:
+
+    os.mkdir("C:\\Users\\mysti\\Desktop\\AutoProd\\NewAlbum")
+
+except:
+
+    print("")
+
+    print("Unable to create directory.")
+
 right_now = datetime.datetime.now().isoformat()
 list = []
 
@@ -45,12 +55,13 @@ contentgit = []
 
 ctr = 1
 
-for x3 in range(25, 35):
+for x3 in range(25):
 
     try:
-        samran = random_number(len(contentgit))
-        atrack = contentgit[samran]
-        print("Sample: " + str(ctr))
+        lin = len(contentgitr)
+        samran = random_number(lin)
+        atrack = contentgitr[samran]
+        print("Sample: " + str(x3 - 25))
         print("")
         ctr += 1
         newAudio = AudioSegment.from_wav(atrack)
