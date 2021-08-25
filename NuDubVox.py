@@ -69,7 +69,7 @@ for x3 in range(25):
         if solonum < 4:
             leng = len(newAudio)
             if leng > 10000:
-                samplen = random_number2(5000, 8000)
+                samplen = random_number2(2000, 4000)
                 sampst = int(leng - samplen)
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
@@ -84,7 +84,7 @@ for x3 in range(25):
         if solonum > 3 and solonum < 8:
             leng = len(newAudio)
             if leng > 60000:
-                samplen = random_number2(48000, 53000)
+                samplen = random_number2(23000, 53000)
                 sampst = int(leng - samplen)
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
@@ -101,7 +101,7 @@ for x3 in range(25):
         if solonum > 7 and solonum < 11:
             leng = len(newAudio)
             if leng > 60000:
-                samplen = random_number2(40000, 42000)
+                samplen = random_number2(17000, 22000)
                 sampst = int(leng - samplen)
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
@@ -118,7 +118,7 @@ for x3 in range(25):
         if solonum > 10:
             leng = len(newAudio)
             if leng > 10000:
-                samplen = random_number2(2000, 7000)
+                samplen = random_number2(2000, 3000)
                 sampst = int(leng - samplen)
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)

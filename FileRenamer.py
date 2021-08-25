@@ -145,6 +145,6 @@ print("The chosen files have been renamed. Thank you.")
 
 print("")
 
-call(["python", "GenFactSq.py"])
+call(["python", "CoverArt.py"])
 
 ## THE GHOST OF THE SHADOW ##
