@@ -74,7 +74,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(4,8)
+            newvol = random_number2(8,10)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
             newAudio = newAudio.fade_out(100)
@@ -106,7 +106,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(4,8)
+            newvol = random_number2(8, 11)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -123,7 +123,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(4,6)
+            newvol = random_number2(9 ,12)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -146,6 +146,7 @@ for x3 in range(25):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
+            newAUdio = newAudio - 1
         oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\vsamp" + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
         titsamp = "vsamp" + str(ctr) + ".wav"
