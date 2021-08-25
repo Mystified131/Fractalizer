@@ -45,9 +45,11 @@ contentgit = []
 
 ctr = 1
 
-for atrack in contentgitr:
+for x3 in range(25, 35):
 
     try:
+        samran = random_number(len(contentgit))
+        atrack = contentgit[samran]
         print("Sample: " + str(ctr))
         print("")
         ctr += 1

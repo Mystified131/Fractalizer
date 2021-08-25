@@ -78,7 +78,7 @@ num3 = random_number(x1)
 astr = wordcon[num1]
 bstr = wordcon[num2]
 cstr = wordcon[num3]
-phrsstr = astr.title() + " " + bstr.title() + " " + cstr.title()
+phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()
 
 outstr = "C:\\Users\\mysti\\Desktop\\AutoProd\\" + phrsstr
 

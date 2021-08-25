@@ -77,6 +77,12 @@ tommy.speed(1000)
 
 for reps in range(3):
 
+    print("")
+
+    print("Rendering GenText Cover Art Option: " + str(reps + 1) + " / " + "3")
+
+    print("")
+
 #for reps in range(10000):
 
     turtle.clearscreen()
