@@ -109,7 +109,7 @@ print("")
 
 print(mainstr)
 
-oustr = "E:\\Spirit_Circuits\\NewAlbum\\Liner_Notes_" + str(tim) + ".txt"
+oustr = "E:\\Spirit_Circuits\\NewAlbum\\ZZ_Liner_Notes_" + str(tim) + ".txt"
 
 outfile = open(oustr, "w")
 
