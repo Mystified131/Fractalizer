@@ -97,7 +97,7 @@ for ctr in range(totrk):
 
     xin = random_number(clen)
     fortrk = content[xin]
-    outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\" + str(time) + "_" + str(ctr + 1) +  ".wav"
+    outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Imported_" + str(time) + "_" + str(ctr + 1) +  ".wav"
     shutil.copy( fortrk, outstr)
     print("")
     print("Copying: " + str(ctr+1))

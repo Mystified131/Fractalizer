@@ -33,7 +33,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Generated" not in str(filepath):
+        if filepath.endswith(".wav") and "Imported" in str(filepath):
             contentbeats.append(str(file))
 
 contentgitr = []
@@ -163,7 +163,7 @@ for x3 in range(25):
         print("File unreadable.")
 
 
-trtot = random_number2(12, 16)
+trtot = len(contentbeats)
 
 for ctr in range(trtot):
 
