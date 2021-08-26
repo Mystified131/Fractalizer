@@ -62,7 +62,7 @@ for elem in content:
 
 print("")
 
-for citr in range(12):
+for citr in range(16):
 
     paragraph = ""
 
@@ -81,7 +81,7 @@ for citr in range(12):
 
     tim = ("".join(list))
 
-    for cotr in range(8):
+    for cotr in range(12):
 
         speaklst = []
 
