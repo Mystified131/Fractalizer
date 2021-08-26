@@ -81,7 +81,7 @@ for citr in range(16):
 
     tim = ("".join(list))
 
-    for cotr in range(12):
+    for cotr in range(14):
 
         speaklst = []
 
