@@ -4,6 +4,15 @@ from RandFunct2 import random_number2
 import datetime
 from subprocess import call
 
+right_now = datetime.datetime.now().isoformat()          
+list = []
+
+for i in right_now:
+    if i.isnumeric():
+        list.append(i)
+
+tim = ("".join(list))
+
 print("")
 
 print("Generating Liner Notes. . .")
@@ -100,7 +109,9 @@ print("")
 
 print(mainstr)
 
-outfile = open("E:\\Spirit_Circuits\\NewAlbum\\Liner_Notes.txt", "w")
+oustr = "E:\\Spirit_Circuits\\NewAlbum\\Liner_Notes_" + str(tim) + ".txt"
+
+outfile = open(oustr, "w")
 
 outfile.write("Liner Notes" + '\n')
 
