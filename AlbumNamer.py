@@ -80,9 +80,6 @@ bstr = wordcon[num2]
 cstr = wordcon[num3]
 phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()
 
-infile.open( "Fractalizer_PathData.txt", 'r')
-
-
 instr = "E:\\Spirit_Circuits\\NewAlbum"
 
 

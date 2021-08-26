@@ -66,6 +66,27 @@ for subdir, dirs, files in os.walk(srchstr):
 
                 content.append(str(filepath))
 
+contentb = []
+
+srchstrb = "C:\\Users\\mysti\\Media_Files\\Sounds\\HomemadeSamplesReadyToMix"
+
+for subdir, dirs, files in os.walk(srchstrb):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if  filepath.endswith(".wav"):
+
+                contentb.append(str(filepath))
+
+cotr = len(contentb)
+
+for x2 in range(cotr):
+
+    atr = contentb[x2]
+    outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\GeneFX" + str(time) + "_" + str(x2 + 1) +  ".wav"
+    shutil.copy(atr, outstr)
+
+   
 clen = len(content)
 
 for ctr in range(totrk):
