@@ -42,13 +42,9 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Generated" in str(filepath):
+        if filepath.endswith(".wav") and "GeneratedAudioMix" in str(filepath) or "GeneFX" in str(filepath) :
             contentgitr.append(str(file))
-            contentgitr.append(str(file))
-            contentgitr.append(str(file))
-            contentgitr.append(str(file))
-            contentgitr.append(str(file))
-
+         
 for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
@@ -167,7 +163,7 @@ for x3 in range(25):
         print("File unreadable.")
 
 
-trtot = random_number(12, 16)
+trtot = random_number2(12, 16)
 
 for ctr in range(trtot):
 

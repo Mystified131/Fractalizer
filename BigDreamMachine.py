@@ -78,11 +78,13 @@ for subdir, dirs, files in os.walk(srchstrb):
 
                 contentb.append(str(filepath))
 
-cotr = len(contentb)
+cotr = random_number2(15, 35)
+
+tots = random_number(len(contentb))
 
 for x2 in range(cotr):
-
-    atr = contentb[x2]
+    xx = random.randrange(len(tots))
+    atr = contentb[xx]
     outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\GeneFX" + str(time) + "_" + str(x2 + 1) +  ".wav"
     shutil.copy(atr, outstr)
     print("")
