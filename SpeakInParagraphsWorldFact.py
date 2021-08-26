@@ -186,7 +186,7 @@ for citr in range(8):
     except (BotoCoreError, ClientError) as error:
     # The service returned an error, exit gracefully
         print(error)
-        sys.exit(-1)
+        #sys.exit(-1)
 
     try:
         # Access the audio stream from the response
@@ -206,7 +206,7 @@ for citr in range(8):
         except IOError as error:
         # Could not write to file, exit gracefully
                 print(error)
-                sys.exit(-1)
+                #sys.exit(-1)
 
     except:
         print("")
@@ -218,7 +218,7 @@ for citr in range(8):
         print("")
         print("Could not stream audio")
         print("")
-        sys.exit(-1)
+        #sys.exit(-1)
 
     # Play the audio using the platform's default player
     #if sys.platform == "win32":
