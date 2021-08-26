@@ -85,7 +85,9 @@ for x2 in range(cotr):
     atr = contentb[x2]
     outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\GeneFX" + str(time) + "_" + str(x2 + 1) +  ".wav"
     shutil.copy(atr, outstr)
-
+    print("")
+    print("Copying: ) + dtr(xw)")
+    print("")
    
 clen = len(content)
 

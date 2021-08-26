@@ -75,10 +75,12 @@ x1 = len(wordcon)
 num1 = random_number(x1)
 num2 = random_number(x1)
 num3 = random_number(x1)
+num4 = random_number(x1)
 astr = wordcon[num1]
 bstr = wordcon[num2]
 cstr = wordcon[num3]
-phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()
+dstr = wordcon[num4]
+phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()  + "_" + dstr.title()
 
 instr = "E:\\Spirit_Circuits\\NewAlbum"
 

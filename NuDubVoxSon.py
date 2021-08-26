@@ -167,7 +167,7 @@ for x3 in range(25):
         print("File unreadable.")
 
 
-trtot = len(contentbeats)
+trtot = random_number(12, 16)
 
 for ctr in range(trtot):
 

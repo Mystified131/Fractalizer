@@ -117,7 +117,7 @@ outfile.write("Liner Notes" + '\n')
 
 outfile.write('\n')
 
-outfile.write("This Release Was Created By "+ austr + " in " + str(c) + '\n')
+outfile.write("This Release Was Created By "+ austr + " in the early 21st Century")
 
 outfile.write('\n')
 
