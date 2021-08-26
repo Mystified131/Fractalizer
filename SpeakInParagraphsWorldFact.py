@@ -136,7 +136,7 @@ for citr in range(8):
     accessKey = ""
     secretKey = ""
 
-    infile = open("aws_key.m3u", "r")
+    infile = open("asckey.m3u", "r")
 
     aline = infile.readline()  
 
@@ -147,9 +147,11 @@ for citr in range(8):
         except: 
             print("Text error-- passing over line.")
 
+    accessKey = accessKey[20:41].strip()
+
     infile.close()
 
-    infile = open("aws_secret.m3u", "r")
+    infile = open("datatex.m3u", "r")
 
     aline = infile.readline()  
 
@@ -159,6 +161,8 @@ for citr in range(8):
             aline = infile.readline()
         except: 
             print("Text error-- passing over line.")
+
+    secretKey = secretKey[37:77].strip()
 
     infile.close()
 
@@ -171,7 +175,9 @@ for citr in range(8):
 
     #voxlst = ["Joanna", "Matthew", "Vitória", "Ricardo", "Naja", "Mads", "Léa", "Mathieu", "Mizuki", "Takumi", "Seoyeon", "Zhiyu", "Penélope", "Miguel" ]
 
-    voxlst = ['Nicole', 'Kevin', 'Enrique', 'Tatyana', 'Russell', 'Olivia', 'Lotte', 'Geraint', 'Carmen', 'Mads', 'Penelope', 'Mia', 'Joanna', 'Matthew', 'Brian', 'Seoyeon', 'Ruben', 'Ricardo', 'Maxim', 'Lea', 'Giorgio', 'Carla', 'Naja', 'Maja', 'Astrid', 'Ivy', 'Kimberly', 'Chantal', 'Amy', 'Vicki', 'Marlene', 'Ewa', 'Conchita', 'Camila', 'Karl', 'Zeina', 'Miguel', 'Mathieu', 'Justin', 'Lucia', 'Jacek', 'Bianca', 'Takumi', 'Ines', 'Gwyneth', 'Cristiano', 'Mizuki', 'Celine', 'Zhiyu', 'Jan', 'Liv', 'Joey', 'Raveena', 'Filiz', 'Dora', 'Salli', 'Aditi', 'Vitoria', 'Emma', 'Lupe', 'Hans', 'Kendra', 'Gabrielle']
+    #voxlst = ['Nicole', 'Kevin', 'Enrique', 'Tatyana', 'Russell', 'Olivia', 'Lotte', 'Geraint', 'Carmen', 'Mads', 'Penelope', 'Mia', 'Joanna', 'Matthew', 'Brian', 'Seoyeon', 'Ruben', 'Ricardo', 'Maxim', 'Lea', 'Giorgio', 'Carla', 'Naja', 'Maja', 'Astrid', 'Ivy', 'Kimberly', 'Chantal', 'Amy', 'Vicki', 'Marlene', 'Ewa', 'Conchita', 'Camila', 'Karl', 'Zeina', 'Miguel', 'Mathieu', 'Justin', 'Lucia', 'Jacek', 'Bianca', 'Takumi', 'Ines', 'Gwyneth', 'Cristiano', 'Mizuki', 'Celine', 'Zhiyu', 'Jan', 'Liv', 'Joey', 'Raveena', 'Filiz', 'Dora', 'Salli', 'Aditi', 'Vitoria', 'Emma', 'Lupe', 'Hans', 'Kendra', 'Gabrielle']
+
+    voxlst = ['Carla', 'Emma', 'Raveena', 'Marlene', 'Mathieu', 'Nicole']
 
     voxch = random_number(len(voxlst))
 
@@ -183,12 +189,12 @@ for citr in range(8):
     # Request speech synthesis
         response = polly.synthesize_speech(Text=speaktex, OutputFormat="ogg_vorbis",
                                         VoiceId=voxstr)
-    except (BotoCoreError, ClientError) as error:
+    #except (BotoCoreError, ClientError) as error:
     # The service returned an error, exit gracefully
-        print(error)
+        #print(error)
         #sys.exit(-1)
 
-    try:
+    #try:
         # Access the audio stream from the response
         # if "AudioStream" in response:
             # Note: Closing the stream is important because the service throttles on the
@@ -199,25 +205,25 @@ for citr in range(8):
             #output = os.path.join(gettempdir(), outaud)
             output = ("C:\\Users\\mysti\\Coding\\Fractalizer\\" +  outaud)
 
-        try:
+        #try:
         # Open a file for writing the output as a binary stream
             with open(output, "wb") as file:
                 file.write(stream.read())
-        except IOError as error:
-        # Could not write to file, exit gracefully
-                print(error)
-                #sys.exit(-1)
 
     except:
+        # Could not write to file, exit gracefully
+        #print(error)
+                #sys.exit(-1)
+
         print("")
         print("Error processing speech.")
         print("")
 
-    else:
+    #else:
         # The response didn't contain audio data, exit gracefully
-        print("")
-        print("Could not stream audio")
-        print("")
+        #print("")
+        #print("Could not stream audio")
+        #print("")
         #sys.exit(-1)
 
     # Play the audio using the platform's default player
@@ -229,7 +235,7 @@ for citr in range(8):
         #subprocess.call([opener, output])
 
 print("")
-print("Your paragraphs and audio have been created, and that document can be found in the same folder as this code. Thank you.")
+print("Your spoken audio has been generated.")
 print("")
 
 call(["python", "FileConverter.py"])
