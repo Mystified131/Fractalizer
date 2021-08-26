@@ -19,6 +19,6 @@ print("The designated files have been removed. Thank you.")
 
 print("")
 
-call(["python", "AlbumNamer.py"])
+call(["python", "LinerNotes.py"])
 
 ## THE GHOST OF THE SHADOW ##
