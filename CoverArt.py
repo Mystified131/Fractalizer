@@ -68,7 +68,7 @@ for ctr in range(20):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath = "C:\\Users\\mysti\\Desktop\\AutoProd\\NewAlbum\\XX_Cover_" + str(tim) + str(numi) +".jpg"
+            outpath = "C:\\Users\\mysti\\Desktop\\AutoProd\\NewAlbum\\ZZ_Cover_" + str(tim) + str(numi) +".jpg"
 
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)
