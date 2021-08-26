@@ -78,7 +78,7 @@ for subdir, dirs, files in os.walk(srchstrb):
 
                 contentb.append(str(filepath))
 
-cotr = random_number2(8, 16)
+cotr = random_number2(3, 6)
 
 tots = random_number(len(contentb))
 
