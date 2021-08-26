@@ -45,7 +45,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
         if filepath.endswith(".wav") and "Generated" in str(filepath):
             contentgitr.append(str(file))
 
-for subdir, dirs, files in os.walk('C:\Users\mysti\Media_Files\Sounds\HomemadeSamplesReadyToMix\ContactHomeTech'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Media_Files\\Sounds\\HomemadeSamplesReadyToMix\\ContactHomeTech'):
     for file in files:
         filepath = subdir + os.sep + file
 
