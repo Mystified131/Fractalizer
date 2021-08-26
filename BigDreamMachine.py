@@ -83,7 +83,7 @@ cotr = random_number2(15, 35)
 tots = random_number(len(contentb))
 
 for x2 in range(cotr):
-    xx = random_number(len(tots))
+    xx = random_number(tots)
     atr = contentb[xx]
     outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\GeneFX" + str(time) + "_" + str(x2 + 1) +  ".wav"
     shutil.copy(atr, outstr)
