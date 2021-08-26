@@ -41,7 +41,8 @@ totrk = 25 #This variable controls length of output playlist
 
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
-srchstr = 'F:\\OriginalAudio\\Songs'
+
+srchstr = "F:\\OriginalAudio\\Songs"
 
 #srchstr = 'C:\\Users\\mysti\\Downloads'
 

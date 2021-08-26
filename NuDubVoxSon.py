@@ -46,15 +46,16 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
             contentgitr.append(str(file))
             contentgitr.append(str(file))
             contentgitr.append(str(file))
+            contentgitr.append(str(file))
+            contentgitr.append(str(file))
 
-
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Media_Files\\Sounds\\HomemadeSamplesReadyToMix\\ContactHomeTech'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav"):
+        if filepath.endswith(".wav") and "GeneFX" in str(filepath):
             contentgitr.append(str(file))
-
+       
 print("")
 
 print("Preparing samples.")

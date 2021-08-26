@@ -18,6 +18,7 @@ for i in right_now:
 
 tim = ("".join(list))
 
+
 rootdir = "E:\\Spirit_Circuits\\NewAlbum"
 
 filtyp = ".wav"
