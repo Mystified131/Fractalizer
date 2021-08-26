@@ -152,7 +152,7 @@ for reps in range(3):
 
     ts = turtle.getscreen()
 
-    filnm = "C:\\Users\\mysti\\Desktop\\AutoProd\\NewAlbum\\00_GenText_CoverElement_" + tim + ".eps"
+    filnm = "E:\\Spirit_Circuits\\NewAlbum\\00_GenText_CoverElement_" + tim + ".eps"
 
     ts.getcanvas().postscript(file=filnm)
 

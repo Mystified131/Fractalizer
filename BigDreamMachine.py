@@ -61,7 +61,7 @@ for subdir, dirs, files in os.walk(srchstr):
 
         sz = os.path.getsize(filepath)
 
-        if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and (modtim > 1218000000):
+        if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and ("Oriondrive" not in str(filepath))and ("Futurelight" not in str(filepath)) and ("FutureLight" not in str(filepath)) and (modtim > 1218000000):
 
                 content.append(str(filepath))
 

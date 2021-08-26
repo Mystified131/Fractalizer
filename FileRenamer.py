@@ -18,7 +18,7 @@ for i in right_now:
 
 tim = ("".join(list))
 
-rootdir = "C:\\Users\\mysti\\Desktop\\AutoProd\\NewAlbum"
+rootdir = "E:\\Spirit_Circuits\\NewAlbum"
 
 filtyp = ".wav"
 

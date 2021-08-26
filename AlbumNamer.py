@@ -80,11 +80,11 @@ bstr = wordcon[num2]
 cstr = wordcon[num3]
 phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()
 
-outstr = "C:\\Users\\mysti\\Desktop\\AutoProd\\" + phrsstr
+outstr = "E:\\Spirit_Circuits\\" + phrsstr
 
 try:
 
-    os.rename("C:\\Users\\mysti\\Desktop\\AutoProd\\NewAlbum", outstr)
+    os.rename("E:\\Spirit_Circuits\\NewAlbum", outstr)
 
 except:
 
