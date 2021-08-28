@@ -8,46 +8,9 @@ from RandFunct2 import random_number2
 import os
 from tkinter import *
 from subprocess import call
+from TextGetter import GetWebText
 
-fillst = []
-
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
-    for file in files:
-        filepath = subdir + os.sep + file
-
-        if filepath.endswith(".txt"):
-            fillst.append(str(filepath))
-
-totlst = []
-
-for elem in fillst:
-
-    infile = open(elem, "r")
-
-    plist = infile.readline()
-
-    while plist:
-        subl = plist.split()
-        for elem in subl:
-            if len(elem) > 3:
-                elem = elem.strip('"')
-                elem = elem.strip(',')
-                elem = elem.strip('.')
-                elem = elem.strip(':')
-                elem = elem.strip(';')
-                elem = elem.strip('!')
-                elem = elem.strip('?')
-                elem = elem.lower()
-                #elem = unidecode(elem)
-  
-                totlst.append(elem)
-        
-        try:
-            plist = unidecode(infile.readline())
-
-        except: print("Text error-- passing over line.")
-
-    infile.close()
+totlst = GetWebText()
 
 totlen = len(totlst)
 

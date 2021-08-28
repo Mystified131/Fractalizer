@@ -8,6 +8,7 @@ import datetime
 from RandFunct import random_number
 from RandFunct2 import random_number2
 from subprocess import call
+from TextGetter import GetWebText
 
 right_now = datetime.datetime.now().isoformat()          
 list = []
@@ -19,7 +20,7 @@ for i in right_now:
 tim = ("".join(list))
 
 
-rootdir = "E:\\Spirit_Circuits\\NewAlbum"
+rootdir = "G:\\Spirit_Circuits\\NewAlbum"
 
 filtyp = ".wav"
 
@@ -74,49 +75,7 @@ lx = len(fillst)
 
 srchstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\'
 
-content =[]
-
-for subdir, dirs, files in os.walk(srchstr):
-    for file in files:
-        filepath = subdir + os.sep + file
-
-        if  filepath.endswith(".txt"): 
-            astr = str(file)
-            content.append(astr)
-
-texcon = []
-
-for elem in content:
-
-    infile = open(elem, "r")
-
-
-    aline = infile.readline()  
-
-    while aline:
-        try:
-            texcon.append(aline)
-            aline = infile.readline()
-        except: 
-            print("Text error-- passing over line.")
-
-    infile.close()
-
-wordcon = []
-
-for elem in texcon:
-    al = elem.split()
-    for x in al:
-        addstr = ""
-        for xlet in x:
-            if xlet.isalnum() and not xlet.isnumeric():
-                addstr += xlet
-        xl = addstr.strip()
-        xl2 = xl.lower()
-        if len(xl2) > 1:
-            wordcon.append(xl2)
-            
-x1 = len(wordcon)
+wordcon = GetWebText()
 
 phraselist = []
 

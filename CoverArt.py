@@ -52,12 +52,12 @@ for ctr in range(20):
         b = random_number2(50, 232)
         c = random_number2(50, 232)
 
-        bi = np.zeros((800,800,3), np.uint8)
+        bi = np.zeros((1200,1200,3), np.uint8)
 
         try: 
             
-            for py in range(0,800):
-                for px in range(0,800):
+            for py in range(0,1200):
+                for px in range(0,1200):
             #can change the below logic of rgb according to requirements. In this 
             #white background is changed to #e8e8e8  corresponding to 232,232,232 
             #intensity, red color of the image is retained.
@@ -68,7 +68,7 @@ for ctr in range(20):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath = "E:\\Spirit_Circuits\\NewAlbum\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
+            outpath = "G:\\Spirit_Circuits\\NewAlbum\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
 
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)
