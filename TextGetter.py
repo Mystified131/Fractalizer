@@ -20,7 +20,7 @@ def GetWebText():
 
     ln = len(sites)
 
-    uch = random_number(ln))
+    uch = random_number(ln)
 
     url = sites[uch]
 
