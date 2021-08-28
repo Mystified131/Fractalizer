@@ -3,6 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import enchant
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 d = enchant.Dict("en_US")
 
@@ -14,7 +16,13 @@ def GetWebText():
 
     print("")
 
-    url = 'https://en.wikipedia.org/wiki/Portal:Technology'
+    sites = ['https://en.wikipedia.org/wiki/Portal:Technology', 'https://en.wikipedia.org/wiki/Special:RandomInCategory/All_portals', 'https://en.wikipedia.org/wiki/Special:Random']
+
+    ln = len(sites)
+
+    uch = random_number(ln))
+
+    url = sites[uch]
 
     xstr = requests.get(url).text
 

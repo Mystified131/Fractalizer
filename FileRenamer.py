@@ -77,6 +77,8 @@ srchstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\'
 
 wordcon = GetWebText()
 
+x1 = len(wordcon)
+
 phraselist = []
 
 for phrs in range(lx):
