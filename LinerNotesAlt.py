@@ -87,8 +87,8 @@ for elem in subl:
     except:
         print("String Error. Passing.")
 
-a = random_number(13)
-b = random_number(29)
+a = random_number2(1, 13)
+b = random_number2(1, 29)
 c = random_number2(1958, 2021)
 
 dtstr = str(a) + "/" + str(b) + "/" + str(c)
