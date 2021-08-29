@@ -42,7 +42,9 @@ totrk = 25 #This variable controls length of output playlist
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
 
-srchstr = "F:\\OriginalAudio\\Songs"
+#srchstr = "F:\\OriginalAudio\\Songs"
+
+srchstr = "C:\\Users\\mysti\\Coding\\Fractalizer"
 
 #srchstr = 'C:\\Users\\mysti\\Downloads'
 
@@ -62,13 +64,16 @@ for subdir, dirs, files in os.walk(srchstr):
 
         sz = os.path.getsize(filepath)
 
-        if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and ("Oriondrive" not in str(filepath))and ("Futurelight" not in str(filepath)) and ("FutureLight" not in str(filepath)) and (modtim > 1220000000):
+        #if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and ("Oriondrive" not in str(filepath))and ("Futurelight" not in str(filepath)) and ("FutureLight" not in str(filepath)) and (modtim > 1220000000):
+        if filepath.endswith(".wav") :
 
                 content.append(str(filepath))
 
 contentb = []
 
 srchstrb = "C:\\Users\\mysti\\Media_Files\\Sounds\\HomemadeSamplesReadyToMix"
+
+#srchstrb = "C:\\Users\\mysti\\Desktop\\Booster"
 
 for subdir, dirs, files in os.walk(srchstrb):
     for file in files:
