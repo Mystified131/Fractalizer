@@ -96,20 +96,20 @@ for x2 in range(cotr):
     print("Copying: " + str(x2+ 1))
     print("")
    
-clen = len(content)
+#clen = len(content)
 
-for ctr in range(totrk):
+#for ctr in range(clen):
 
-    xin = random_number(clen)
-    fortrk = content[xin]
-    outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Imported_" + str(time) + "_" + str(ctr + 1) +  ".wav"
-    shutil.copy( fortrk, outstr)
-    print("")
-    print("Copying: " + str(ctr+1))
+    #xin = random_number(clen)
+    #fortrk = content[ctr]
+    #outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Imported_" + str(time) + "_" + str(ctr + 1) +  ".wav"
+    #shutil.copy( fortrk, outstr)
+    #print("")
+    #print("Copying: " + str(ctr+1))
     #outlst.append(sttrk)
     #newply.remove(newply[valu])
 
-print("")
+#print("")
 
 #srchstr2 = "C:\\Users\\mysti\\Coding\\MusicPlaylists\\static\\"
 

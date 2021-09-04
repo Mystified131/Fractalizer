@@ -68,8 +68,8 @@ for ctr in range(20):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath = "C:\\Users\\mysti\\Desktop\\DeepTrax\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
-
+            outpath =  "C:\\Users\\mysti\\Coding\\Fractalizer\\" + str(tim) + str(numi) +".jpg"
+           
     
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)

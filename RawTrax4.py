@@ -33,7 +33,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Imported" in str(filepath):
+        if filepath.endswith(".wav") and "Track" in str(filepath):
             contentbeats.append(str(file))
 
 contentgitr = []
@@ -56,7 +56,6 @@ contentgit = []
 ctr = 1
 
 for x3 in range(25):
-
     try:
         lin = len(contentgitr)
         samran = random_number(lin)
