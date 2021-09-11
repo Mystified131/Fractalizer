@@ -61,6 +61,6 @@ print("Your project should be ready for you in the AutoProd folder on your deskt
 
 print("")
 
-call(["python", "RawTrax2.py"])
+#call(["python", "RawTrax2.py"])
 
 ## THE GHOST OF THE SHADOW ##

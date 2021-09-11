@@ -109,7 +109,7 @@ print("")
 
 print(mainstr)
 
-oustr = "C:\\Users\\mysti\\Desktop\\DeepTrax\\ZZ_Liner_Notes_" + str(tim) + ".txt"
+oustr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Liner_Notes_" + str(tim) + ".txt"
 
 outfile = open(oustr, "w")
 
