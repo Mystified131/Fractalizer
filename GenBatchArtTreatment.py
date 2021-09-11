@@ -6,6 +6,14 @@ from RandFunct2 import random_number2
 from subprocess import call
 import cv2
 import numpy as np
+from PIL import Image
+
+def crop(image_path, coords, saved_location):
+    image_obj = Image.open(image_path)
+    #image_obj.show()
+    cropped_image = image_obj.crop(coords)
+    #cropped_image.show()
+    cropped_image.save(saved_location)
 
 right_now = datetime.datetime.now().isoformat()
 list = []
@@ -29,11 +37,36 @@ for subdir, dirs, files in os.walk(Imgpt):
         if filepath.endswith(".png"):
             contentgraph.append(str(filepath))
 
-plen = len(contentgraph)
-
 print(contentgraph)
 
-for ctr in range(5):
+plen = len(contentgraph)
+
+for ctr in range(plen):
+
+    elm = contentgraph[ctr]
+
+    nelm = str(ctr) + "_CROP.png"
+
+    print(nelm)
+
+    crop(elm, (300, 55, 1470, 760), nelm)
+
+Imgpt = "C:\\Users\\mysti\\Coding\\Fractalizer"
+
+contentgraph2 = []
+
+for subdir, dirs, files in os.walk(Imgpt):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".png") and "CROP" in str(filepath):
+            contentgraph2.append(str(filepath))
+
+plen = len(contentgraph2)
+
+print(contentgraph2)
+
+for ctr in range(3):
 
     a = random_number2(50, 232)
     b = random_number2(50, 232)
@@ -43,9 +76,9 @@ for ctr in range(5):
 
         print("")
 
-        print("Generatingx Art: " + (str(ctr + cotr)))
+        print("Generating Art: " + (str(ctr + cotr)))
             
-        ppt = contentgraph[cotr]
+        ppt = contentgraph2[cotr]
 
         print(ppt)
 
@@ -90,6 +123,3 @@ print("")
 #call(["python", "BatchDeleter.py"])
 
 ## THE GHOST OF THE SHADOW ##
-
-
-
