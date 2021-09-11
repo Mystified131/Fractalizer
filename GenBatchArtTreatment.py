@@ -16,7 +16,9 @@ for i in right_now:
 
 tim = ("".join(list))
 
-Imgpt = "F:\\Visual\\VisualArt"
+#Imgpt = "F:\\Visual\\VisualArt"
+
+Imgpt = "C:\\Users\\mysti\\Desktop\\TomBedroom"
 
 contentgraph = []
 
@@ -24,23 +26,26 @@ for subdir, dirs, files in os.walk(Imgpt):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".jpg"):
+        if filepath.endswith(".png"):
             contentgraph.append(str(filepath))
 
 plen = len(contentgraph)
 
-numi = 0
+print(contentgraph)
 
-for ctr in range(200):
+for ctr in range(5):
 
-    if numi < 50:
+    a = random_number2(50, 232)
+    b = random_number2(50, 232)
+    c = random_number2(50, 232)
+
+    for cotr in range(plen):
 
         print("")
 
-        print("Generating Art: " + (str(numi + 1)))
+        print("Generatingx Art: " + (str(ctr + cotr)))
             
-        pch = random_number(plen)
-        ppt = contentgraph[pch]
+        ppt = contentgraph[cotr]
 
         print(ppt)
 
@@ -48,16 +53,12 @@ for ctr in range(200):
 
         h,w,bpp = np.shape(m)
 
-        a = random_number2(50, 232)
-        b = random_number2(50, 232)
-        c = random_number2(50, 232)
-
-        bi = np.zeros((1200,1200,3), np.uint8)
+        bi = np.zeros((h,w,3), np.uint8)
 
         try: 
             
-            for py in range(0,1200):
-                for px in range(0,1200):
+            for py in range(0,h):
+                for px in range(0,w):
             #can change the below logic of rgb according to requirements. In this 
             #white background is changed to #e8e8e8  corresponding to 232,232,232 
             #intensity, red color of the image is retained.
@@ -68,18 +69,16 @@ for ctr in range(200):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath =  "C:\\Users\\mysti\\Coding\\Fractalizer\\" + str(tim) + str(numi) +".jpg"
-           
-    
+            outpath =  "C:\\Users\\mysti\\Coding\\Fractalizer\\BulkImage" + str(tim) + str(ctr + cotr) +".jpg"
+            
+
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)
             cv2.imwrite(outpath, bi)
 
-            numi += 1
-
         except:
             print("")
-            print("Image too small.")
+            print("Process error.")
             print("")
 
 print("")
