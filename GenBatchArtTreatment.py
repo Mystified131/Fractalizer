@@ -15,15 +15,6 @@ def crop(image_path, coords, saved_location):
     #cropped_image.show()
     cropped_image.save(saved_location)
 
-right_now = datetime.datetime.now().isoformat()
-list = []
-
-for i in right_now:
-    if i.isnumeric():
-        list.append(i)
-
-tim = ("".join(list))
-
 #Imgpt = "F:\\Visual\\VisualArt"
 
 Imgpt = "C:\\Users\\mysti\\Desktop\\TomBedroom"
@@ -67,6 +58,15 @@ plen = len(contentgraph2)
 print(contentgraph2)
 
 for ctr in range(3):
+
+    right_now = datetime.datetime.now().isoformat()
+    list = []
+
+    for i in right_now:
+        if i.isnumeric():
+            list.append(i)
+
+    tim = ("".join(list))
 
     a = random_number2(50, 232)
     b = random_number2(50, 232)
