@@ -42,9 +42,9 @@ totrk = 25 #This variable controls length of output playlist
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
 
-#srchstr = "F:\\OriginalAudio\\Songs"
+srchstr = "F:\\OriginalAudio\\Songs"
 
-srchstr = "C:\\Users\\mysti\\Coding\\Fractalizer"
+#srchstr = "C:\\Users\\mysti\\Coding\\Fractalizer"
 
 #srchstr = 'C:\\Users\\mysti\\Downloads'
 
@@ -64,8 +64,8 @@ for subdir, dirs, files in os.walk(srchstr):
 
         sz = os.path.getsize(filepath)
 
-        #if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and ("Oriondrive" not in str(filepath))and ("Futurelight" not in str(filepath)) and ("FutureLight" not in str(filepath)) and (modtim > 1220000000):
-        if filepath.endswith(".wav") :
+        if  (sz > 80000000) and filepath.endswith(".wav") and ("And" not in str(filepath)) and ("With" not in str(filepath)) and ("Generated" not in str(filepath)) and ("Oriondrive" not in str(filepath))and ("Futurelight" not in str(filepath)) and ("FutureLight" not in str(filepath)) and (modtim > 1220000000):
+        #if filepath.endswith(".wav") :
 
                 content.append(str(filepath))
 
@@ -83,7 +83,7 @@ for subdir, dirs, files in os.walk(srchstrb):
 
                 contentb.append(str(filepath))
 
-cotr = random_number2(3, 6)
+cotr = random_number2(12, 18)
 
 tots = random_number(len(contentb))
 
@@ -96,16 +96,16 @@ for x2 in range(cotr):
     print("Copying: " + str(x2+ 1))
     print("")
    
-#clen = len(content)
+clen = len(content)
 
-#for ctr in range(clen):
+for ctr in range(clen):
 
-    #xin = random_number(clen)
-    #fortrk = content[ctr]
-    #outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Imported_" + str(time) + "_" + str(ctr + 1) +  ".wav"
-    #shutil.copy( fortrk, outstr)
-    #print("")
-    #print("Copying: " + str(ctr+1))
+    xin = random_number(clen)
+    fortrk = content[ctr]
+    outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Imported_" + str(time) + "_" + str(ctr + 1) +  ".wav"
+    shutil.copy( fortrk, outstr)
+    print("")
+    print("Copying: " + str(ctr+1))
     #outlst.append(sttrk)
     #newply.remove(newply[valu])
 
