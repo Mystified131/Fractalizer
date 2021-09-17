@@ -157,6 +157,6 @@ print("The tracks have been copied into the local folder.")
 
 print("")
 
-call(["python", "RawTrax2.py"])
+call(["python", "RawTrax2b.py"])
 
 ## THE GHOST OF THE SHADOW ##
