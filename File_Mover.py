@@ -68,7 +68,7 @@ conlen = len(content)
 
 print(contentb)
 
-for x in conlen:
+for x in range(conlen):
 
     inpth = content[x]
     instr = contentb[x]
