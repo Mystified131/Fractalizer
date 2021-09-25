@@ -78,7 +78,7 @@ for x in range(conlen):
     shutil.copy(inpth, ostr)
 
     print("")
-    print("Copying: " + str(x+ 1) + "out of " + str(conlen) + " total files.")
+    print("Copying: " + str(x+ 1) + " out of " + str(conlen) + " total files.")
     print("")
 
 print("Finished copying. Files in target folder.")
