@@ -40,10 +40,10 @@ cstr = wordcon[num3]
 dstr = wordcon[num4]
 phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()  + "_" + dstr.title()
 
-instr = "H:\\Ghost_Tracks\\NewAlbum"
+instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
 
-outstr = "H:\\Ghost_Tracks\\" + phrsstr
+outstr = "C:\\Users\\mysti\\Desktop\\" + phrsstr
 
 try:
 

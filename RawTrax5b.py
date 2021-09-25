@@ -20,7 +20,7 @@ for i in right_now:
 tim = ("".join(list))
 
 
-rootdir = "H:\\Ghost_Tracks\\NewAlbum"
+rootdir = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
 filtyp = ".wav"
 
@@ -73,7 +73,7 @@ if filtyp != "All":
 
 lx = len(fillst)
 
-srchstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\'
+srchstr = 'C:\\Users\\mysti\\Desktop\\NewAlbum'
 
 wordcon = GetWebText()
 

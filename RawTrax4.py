@@ -10,7 +10,7 @@ from subprocess import call
 
 try:
 
-    os.mkdir("G:\\Ghost_Tracks\\NewAlbum")
+    os.mkdir("C:\\Users\\mysti\\Desktop\\NewAlbum")
 
 except:
 
@@ -213,7 +213,7 @@ for ctr in range(trtot):
         newAudionear = newAudionear.fade_in(5000)
         newAudionear = newAudionear.fade_out(15000)
 
-        oufil = "G:\\Ghost_Tracks\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Desktop\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
         newAudionear.export(oufil, format="wav")
 
     except:

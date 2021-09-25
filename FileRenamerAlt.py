@@ -20,7 +20,7 @@ for i in right_now:
 tim = ("".join(list))
 
 
-rootdir = 'C:\\Users\\mysti\\Desktop\\Remixed_For_CGR'
+rootdir = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
 filtyp = ".wav"
 
@@ -73,7 +73,7 @@ if filtyp != "All":
 
 lx = len(fillst)
 
-srchstr = 'C:\\Users\\mysti\\Desktop\\Remixed_For_CGR'
+srchstr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
 wordcon = GetWebText()
 
@@ -107,6 +107,6 @@ print("The chosen files have been renamed. Thank you.")
 
 print("")
 
-call(["python", "CoverArt.py"])
+#call(["python", "CoverArt.py"])
 
 ## THE GHOST OF THE SHADOW ##
