@@ -57,7 +57,7 @@ for cotr in range(copies):
 
     senlst = revt.split(".")
 
-    texlen = random_number2(8, 32)
+    texlen = random_number2(3, 10)
 
     senlen = len(senlst)
 
