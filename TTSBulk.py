@@ -41,11 +41,12 @@ for cotr in range(conlen):
     aline = infile.readline()  
 
     while aline:
-        try:
-            texcon += aline.strip()
-            aline = infile.readline()
-        except: 
-            print("Text error-- passing over line.")
+        if len(texcon) < 150:
+            try:
+                texcon += aline.strip()
+                aline = infile.readline()
+            except: 
+                print("Text error-- passing over line.")
 
     infile.close()
 
