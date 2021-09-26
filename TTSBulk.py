@@ -23,7 +23,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith('.txt') and "Gener" in str(filepath):
+        if filepath.endswith('.txt') and "Liner" in str(filepath):
 
             content.append(str(filepath))
             content.append(str(file))
