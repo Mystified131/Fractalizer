@@ -13,44 +13,93 @@ import subprocess
 from tempfile import gettempdir
 import boto3
 from subprocess import call
-from TextGetter import GetWebText
+#from TextGetter import GetWebText
 
-srchstr = "C:\\Users\\mysti\\Coding\\Fractalizer"
+srchstr = 'C:\\Users\\mysti\\Coding\\Fractalizer'
 
-content = []
+contentfil = []
 
 for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith('.txt') and "Liner" in str(filepath):
+        if filepath.endswith(".txt") and "Liner" in str(filepath):
+            contentfil.append(filepath)
 
-            content.append(str(filepath))
-            content.append(str(file))
+cont = len(contentfil)
 
-conlen = len(content)
+for cot in range(cont):
 
-for cotr in range(conlen):
+    right_now = datetime.datetime.now().isoformat()          
+    list = []
 
-    tstr = content[cotr]
+    for i in right_now:
+        if i.isnumeric():
+            list.append(i)
 
-    infile = open(tstr, "r")
+    tim = ("".join(list))
 
-    texcon = ""
+    filestr = contentfil[cot]
 
-    aline = infile.readline()  
+    #filestr = "Paranoimia2.txt"
 
-    while aline:
-        if len(texcon) < 150:
-            try:
-                texcon += aline.strip()
-                aline = infile.readline()
-            except: 
-                print("Text error-- passing over line.")
+    infile = open(filestr, "r")
+
+    contentwords = []
+
+    plist = infile.readline()
+    while plist:
+        contentwords.append(plist.strip())
+        plist = infile.readline()
 
     infile.close()
 
-    for citr in range(16):
+    print(contentwords)
+
+    #totstr = ""
+
+    #for elem in contentwords:
+        #totstr += (elem + "")
+
+    #senlst = totstr.split('.')
+
+    phrslst = []
+        
+    #x1 = len(senlst)
+
+    senstr = ""
+
+    for elem in contentwords:
+        elem3 = elem.split()
+        for elem2 in elem3:
+            
+            texch = random_number(10)
+            if texch < 6 and len(elem2) > 7:
+                astr = elem2[:4]
+                for rep in range(random_number2(1,5)):
+                    bstr = astr * rep   
+                senstr += (bstr + elem2)
+            if texch > 5 or len(elem2) < 8:
+                senstr += elem2
+
+            senstr += "  "
+
+        senstr += ",, "
+
+    if len(phrslst) < 5:
+
+        phrslst.append(senstr)
+
+    print(phrslst)
+
+    print("")
+
+    outst = ""
+
+    for elemm in phrslst:
+        outst += elemm
+
+    for citr in range(1):
 
         paragraph = ""
 
@@ -69,17 +118,10 @@ for cotr in range(conlen):
 
         tim = ("".join(list))
 
-        speaklst = texcon[:]
-
-        for elm in speaklst:
-            speaktex += (elm + " ,")
-            if elm == speaklst[-1]:
-                speaktex += ","
-
         accessKey = ""
         secretKey = ""
 
-        infile = open("aws_key.m3u", "r")
+        infile = open("asckey.m3u", "r")
 
         aline = infile.readline()  
 
@@ -90,9 +132,11 @@ for cotr in range(conlen):
             except: 
                 print("Text error-- passing over line.")
 
+        accessKey = accessKey[20:41].strip()
+
         infile.close()
 
-        infile = open("aws_secret.m3u", "r")
+        infile = open("datatex.m3u", "r")
 
         aline = infile.readline()  
 
@@ -103,6 +147,8 @@ for cotr in range(conlen):
             except: 
                 print("Text error-- passing over line.")
 
+        secretKey = secretKey[37:77].strip()
+
         infile.close()
 
         polly = boto3.Session(
@@ -110,52 +156,66 @@ for cotr in range(conlen):
             aws_secret_access_key= secretKey,
             region_name='us-west-2').client('polly')
 
-        vox = random_number(2)
+        #vox = random_number(2)
 
         #voxlst = ["Joanna", "Matthew", "Vitória", "Ricardo", "Naja", "Mads", "Léa", "Mathieu", "Mizuki", "Takumi", "Seoyeon", "Zhiyu", "Penélope", "Miguel" ]
 
         #voxlst = ['Nicole', 'Kevin', 'Enrique', 'Tatyana', 'Russell', 'Olivia', 'Lotte', 'Geraint', 'Carmen', 'Mads', 'Penelope', 'Mia', 'Joanna', 'Matthew', 'Brian', 'Seoyeon', 'Ruben', 'Ricardo', 'Maxim', 'Lea', 'Giorgio', 'Carla', 'Naja', 'Maja', 'Astrid', 'Ivy', 'Kimberly', 'Chantal', 'Amy', 'Vicki', 'Marlene', 'Ewa', 'Conchita', 'Camila', 'Karl', 'Zeina', 'Miguel', 'Mathieu', 'Justin', 'Lucia', 'Jacek', 'Bianca', 'Takumi', 'Ines', 'Gwyneth', 'Cristiano', 'Mizuki', 'Celine', 'Zhiyu', 'Jan', 'Liv', 'Joey', 'Raveena', 'Filiz', 'Dora', 'Salli', 'Aditi', 'Vitoria', 'Emma', 'Lupe', 'Hans', 'Kendra', 'Gabrielle']
 
-        voxlst =['Joanna', 'Matthew']
+        #voxlst = ['Carla', 'Emma', 'Raveena', 'Marlene', 'Mathieu', 'Nicole']
+
+        voxlst = ['Russell']
+
+        #voxlst = ['Joanna']
 
         voxch = random_number(len(voxlst))
 
         voxstr = voxlst[voxch]
 
-        outaud = "GeneratedAudio_" + voxstr +  "_" + tim + ".ogg"
+        outaud = "GeneratedAudioMix_" + voxstr +  "_" + tim + ".mp3"
+
+        speaktex = outst
 
         try:
         # Request speech synthesis
-            response = polly.synthesize_speech(Text=speaktex, OutputFormat="ogg_vorbis",
+            response = polly.synthesize_speech(Text=speaktex, OutputFormat="mp3",
                                             VoiceId=voxstr)
-        except (BotoCoreError, ClientError) as error:
+        #except (BotoCoreError, ClientError) as error:
         # The service returned an error, exit gracefully
-            print(error)
-            sys.exit(-1)
+            #print(error)
+            #sys.exit(-1)
 
-        # Access the audio stream from the response
-        if "AudioStream" in response:
-            # Note: Closing the stream is important because the service throttles on the
-            # number of parallel connections. Here we are using contextlib.closing to
-            # ensure the close method of the stream object will be called automatically
-            # at the end of the with statement's scope.
-                with closing(response["AudioStream"]) as stream:
-                    #output = os.path.join(gettempdir(), outaud)
-                    output = ("C:\\Users\\mysti\\Coding\\Fractalizer\\" +  outaud)
+        #try:
+            # Access the audio stream from the response
+            # if "AudioStream" in response:
+                # Note: Closing the stream is important because the service throttles on the
+                # number of parallel connections. Here we are using contextlib.closing to
+                # ensure the close method of the stream object will be called automatically
+                # at the end of the with statement's scope.
+            with closing(response["AudioStream"]) as stream:
+                #output = os.path.join(gettempdir(), outaud)
+                output = ("C:\\Users\\mysti\\Coding\\Fractalizer\\" +  outaud)
 
-                    try:
-                    # Open a file for writing the output as a binary stream
-                        with open(output, "wb") as file:
-                            file.write(stream.read())
-                    except IOError as error:
-                    # Could not write to file, exit gracefully
-                        print(error)
-                        sys.exit(-1)
+            #try:
+            # Open a file for writing the output as a binary stream
+                with open(output, "wb") as file:
+                    file.write(stream.read())
 
-        else:
+        except:
+            # Could not write to file, exit gracefully
+            #print(error)
+                    #sys.exit(-1)
+
+            print("")
+            print("Error processing speech.")
+            print("")
+
+        #else:
             # The response didn't contain audio data, exit gracefully
-            print("Could not stream audio")
-            sys.exit(-1)
+            #print("")
+            #print("Could not stream audio")
+            #print("")
+            #sys.exit(-1)
 
         # Play the audio using the platform's default player
         #if sys.platform == "win32":
@@ -166,7 +226,10 @@ for cotr in range(conlen):
             #subprocess.call([opener, output])
 
 print("")
-print("Your audio has been created, and can be found in the same folder as this code. Thank you.")
+print("Your spoken audio has been generated.")
 print("")
 
-## THE GHOST OF THE SHADOW ##
+    #call(["python", "WakeUpTom.py"])
+
+    ## THE GHOST OF THE SHADOW ##
+
