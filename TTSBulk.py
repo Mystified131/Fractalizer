@@ -67,7 +67,7 @@ for cot in range(cont):
         
     #x1 = len(senlst)
 
-    senstr = ""
+    senstr = ",, "
 
     for elem in contentwords:
         elem3 = elem.split()
@@ -105,7 +105,7 @@ for cot in range(cont):
 
         speaktex = ""
 
-        print("Cycle: " + str(citr+1))
+        print("Cycle: " + str(cot+1))
 
         print("")
 
