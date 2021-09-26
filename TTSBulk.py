@@ -28,11 +28,9 @@ for subdir, dirs, files in os.walk(srchstr):
             content.append(str(filepath))
             content.append(str(file))
 
-copies = 10
+conlen = len(content)
 
-for cotr in range(copies):
-
-    conlen = len(content)
+for cotr in range(conlen):
 
     right_now = datetime.datetime.now().isoformat()          
     list = []
