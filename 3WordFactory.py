@@ -77,15 +77,17 @@ lx = len(fillst)
 
 #srchstr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
-srchstr = "C:\\Users\\mysti\\Desktop\\Nimmo"
+#srchstr = "C:\\Users\\mysti\\Desktop\\Nimmo"
 
 wordcon = GetWebText()
 
-x1 = len(wordcon)
+#x1 = len(wordcon)
+
+x1 = 50
 
 phraselist = []
 
-for phrs in range(lx):
+for phrs in range(50):
 
     for wiz in range(3):
         num1 = random_number(x1)
@@ -97,17 +99,17 @@ for phrs in range(lx):
         phrsstr = astr + "_" + bstr + "_" + cstr
         phraselist.append(phrsstr)
 
+oustr = "C:\\Users\\mysti\\Coding\\Fractalizer\\GenText_" + str(tim) + ".txt"
 
-for ctr in range(lx):
+outfile = open(oustr, "w")
 
-    astr = fillst[ctr]
-    bstr =  fillrt[ctr] + phraselist[ctr] + filltyp[ctr] 
+for elem in phraselist:
 
-    os.rename(astr, bstr) 
+    outfile.write(elem + '\n')
 
 print("")
 
-print("The chosen files have been renamed. Thank you.")
+print("The chosen text has been generated. Thank you.")
 
 print("")
 

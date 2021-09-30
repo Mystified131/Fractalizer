@@ -73,7 +73,8 @@ for cot in range(cont):
         elem3 = elem.split()
         for elem2 in elem3:
             
-            texch = random_number(10)
+            #texch = random_number(10)
+            texch = 8
             if texch < 6 and len(elem2) > 7:
                 astr = elem2[:4]
                 for rep in range(random_number2(1,5)):
@@ -158,15 +159,17 @@ for cot in range(cont):
 
         #vox = random_number(2)
 
-        #voxlst = ["Joanna", "Matthew", "Vitória", "Ricardo", "Naja", "Mads", "Léa", "Mathieu", "Mizuki", "Takumi", "Seoyeon", "Zhiyu", "Penélope", "Miguel" ]
+        #voxlst = ["Joanna", "Matthew", "Vitória", "Léa",  "Takumi", "Zhiyu", "Penélope" ]
 
         #voxlst = ['Nicole', 'Kevin', 'Enrique', 'Tatyana', 'Russell', 'Olivia', 'Lotte', 'Geraint', 'Carmen', 'Mads', 'Penelope', 'Mia', 'Joanna', 'Matthew', 'Brian', 'Seoyeon', 'Ruben', 'Ricardo', 'Maxim', 'Lea', 'Giorgio', 'Carla', 'Naja', 'Maja', 'Astrid', 'Ivy', 'Kimberly', 'Chantal', 'Amy', 'Vicki', 'Marlene', 'Ewa', 'Conchita', 'Camila', 'Karl', 'Zeina', 'Miguel', 'Mathieu', 'Justin', 'Lucia', 'Jacek', 'Bianca', 'Takumi', 'Ines', 'Gwyneth', 'Cristiano', 'Mizuki', 'Celine', 'Zhiyu', 'Jan', 'Liv', 'Joey', 'Raveena', 'Filiz', 'Dora', 'Salli', 'Aditi', 'Vitoria', 'Emma', 'Lupe', 'Hans', 'Kendra', 'Gabrielle']
 
         #voxlst = ['Carla', 'Emma', 'Raveena', 'Marlene', 'Mathieu', 'Nicole']
 
-        voxlst = ['Russell']
+        #voxlst = ['Russell']
 
         #voxlst = ['Joanna']
+
+        voxlst = ['Brian']
 
         voxch = random_number(len(voxlst))
 
@@ -229,7 +232,15 @@ print("")
 print("Your spoken audio has been generated.")
 print("")
 
-    #call(["python", "WakeUpTom.py"])
+for subdir, dirs, files in os.walk(srchstr):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".txt") and "Liner" in str(filepath):
+            #os.remove(filepath)
+            print("Goodbye.")
+
+#call(["python", "RockGibBulk.py"])
 
     ## THE GHOST OF THE SHADOW ##
 

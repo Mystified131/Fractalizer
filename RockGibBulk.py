@@ -129,6 +129,8 @@ print("Your documents are saved in the same folder as this code.")
 
 print("")
 
+call(["python", "TTSBulk.py"])
+
     #call(["python", "AlbumNamer.py"])
 
     ## THE GHOST OF THE SHADOW ##
