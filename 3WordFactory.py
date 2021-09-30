@@ -96,7 +96,7 @@ for phrs in range(50):
         astr = wordcon[num1]
         bstr = wordcon[num2]
         cstr = wordcon[num3]
-        phrsstr = astr + "_" + bstr + "_" + cstr
+        phrsstr = astr + " " + bstr + " " + cstr
         phraselist.append(phrsstr)
 
 oustr = "C:\\Users\\mysti\\Coding\\Fractalizer\\GenText_" + str(tim) + ".txt"
@@ -106,6 +106,8 @@ outfile = open(oustr, "w")
 for elem in phraselist:
 
     outfile.write(elem + '\n')
+
+outfile.close()  
 
 print("")
 
