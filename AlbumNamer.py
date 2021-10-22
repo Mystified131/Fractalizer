@@ -40,10 +40,12 @@ cstr = wordcon[num3]
 dstr = wordcon[num4]
 phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()  + "_" + dstr.title()
 
-instr = "G:\\Spirit_Circuits\\NewAlbum"
+#instr = "G:\\Spirit_Circuits\\NewAlbum"
+instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
 
-outstr = "G:\\Spirit_Circuits\\" + phrsstr
+#outstr = "G:\\Spirit_Circuits\\" + phrsstr
+outstr = "C:\\Users\\mysti\\Desktop\\" + phrsstr
 
 try:
 
@@ -61,6 +63,6 @@ print("Your project should be ready for you in the AutoProd folder on your deskt
 
 print("")
 
-call(["python", "BigDreamMachine.py"])
+#call(["python", "BigDreamMachine.py"])
 
 ## THE GHOST OF THE SHADOW ##

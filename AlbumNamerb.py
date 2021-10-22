@@ -43,7 +43,7 @@ phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()  + "_" + dstr.t
 #instr = "H:\\Spirit_Circuits\\NewAlbum"
 #instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
-instr = "C:\\Users\\mysti\\Desktop\\Nimmo"
+instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
 #outstr = "H:\\Spirit_Circuits\\" + phrsstr
 #outstr = "C:\\Users\\mysti\\Desktop\\" + phrsstr

@@ -222,6 +222,6 @@ for ctr in range(trtot):
 
         print("Error during render. File not created.")
 
-call(["python", "RawTrax5.py"])
+call(["python", "RawTrax5b.py"])
 
 ## THE GHOST OF THE SHADOW ##

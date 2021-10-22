@@ -107,6 +107,6 @@ print("The chosen files have been renamed. Thank you.")
 
 print("")
 
-call(["python", "CoverArtb.py"])
+call(["python", "Batchdeleterb.py"])
 
 ## THE GHOST OF THE SHADOW ##
