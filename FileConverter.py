@@ -18,10 +18,16 @@ print("")
 ctr = 0
 
 for elem in contentoggs:
-    ctr += 1
-    data, samplerate = sf.read(elem)
-    outstr = "Generated_voxraw_" + str(ctr) + ".wav" 
-    sf.write(outstr, data, samplerate)
+
+    try:
+        ctr += 1
+        data, samplerate = sf.read(elem)
+        outstr = "Generated_voxraw_" + str(ctr) + ".wav" 
+        sf.write(outstr, data, samplerate)
+
+    except:
+        print("")
+        print("File conversion error.")
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\NuDubVoxSon.py"])
 
