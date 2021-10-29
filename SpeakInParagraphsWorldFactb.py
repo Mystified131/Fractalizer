@@ -94,7 +94,7 @@ for citr in range(8):
     accessKey = ""
     secretKey = ""
 
-    infile = open("asckey.m3u", "r")
+    infile = open("C:\\Users\\mysti\\Coding\\Fractalizer\\asckey.m3u", "r")
 
     aline = infile.readline()  
 
@@ -109,7 +109,7 @@ for citr in range(8):
 
     infile.close()
 
-    infile = open("datatex.m3u", "r")
+    infile = open("C:\\Users\\mysti\\Coding\\Fractalizer\\datatex.m3u", "r")
 
     aline = infile.readline()  
 

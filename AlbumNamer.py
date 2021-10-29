@@ -63,6 +63,6 @@ print("Your project should be ready for you in the AutoProd folder on your deskt
 
 print("")
 
-#call(["python", "BigDreamMachine.py"])
+call(["python", "C:\Users\mysti\Coding\RoboDJ\DJNewBigBad.py"])
 
 ## THE GHOST OF THE SHADOW ##
