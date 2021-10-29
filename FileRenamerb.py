@@ -107,6 +107,6 @@ print("The chosen files have been renamed. Thank you.")
 
 print("")
 
-call(["python", "Batchdeleterb.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\CoverArtb.py"])
 
 ## THE GHOST OF THE SHADOW ##

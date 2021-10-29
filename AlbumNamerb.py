@@ -62,7 +62,9 @@ except:
 
 print("")
 
-print("Your project should be ready for you in the AutoProd folder on your desktop.")
+
+print("Your project should be ready for you in the AutoProd folder on your desktop and a folder in the Spirit Circuits folder on your Seagate external drive.")
+
 
 print("")
 

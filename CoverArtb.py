@@ -87,7 +87,7 @@ print("Images created and saved in the output folder.")
 
 print("")
 
-call(["python", "BatchDeleterb.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BatchDeleterb.py"])
 
 ## THE GHOST OF THE SHADOW ##
 

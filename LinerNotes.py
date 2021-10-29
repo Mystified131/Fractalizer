@@ -145,7 +145,7 @@ print("Your document is saved in the same folder as this code.")
 
 print("")
 
-call(["python", "AlbumNamer.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\AlbumNamer.py"])
 
 ## THE GHOST OF THE SHADOW ##
 

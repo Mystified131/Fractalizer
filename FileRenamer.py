@@ -107,6 +107,6 @@ print("The chosen files have been renamed. Thank you.")
 
 print("")
 
-call(["python", "CoverArt.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\CoverArt.py"])
 
 ## THE GHOST OF THE SHADOW ##

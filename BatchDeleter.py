@@ -19,6 +19,6 @@ print("The designated files have been removed. Thank you.")
 
 print("")
 
-call(["python", "LinerNotes.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\LinerNotes.py"])
 
 ## THE GHOST OF THE SHADOW ##

@@ -109,7 +109,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(8,10)
+            newvol = random_number2(10,14)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
             newAudio = newAudio.fade_out(100)
@@ -124,7 +124,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(4,7)
+            newvol = random_number2(11,15)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -141,7 +141,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(8, 11)
+            newvol = random_number2(12, 13)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -158,7 +158,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(9 ,12)
+            newvol = random_number2(10 ,12)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -259,28 +259,28 @@ for ctr in range(trtot):
 
         startvol = get_loudness(newAudionear, leng)
 
-        if startvol < -16 and startvol > -18.5:
+        #if startvol < -16 and startvol > -18.5:
 
-            newAudio2 = reduce_volume(newAudionear, startvol)
+        newAudio2 = reduce_volume(newAudionear, startvol)
 
-            filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+        filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
-            newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+        newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
 
-            loudn = get_loudness(newAudio3, leng)
+        loudn = get_loudness(newAudio3, leng)
 
-            print(loudn)
+        print(loudn)
 
-            if loudn <= goldsound:
-                chvol = (goldsound - loudn)
-                newAudio3 = newAudio3 + chvol
+        if loudn <= goldsound:
+            chvol = (goldsound - loudn)
+            newAudio3 = newAudio3 + chvol
 
-            if loudn > goldsound:
-                chvol = (loudn - goldsound)
-                newAudio3 = newAudio3 - chvol
+        if loudn > goldsound:
+            chvol = (loudn - goldsound)
+            newAudio3 = newAudio3 - chvol
 
-            oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
-            newAudionear.export(oufil, format="wav")
+        oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
+        newAudionear.export(oufil, format="wav")
 
     except:
 

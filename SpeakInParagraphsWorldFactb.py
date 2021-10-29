@@ -196,6 +196,6 @@ print("")
 print("Your spoken audio has been generated.")
 print("")
 
-call(["python", "FileConverterb.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileConverterb.py"])
 
 ## THE GHOST OF THE SHADOW ##

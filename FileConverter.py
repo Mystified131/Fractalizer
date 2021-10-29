@@ -23,6 +23,6 @@ for elem in contentoggs:
     outstr = "Generated_voxraw_" + str(ctr) + ".wav" 
     sf.write(outstr, data, samplerate)
 
-call(["python", "NuDubVoxSon.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\NuDubVoxSon.py"])
 
 ## THE GHOST OF THE SHADOW ##
