@@ -263,24 +263,24 @@ for ctr in range(trtot):
 
         newAudio2 = reduce_volume(newAudionear, startvol)
 
-        filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+        #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
-        newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+        #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
 
-        loudn = get_loudness(newAudio3, leng)
+        #loudn = get_loudness(newAudio3, leng)
 
-        print(loudn)
+        print(startvol)
 
-        if loudn <= goldsound:
-            chvol = (goldsound - loudn)
-            newAudio3 = newAudio3 + chvol
+        #if loudn <= goldsound:
+            #chvol = (goldsound - loudn)
+            #newAudio3 = newAudio3 + chvol
 
-        if loudn > goldsound:
-            chvol = (loudn - goldsound)
-            newAudio3 = newAudio3 - chvol
+        #if loudn > goldsound:
+            #chvol = (loudn - goldsound)
+            #newAudio3 = newAudio3 - chvol
 
         oufil = "G:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
-        newAudionear.export(oufil, format="wav")
+        newAudio2.export(oufil, format="wav")
 
     except:
 
