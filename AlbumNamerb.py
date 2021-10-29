@@ -40,15 +40,15 @@ cstr = wordcon[num3]
 dstr = wordcon[num4]
 phrsstr = astr.title() + "_" + bstr.title() + "_" + cstr.title()  + "_" + dstr.title()
 
-#instr = "H:\\Spirit_Circuits\\NewAlbum"
+instr = "H:\\Spirit_Circuits\\NewAlbum"
 #instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
-instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
+#instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
-#outstr = "H:\\Spirit_Circuits\\" + phrsstr
+outstr = "H:\\Spirit_Circuits\\" + phrsstr
 #outstr = "C:\\Users\\mysti\\Desktop\\" + phrsstr
 
-outstr = "C:\\Users\\mysti\\Desktop\\" + phrsstr
+#outstr = "C:\\Users\\mysti\\Desktop\\" + phrsstr
 
 try:
 

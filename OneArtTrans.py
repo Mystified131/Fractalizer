@@ -45,7 +45,7 @@ numi = 0
 
 for ctr in range(20):
 
-    if numi < 5:
+    if numi < 20:
 
         print("")
 
