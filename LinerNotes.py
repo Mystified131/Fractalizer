@@ -3,6 +3,7 @@ from RandFunct import random_number
 from RandFunct2 import random_number2
 import datetime
 from subprocess import call
+import shutil
 
 right_now = datetime.datetime.now().isoformat()          
 list = []
@@ -188,7 +189,29 @@ print("Your project should be ready for you in the AutoProd folder on your deskt
 
 print("")
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\DJNewBigBad.py"])
+movlst = []
+
+for subdir, dirs, files in os.walk("C:\\Users\\mysti\\Desktop\\AutoProd\\Raw"):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if ".wav" in str(filepath):
+            movlst.append(filepath)
+
+for elem in movlst: 
+
+    try:
+
+        shutil.copy(elem, "C:\\Users\\mysti\\Desktop\\AutoProd\\Older_Mastered")
+        print("Copying Track.")
+        print("")
+
+    except:
+
+        print("Copying error. . .")
+        print("")
+
+call(["python",  "C:\\Users\\mysti\\Coding\\Fractalizer\\BatchDeleter.py"])
 
 ## THE GHOST OF THE SHADOW ##
 

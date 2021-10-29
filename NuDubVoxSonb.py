@@ -43,15 +43,15 @@ def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
 
-try:
+#try:
 
-    os.mkdir("H:\\Spirit_Circuits\\NewAlbum")
+    #os.mkdir("H:\\Spirit_Circuits\\NewAlbum")
 
-except:
+#except:
 
-    print("")
+    #print("")
 
-    print("Unable to create directory.")
+    #print("Unable to create directory.")
 
 right_now = datetime.datetime.now().isoformat()
 list = []
@@ -70,6 +70,8 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
 
         if filepath.endswith(".wav") and "Track" in str(filepath):
             contentbeats.append(str(file))
+
+print(contentbeats)
 
 contentgitr = []
 
@@ -109,7 +111,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(10,14)
+            newvol = random_number2(12,16)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
             newAudio = newAudio.fade_out(100)
@@ -124,7 +126,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(11,15)
+            newvol = random_number2(10,14)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -141,7 +143,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(12, 13)
+            newvol = random_number2(8, 16)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -158,7 +160,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(10 ,12)
+            newvol = random_number2(9 ,12)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -279,7 +281,7 @@ for ctr in range(trtot):
             #chvol = (loudn - goldsound)
             #newAudio3 = newAudio3 - chvol
 
-        oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
+        oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
         newAudio2.export(oufil, format="wav")
 
     except:
@@ -288,6 +290,6 @@ for ctr in range(trtot):
 
         print("Error during render. File not created.")
 
-call(["python", "FileRenamerb.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
 
 ## THE GHOST OF THE SHADOW ##

@@ -43,15 +43,15 @@ def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
 
-try:
+#try:
 
-    os.mkdir("G:\\Spirit_Circuits\\NewAlbum")
+    #os.mkdir("G:\\Spirit_Circuits\\NewAlbum")
 
-except:
+#except:
 
-    print("")
+    #print("")
 
-    print("Unable to create directory.")
+    #print("Unable to create directory.")
 
 right_now = datetime.datetime.now().isoformat()
 list = []
@@ -70,6 +70,8 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
 
         if filepath.endswith(".wav") and "Track" in str(filepath):
             contentbeats.append(str(file))
+
+print(contentbeats)
 
 contentgitr = []
 
@@ -279,7 +281,7 @@ for ctr in range(trtot):
             #chvol = (loudn - goldsound)
             #newAudio3 = newAudio3 - chvol
 
-        oufil = "G:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "." + str(ctr) + ".wav"
+        oufil = "G:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
         newAudio2.export(oufil, format="wav")
 
     except:

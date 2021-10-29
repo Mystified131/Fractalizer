@@ -81,7 +81,7 @@ x1 = len(wordcon)
 
 phraselist = []
 
-for phrs in range(lx):
+for phrs in range(lx + 1):
 
     for wiz in range(3):
         num1 = random_number(x1)
@@ -101,18 +101,13 @@ for ctr in range(lx):
 
     os.rename(astr, bstr) 
 
-titlephrs = []
-
-for ctr in range(1):
-    x = random_number(len(phraselist))
-    titstr = phraselist[x]
-    titlephrs.append(titstr)
-    titlephrs.append(titstr)
+titstr = phraselist[lx + 1]
 
 outfile = open('C:\\Users\\mysti\\Coding\\Fractalizer\\Titles.txt', "w")
 
-for elem in titlephrs:
-    outfile.write(elem + '\n')
+for t in range(5):
+
+    outfile.write(titstr + '\n')
 
 outfile.close()
 

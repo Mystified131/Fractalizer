@@ -372,8 +372,8 @@ for elem in movlst:
     ddir = "C:\\Users\\mysti\\Coding\\Fractalizer"
 
     try:
-
-        shutil.copy(elem, "C:\\Users\\mysti\\Desktop\\AutoProd\\Older_Mastered")
+        
+        shutil.copy(elem, ddir)
         print("Copying Track.")
         print("")
 
