@@ -19,6 +19,27 @@ print("Generating Liner Notes. . .")
 
 print("")
 
+titls = []
+
+infile = open("Titles.txt", "r")
+
+aline = infile.readline()  
+
+while aline:
+    try:
+        titls.append(aline.strip())
+        aline = infile.readline()
+    except: 
+        print("Text error-- passing over line.")
+
+infile.close()
+
+titstr = ""
+
+xt = random_number(len(titls))
+
+titstr = titls[xt]
+
 infile = open("RevText.m3u", "r")
 
 revt = ""
@@ -113,7 +134,7 @@ oustr = "H:\\Spirit_Circuits\\NewAlbum\\ZZ_Liner_Notes_" + str(tim) + ".txt"
 
 outfile = open(oustr, "w")
 
-outfile.write("Liner Notes" + '\n')
+outfile.write("Liner Notes For: " + titstr + '\n')
 
 outfile.write('\n')
 
@@ -145,7 +166,23 @@ print("Your document is saved in the same folder as this code.")
 
 print("")
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\AlbumNamerb.py"])
+instr = "G:\\Spirit_Circuits\\NewAlbum"
+#instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
+
+outstr = "G:\\Spirit_Circuits\\" + titstr
+#outstr = "C:\\Users\\mysti\\Desktop\\" + titstr
+
+try:
+
+    os.rename(instr, outstr)
+
+except:
+
+    print("")
+
+    print("Unable to rename directory.")
+
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\DJNewBigBad.py"])
 
 ## THE GHOST OF THE SHADOW ##
 

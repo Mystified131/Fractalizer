@@ -101,6 +101,26 @@ for ctr in range(lx):
 
     os.rename(astr, bstr) 
 
+
+titlephrs = []
+
+for ctr in range(1):
+    x = random_number(len(phraselist))
+    titstr = phraselist[x]
+    titlephrs.append(titstr)
+    titlephrs.append(titstr)
+
+outfile = open('C:\\Users\\mysti\\Coding\\Fractalizer\\Titles.txt', "w")
+
+for elem in titlephrs:
+    outfile.write(elem + '\n')
+
+outfile.close()
+
+print("")
+
+print("Sample titles have been provided.")
+
 print("")
 
 print("The chosen files have been renamed. Thank you.")

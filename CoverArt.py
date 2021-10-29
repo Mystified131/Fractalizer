@@ -16,7 +16,9 @@ for i in right_now:
 
 tim = ("".join(list))
 
-Imgpt = "F:\\Visual\\VisualArt"
+#Imgpt = "F:\\Visual\\VisualArt"
+
+Imgpt = "F:\\Visual\\VariousImages\\Polaroid\PolArt"
 
 contentgraph = []
 
