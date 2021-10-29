@@ -18,18 +18,28 @@ astr = "H"
 
 fillst = []
 
-for subdir, dirs, files in os.walk('"C:\\Users\\mysti\\Desktop\\AutoProd\\Raw"'):
+for subdir, dirs, files in os.walk("C:\\Users\\mysti\\Desktop\\AutoProd\\Raw"):
 
     for file in files:
         filepath = subdir + os.sep + file
 
-        if ".wav" and "Track" in str(filepath):
+        if ".wav" in str(filepath):
 
             fillst.append(filepath)
 
 for elem in fillst:
     ddir = "C:\\Users\\mysti\\Coding\\Fractalizer"
-    shutil.copy(elem, ddir)
+
+    try:
+
+        shutil.copy(elem, ddir)
+        print("Copying Track.")
+        print("")
+
+    except:
+
+        print("Track transfer error.")
+        print("")
 
 if astr == 'G':
 

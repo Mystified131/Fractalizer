@@ -14,7 +14,7 @@ import math
 
 def reduce_volume(atrack, trvol):
 
-    stsound = -22
+    stsound = -21
 
     if trvol < stsound:
         chvol = (stsound - trvol)
@@ -253,7 +253,7 @@ for ctr in range(trtot):
         attenuate_db = 0
         accentuate_db = .24
         goldsound = -18
-        stsound = -23
+        stsound = -21
 
         leng = len(newAudionear)
 
