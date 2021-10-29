@@ -9,7 +9,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
         filepath = subdir + os.sep + file
 
         if filepath.endswith(".ogg") and "Generated" in str(filepath):
-            contentoggs.append(str(file))
+            contentoggs.append(str(filepath))
 
 print("")
 print("Converting from ogg to wav")
@@ -22,7 +22,7 @@ for elem in contentoggs:
     try:
         ctr += 1
         data, samplerate = sf.read(elem)
-        outstr = "Generated_voxraw_" + str(ctr) + ".wav" 
+        outstr = "C:\\Users\\mysti\\Coding\\Fractalizer\\Generated_voxraw_" + str(ctr) + ".wav" 
         sf.write(outstr, data, samplerate)
 
     except:
