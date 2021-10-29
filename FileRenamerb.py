@@ -90,7 +90,7 @@ for phrs in range(lx):
         astr = wordcon[num1]
         bstr = wordcon[num2]
         cstr = wordcon[num3]
-        phrsstr = astr + "_" + bstr + "_" + cstr
+        phrsstr = astr.strip() + "_" + bstr.strip() + "_" + cstr.strip()
         phraselist.append(phrsstr)
 
 

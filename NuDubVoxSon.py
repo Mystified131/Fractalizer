@@ -14,7 +14,7 @@ import math
 
 def reduce_volume(atrack, trvol):
 
-    stsound = -21
+    stsound = -18
 
     if trvol < stsound:
         chvol = (stsound - trvol)
