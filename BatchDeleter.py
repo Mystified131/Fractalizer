@@ -10,7 +10,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if (filepath.endswith(".ogg")) or (filepath.endswith(".wav")) or (filepath.endswith(".txt"))  and ("Generate" in str(filepath)) or ("vsamp" in str(filepath)):
+        if (filepath.endswith(".ogg")) or (filepath.endswith(".wav")) or (filepath.endswith(".txt"))  and ("Generate" in str(filepath)) or ("vsamp" in str(filepath)) or ("newsound" in str(filepath)):
             os. remove(filepath) 
 
 print("")
