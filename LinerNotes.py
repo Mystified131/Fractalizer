@@ -205,6 +205,7 @@ for elem in movlst:
         shutil.copy(elem, "C:\\Users\\mysti\\Desktop\\AutoProd\\Older_Mastered")
         print("Copying Track.")
         print("")
+        os.remove(elem)
 
     except:
 

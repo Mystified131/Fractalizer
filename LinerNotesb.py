@@ -205,11 +205,13 @@ for elem in movlst:
         shutil.copy(elem, "C:\\Users\\mysti\\Desktop\\AutoProd\\Older_Mastered")
         print("Copying Track.")
         print("")
+        os.remove(elem)
 
     except:
 
         print("Copying error. . .")
         print("")
+
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BatchDeleterb.py"])
 
