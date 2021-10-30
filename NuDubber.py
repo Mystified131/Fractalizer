@@ -359,33 +359,6 @@ for ctr in range(700):
 
         print("Error during render. File not created.")
 
-movlst = []
-
-for subdir, dirs, files in os.walk("C:\\Users\\mysti\\Desktop\\AutoProd\\Raw"):
-    for file in files:
-        filepath = subdir + os.sep + file
-
-        if ".wav" in str(filepath):
-            movlst.append(filepath)
-
-for elem in movlst: 
-    ddir = "C:\\Users\\mysti\\Coding\\Fractalizer"
-
-    try:
-        
-        shutil.copy(elem, ddir)
-        print("Copying Track.")
-        print("")
-
-    except:
-
-        print("Track transfer error.")
-        print("")
-
-for elem in movlst:
-
-    os.remove(elem)
-
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BatchDeleterLocal.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\StartTrackEvolvingHere.py"])
 
 ## THE GHOST OF THE SHADOW ##
