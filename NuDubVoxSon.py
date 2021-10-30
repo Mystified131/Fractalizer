@@ -42,16 +42,17 @@ def bass_line_freq(track):
 def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
+try:
 
-#try:
+    newpath = 'H:\\Spirit_Circuits\\NewAlbum' 
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
 
-    #os.mkdir("G:\\Spirit_Circuits\\NewAlbum")
+except:
 
-#except:
+    print("")
 
-    #print("")
-
-    #print("Unable to create directory.")
+    print("Unable to create directory.")
 
 right_now = datetime.datetime.now().isoformat()
 list = []

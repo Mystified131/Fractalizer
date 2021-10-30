@@ -95,6 +95,7 @@ for phrs in range(lx + 1):
         astr.replace('/', '')
         astr.replace('!', '')
         astr.replace('-', '')
+        astr.replace("'", "")
         bstr = wordcon[num2]
         bstr.replace('.', '')
         bstr.replace(',', '')
@@ -103,6 +104,7 @@ for phrs in range(lx + 1):
         bstr.replace('/', '')
         bstr.replace('!', '')
         bstr.replace('-', '')
+        bstr.replace("'", "")
         cstr = wordcon[num3]
         cstr.replace('.', '')
         cstr.replace(',', '')
@@ -111,6 +113,7 @@ for phrs in range(lx + 1):
         cstr.replace('/', '')
         cstr.replace('!', '')
         cstr.replace('-', '')
+        cstr.replace("'", "")
         phrsstr = astr.strip() + "_" + bstr.strip() + "_" + cstr.strip()
         phraselist.append(phrsstr)
 
