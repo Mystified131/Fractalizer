@@ -1,6 +1,7 @@
 from subprocess import call
 import shutil
 import os
+from pydub import AudioSegment
 
 print("")
 
@@ -12,9 +13,14 @@ print("The result will be saved in a folder in your external drive.")
 
 print("")
 
-#astr = input("Enter 'G' if your Seagate Portable is at that location, or enter 'H' otherwise: ")
+testfile = "G:\\0.114_997281561._occurrence.wav"
 
-astr = "H"
+try:
+    TestAudio = AudioSegment.from_wav(testfile)  
+    astr = "G"
+
+except:
+    astr = "H"
 
 fillst = []
 
