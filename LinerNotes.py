@@ -202,9 +202,9 @@ for elem in movlst:
 
     try:
 
-        shutil.copy(elem, "C:\\Users\\mysti\\Desktop\\AutoProd\\Older_Mastered")
-        print("Copying Track.")
-        print("")
+        #shutil.copy(elem, "C:\\Users\\mysti\\Desktop\\AutoProd\\Older_Mastered")
+        #print("Copying Track.")
+        #print("")
         os.remove(elem)
 
     except:

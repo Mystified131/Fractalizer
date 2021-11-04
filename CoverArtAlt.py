@@ -16,7 +16,9 @@ for i in right_now:
 
 tim = ("".join(list))
 
-Imgpt = "F:\\Visual\\VisualArt"
+#Imgpt = "F:\\Visual\\VisualArt"
+
+Imgpt = "F:\\Visual\\VariousImages\\Polaroid\PolArt"
 
 contentgraph = []
 
@@ -24,16 +26,16 @@ for subdir, dirs, files in os.walk(Imgpt):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".jpg"):
+        if filepath.endswith(".jpg") and "lw" in str(filepath):
             contentgraph.append(str(filepath))
 
 plen = len(contentgraph)
 
-numi = 0
+numi = 5
 
 for ctr in range(20):
 
-    if numi < 5:
+    if numi < 1:
 
         print("")
 
@@ -52,12 +54,12 @@ for ctr in range(20):
         b = random_number2(50, 232)
         c = random_number2(50, 232)
 
-        bi = np.zeros((1200,1200,3), np.uint8)
+        bi = np.zeros((999,999,3), np.uint8)
 
         try: 
             
-            for py in range(0,1200):
-                for px in range(0,1200):
+            for py in range(0,999):
+                for px in range(0,999):
             #can change the below logic of rgb according to requirements. In this 
             #white background is changed to #e8e8e8  corresponding to 232,232,232 
             #intensity, red color of the image is retained.
@@ -68,9 +70,8 @@ for ctr in range(20):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath =  "C:\\Users\\mysti\\Coding\\Fractalizer\\" + str(tim) + str(numi) +".jpg"
-           
-    
+            outpath = "C:\\Users\\mysti\\Desktop\\inspections_apart_applied\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
+
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)
             cv2.imwrite(outpath, bi)
@@ -88,7 +89,7 @@ print("Images created and saved in the output folder.")
 
 print("")
 
-#call(["python", "BatchDeleter.py"])
+#call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\LinerNotes.py"])
 
 ## THE GHOST OF THE SHADOW ##
 
