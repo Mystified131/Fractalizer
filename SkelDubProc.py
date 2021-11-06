@@ -409,10 +409,14 @@ for ctr in range(50):
                 chvol = (loudn - goldsound)
                 newAudio3 = newAudio3 - chvol
 
+                
+            newAudio4 = newAudio3.fade_in(5000)
+            newAudio5 = newAudio4.fade_out(15000)
+
         oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\newsamplebeat" + tracknam + str(ctr) + ".wav"
 
         #if int(os.stat(newAudiog).st_size) < sizlim:
-        newAudio3.export(oufil, format="wav")
+        newAudio5.export(oufil, format="wav")
         
     except:
         print("File unreadable.")  

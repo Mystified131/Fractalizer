@@ -43,7 +43,7 @@ for subdir, dirs, files in os.walk(srchstr):
 
             contentperc.append(filepath)
 
-        if  filepath.endswith(".wav")  and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  and ("Eth" in str(filepath))  : 
+        if  filepath.endswith(".wav")  and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  and ("Hip" in str(filepath))  : 
 
             contentbeats.append(filepath)
 
