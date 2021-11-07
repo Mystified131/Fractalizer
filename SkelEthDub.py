@@ -47,7 +47,7 @@ for subdir, dirs, files in os.walk(srchstr):
 
             contentbeats.append(filepath)
 
-        if  filepath.endswith(".wav")  and("Bass" in str(filepath))  and ("Eth" in str(filepath)) and ("Step"  not in str(filepath)) : 
+        if  filepath.endswith(".wav")  and("Bass" in str(filepath))  and ("Hip" in str(filepath)) and ("Step"  not in str(filepath)) : 
 
             contentbass.append(filepath)
 
