@@ -63,11 +63,6 @@ for op in range(16):
     outpth = "HCollage_" + str(tim) + "_" + str(op) + ".jpg"
     finalimg.save( outpth ) 
 
-for bop in range(16):
-
-    print("")
-    print("VertCollage: " + str(bop + 1))
-
     horzlist = []
 
     for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
@@ -82,6 +77,11 @@ for bop in range(16):
     print("")
 
     print(horzlist)
+
+for bop in range(16):
+
+    print("")
+    print("VertCollage: " + str(bop + 1))
 
     vilist = []
 
