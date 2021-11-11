@@ -31,7 +31,56 @@ for subdir, dirs, files in os.walk(Imgpt):
 
 plen = len(contentgraph)
 
-numi = 5
+a = random_number2(50, 232)
+b = random_number2(50, 232)
+c = random_number2(50, 232)
+
+for cotr in range(50):
+
+    try:
+
+        ctr = random_number(plen)
+
+        print("")
+
+        print("Generating Art: " + (str(cotr)))
+            
+        ppt = contentgraph[ctr]
+
+        print(ppt)
+
+        m =  cv2.imread(ppt)
+
+        h,w,bpp = np.shape(m)
+
+        bi = np.zeros((h,w,3), np.uint8)
+
+            
+        for py in range(0,h):
+            for px in range(0,w):
+        #can change the below logic of rgb according to requirements. In this 
+        #white background is changed to #e8e8e8  corresponding to 232,232,232 
+        #intensity, red color of the image is retained.
+                #f(m[py][px][0] >200): 
+                    
+                bi[py][px][0] =  m[py][px][0] + a
+                bi[py][px][1] =  m[py][px][1] + b
+                bi[py][px][2] =  m[py][px][2] + c
+
+            
+        outpath =  'C:\\Users\\mysti\\Desktop\\NewArt\\PolaOT' + str(tim) + str(ctr + cotr) + '.jpg'
+        
+
+        #cv2.imshow('matrix', bi)
+        #cv2.waitKey(0)
+        cv2.imwrite(outpath, bi)
+
+    except:
+        print("")
+        print("Process error.")
+        print("")
+
+numi = 50
 
 for ctr in range(20):
 
@@ -70,7 +119,7 @@ for ctr in range(20):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath = "C:\\Users\\mysti\\Desktop\\inspections_apart_applied\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
+            outpath = "C:\\Users\\NewArt\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
 
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)

@@ -18,7 +18,13 @@ tim = ("".join(list))
 
 #Imgpt = "F:\\Visual\\VisualArt"
 
-Imgpt = "F:\Visual\VariousImages\Polaroid\PolArt"
+#Imgpt = "F:\Visual\VariousImages\Polaroid\PolArt"
+
+#Imgpt = "F:\\Visual\\VisualArt\\GenArt\\Panels"
+
+#Imgpt = "F:\\Visual\\VisualArt\\PrintsThatAreUseful"
+
+Imgpt = "F:\\Visual\\VariousImages\\SquareRootsNew"
 
 contentgraph = []
 
@@ -26,7 +32,10 @@ for subdir, dirs, files in os.walk(Imgpt):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".jpg") and ("bl" in str(filepath) or "Art" in str(filepath)) :
+        #if filepath.endswith(".jpg") and ("bl" in str(filepath) or "Art" in str(filepath)) :
+            #contentgraph.append(str(filepath))
+
+        if filepath.endswith(".jpg") or "Art" in str(filepath) :
             contentgraph.append(str(filepath))
 
 plen = len(contentgraph)
