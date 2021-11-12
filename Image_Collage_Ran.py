@@ -46,16 +46,16 @@ timlen = len(imlist)
 print("")
 print("Generating Collages.")
 
-for op in range(16):
+for op in range(24):
 
     print("")
     print("HorzCollage: " + str(op + 1))
 
-    rt = random_number(3)
+    ilist = []
+
+    rt = random_number2(2, 4)
 
     for ctr in range(rt):
-        
-        ilist = []
 
         for smst in range(2):
             imnum = random_number(timlen)
@@ -67,33 +67,33 @@ for op in range(16):
     outpth = "HCollage_" + str(tim) + "_" + str(op) + ".jpg"
     finalimg.save( outpth ) 
 
-    horzlist = []
+horzlist = []
 
-    for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
-        for file in files:
-            filepath = subdir + os.sep + file
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
 
-            if (filepath.endswith(".jpg")) and "HCollage" in str(filepath):
-                horzlist.append(filepath)
+        if (filepath.endswith(".jpg")) and "HCollage" in str(filepath):
+            horzlist.append(filepath)
 
-    horzlen = len(horzlist)
+horzlen = len(horzlist)
 
-    print("")
+print("")
 
-    print(horzlist)
+print(horzlist)
 
-for bop in range(16):
+for bop in range(24):
 
     print("")
     print("VertCollage: " + str(bop + 1))
 
-    rtv = random_number(3)
+    vilist = []
+
+    rtv = random_number2(2,6)
 
     for ctrv in range(rtv):
 
-        vilist = []
-
-        for vset in range(2):
+        for vset in range(rtv):
             vimnum = random_number(horzlen)
             chosimg = horzlist[vimnum]
             vilist.append(chosimg)

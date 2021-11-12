@@ -104,7 +104,7 @@ print("Images created and saved in the output folder.")
 
 print("")
 
-call(["python", "Image_Collage_Ext.py"])
+call(["python", "Image_Collage_Ran.py"])
 
 ## THE GHOST OF THE SHADOW ##
 
