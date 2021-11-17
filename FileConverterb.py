@@ -32,7 +32,7 @@ for ctr in range(tlen):
 
     elem = contentops[ctr]
 
-    ofstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\GenCH_' + str(ctr) + '_' + str(tim) + '.wav'
+    ofstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\GenCh_' + str(ctr) + '_' + str(tim) + '.wav'
 
     shutil.copy(elem, ofstr)
 

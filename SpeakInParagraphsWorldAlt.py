@@ -57,7 +57,7 @@ for citr in range(8):
 
         print("")
 
-        for phrs in range(2):
+        for phrs in range(4):
 
             print(str(phrs+1))
 

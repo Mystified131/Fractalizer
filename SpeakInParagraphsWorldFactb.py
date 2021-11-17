@@ -51,7 +51,7 @@ for citr in range(8):
 
     tim = ("".join(list))
 
-    for cotr in range(2):
+    for cotr in range(4):
 
         print("Assembling Text: " + str(cotr + 1))
 
