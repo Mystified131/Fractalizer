@@ -80,7 +80,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) :
+        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath):
             contentgitr.append(str(file))
        
 print("")

@@ -25,12 +25,23 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and  ("Pad" in str(filepath)) and  ("Pop" in str(filepath)):
+
+        if  filepath.endswith(".wav") and ("Bass" in str(filepath)) and ("Jazz" in str(filepath)) :
+            contentbass.append(filepath)
+
+        if  filepath.endswith(".wav") and (("Drum" in str(filepath)) or ("Beat" in str(filepath)))  and ("Glitch" in str(filepath)): 
+            contentbeats.append(filepath)
+                
+        if  filepath.endswith(".wav")  and ("Glitch" in str(filepath)) and ("Perc" in str(filepath)) :
+
+            contentperc.append(filepath)
+           
+        if  filepath.endswith(".wav")  and ("Pad" in str(filepath)) and ("Pop" in str(filepath)) :
 
             contentdrones.append(filepath)
 
-        if  filepath.endswith(".wav")  and (("Eth" in str(filepath)) or ("Wor" in str(filepath)) or ("Indian" in str(filepath)) or ("Boll" in str(filepath)) or ("Ara" in str(filepath)))  and ("ZZ Indie" not in str(filepath)): 
-                       
+        if  filepath.endswith(".wav")  and ("Eth" in str(filepath)) and ("Drum" not in str(filepath)) and ("Beat" not in str(filepath)) :
+                         
             contentorg.append(filepath)
              
             contentsax.append(filepath)
@@ -38,20 +49,7 @@ for subdir, dirs, files in os.walk(srchstr):
             contentgit.append(filepath)
              
             contentpepper.append(filepath)
-
-        if  filepath.endswith(".wav")  and ("Perc" in str(filepath))  and (("Eth" in str(filepath)) or ("Wor" in str(filepath)) or ("Ara" in str(filepath)) or ("Boll" in str(filepath))) : 
-
-            contentperc.append(filepath)
-
-        if  filepath.endswith(".wav")  and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  and ("Glitch" in str(filepath)) : 
-
-            contentbeats.append(filepath)
-
-        if  filepath.endswith(".wav")  and("Bass" in str(filepath)) and  ("Jazz" in str(filepath)) and ("Step"  not in str(filepath)) : 
-
-            contentbass.append(filepath)
-
-        
+    
 print("")
 
 print("Gathering Root Sounds.")
@@ -66,7 +64,7 @@ for ctr in range(80):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundbeat' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundbeat' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentbeats[y], outstr)
 
 x = len(contentdrones)
@@ -79,7 +77,7 @@ for ctr in range(120):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsounddrone' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsounddrone' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentdrones[y], outstr)
 
 x = len(contentperc)
@@ -92,7 +90,7 @@ for ctr in range(120):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundperc' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundperc' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentperc[y], outstr)
 
 x = len(contentpepper)
@@ -105,7 +103,7 @@ for ctr in range(150):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundpepper' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundpepper' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentpepper[y], outstr)
 
 x = len(contentbass)
@@ -118,7 +116,7 @@ for ctr in range(50):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundbass' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundbass' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentbass[y], outstr)
 
 x = len(contentorg)
@@ -131,7 +129,7 @@ for ctr in range(100):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundgorgan' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundgorgan' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentorg[y], outstr)
 
 x = len(contentsax)
@@ -144,7 +142,7 @@ for ctr in range(100):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundsaxophone' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundsaxophone' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentsax[y], outstr)
 
 x = len(contentgit)
@@ -157,7 +155,7 @@ for ctr in range(100):
     for m in trackname:
         if m.isalnum():
             tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
+    outstr = 'C:\\Users\\mysti\\Coding\\RoboDJ\\newsoundguitar' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentgit[y], outstr)
 
 call(["python", "DJProcessorNuFly.py"])

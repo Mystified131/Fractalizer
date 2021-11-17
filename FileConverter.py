@@ -1,6 +1,38 @@
 import soundfile as sf
 from subprocess import call
 import os
+import shutil
+
+right_now = datetime.datetime.now().isoformat()
+list = []
+
+for i in right_now:
+    if i.isnumeric():
+        list.append(i)
+
+tim = ("".join(list))
+
+contentops = []
+
+srstr = "F:\\OriginalAudio\\Sounds\\Acid_Loops\\Opera"
+
+for subdir, dirs, files in os.walk(srstr):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith('.wav'):
+
+            contentops.append(str(filepath))
+
+tlen = len(contentops)
+
+for ctr in range(tlen):
+
+    elem = contentops[ctr]
+
+    ofstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\GenCH_' + str(ctr) + '_' + str(tim) + '.wav'
+
+    shutil.copy(elem, ofstr)
 
 contentoggs = []
 

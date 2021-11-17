@@ -10,7 +10,9 @@ from RandFunct2 import random_number2
 
 #srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Bin'
 
-srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
+#srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
+
+srchstr = 'F:\\OriginalAudio\\Sounds\\Acid_Loops'
 
 contentbeats = []
 contentdrones = []
@@ -25,14 +27,23 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("Eth" in str(filepath))  and ("ZZ Indie" not in str(filepath)): 
 
+        if  filepath.endswith(".wav") and ("Bass" in str(filepath)) and ("Jazz" in str(filepath)) :
+            contentbass.append(filepath)
+
+        if  filepath.endswith(".wav") and (("Drum" in str(filepath)) or ("Beat" in str(filepath)))  and ("Glitch" in str(filepath)): 
             contentbeats.append(filepath)
-           
-            contentdrones.append(filepath)
-             
+                
+        if  filepath.endswith(".wav")  and ("Glitch" in str(filepath)) and ("Perc" in str(filepath)) :
+
             contentperc.append(filepath)
-             
+           
+        if  filepath.endswith(".wav")  and ("Pad" in str(filepath)) and ("Pop" in str(filepath)) :
+
+            contentdrones.append(filepath)
+
+        if  filepath.endswith(".wav")  and ("Eth" in str(filepath)) and ("Drum" not in str(filepath)) and ("Beat" not in str(filepath)) :
+                         
             contentorg.append(filepath)
              
             contentsax.append(filepath)
@@ -40,19 +51,6 @@ for subdir, dirs, files in os.walk(srchstr):
             contentgit.append(filepath)
              
             contentpepper.append(filepath)
-
-        if  filepath.endswith(".wav")  and ("Perc" in str(filepath))  and ("Eth" in str(filepath)) : 
-
-            contentperc.append(filepath)
-
-        if  filepath.endswith(".wav")  and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  and ("Eth" in str(filepath))  : 
-
-            contentbeats.append(filepath)
-
-        if  filepath.endswith(".wav")  and("Bass" in str(filepath))  and ("Eth" in str(filepath)) and ("Step"  not in str(filepath)) : 
-
-            contentbass.append(filepath)
-
         
 print("")
 
