@@ -32,7 +32,7 @@ x1 = len(wordcon)
 
 print("")
 
-for citr in range(8):
+for citr in range(20):
 
     paragraph = ""
 
@@ -51,7 +51,7 @@ for citr in range(8):
 
     tim = ("".join(list))
 
-    for cotr in range(4):
+    for cotr in range(2):
 
         print("Assembling Text: " + str(cotr + 1))
 

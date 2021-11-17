@@ -32,7 +32,7 @@ x1 = len(wordcon)
 
 print("")
 
-for citr in range(8):
+for citr in range(20):
 
     paragraph = ""
 
