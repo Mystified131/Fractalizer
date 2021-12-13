@@ -14,7 +14,10 @@ def horizontal_set(ilist):
         imgs_comb = PIL.Image.fromarray( imgs_comb)
         return(imgs_comb)
     except:
+        print("")
         print("Collage error.")
+        return imgs
+
 
 def vertical_set(ilist):
     imgs  = [ PIL.Image.open(i) for i in ilist ]
@@ -24,7 +27,9 @@ def vertical_set(ilist):
         imgs_comb = PIL.Image.fromarray( imgs_comb)
         return(imgs_comb)
     except:
+        print("")
         print("Collage error.")
+        return imgs
 
 right_now = datetime.datetime.now().isoformat()
 list = []

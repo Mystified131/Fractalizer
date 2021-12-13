@@ -24,7 +24,9 @@ tim = ("".join(list))
 
 #Imgpt = "F:\\Visual\\VisualArt\\PrintsThatAreUseful"
 
-Imgpt = "F:\\Visual\\VariousImages\\SquareRootsNew"
+#Imgpt = "F:\\Visual\\VariousImages\\SquareRootsNew"
+
+Imgpt = "C:\\Users\\mysti\\Coding\\Fractalizer"
 
 contentgraph = []
 

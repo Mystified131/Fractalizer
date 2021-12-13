@@ -16,7 +16,7 @@ tim = ("".join(list))
 
 contentops = []
 
-srstr = "F:\\OriginalAudio\\Sounds\\Acid_Loops\\Opera"
+srstr = "F:\\OriginalAudio\\Sounds\\Acid_Loops\\NewSound"
 
 for subdir, dirs, files in os.walk(srstr):
     for file in files:

@@ -36,7 +36,7 @@ for subdir, dirs, files in os.walk(Imgpt):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".jpg"):
+        if filepath.endswith(".png"):
             contentgraph.append(str(filepath))
 
 plen = len(contentgraph)
