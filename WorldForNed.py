@@ -27,14 +27,20 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("Amb" in str(filepath))  and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("ZZ Indie" not in str(filepath)): 
+        if  filepath.endswith(".wav")  and ("Wor" in str(filepath))  and (("Beat" in str(filepath)) or ("Drum" in str(filepath))) and ("ZZ Indie" not in str(filepath)): 
 
             contentbeats.append(filepath)
+
+        if  filepath.endswith(".wav")  and ("Wor" in str(filepath))  and (("Beat" not in str(filepath)) and ("Drum" not in str(filepath))) and ("ZZ Indie" not in str(filepath)): 
            
             contentdrones.append(filepath)
+
+        if  filepath.endswith(".wav")  and ("Wor" in str(filepath))  and (("Perc" in str(filepath)) or ("Ryth" in str(filepath))) and ("ZZ Indie" not in str(filepath)): 
              
             contentperc.append(filepath)
-             
+
+        if  filepath.endswith(".wav")  and ("Wor" in str(filepath))  and (("Beat" not in str(filepath)) and ("Drum" not in str(filepath))) and ("ZZ Indie" not in str(filepath)): 
+           
             contentorg.append(filepath)
              
             contentsax.append(filepath)
@@ -43,15 +49,20 @@ for subdir, dirs, files in os.walk(srchstr):
              
             contentpepper.append(filepath)
 
-            #contentperc.append(filepath)
-
-            contentbeats.append(filepath)
+        if  filepath.endswith(".wav")  and ("Aco" in str(filepath))  and (("BASS" in str(filepath)) or ("Bass" in str(filepath))) and ("ZZ Indie" not in str(filepath)): 
+             
 
             contentbass.append(filepath)
 
-        if  filepath.endswith(".wav")  and ("EnoDrums" in str(filepath))   and ("ZZ Indie" not in str(filepath)): 
+            #contentperc.append(filepath)
 
-            contentperc.append(filepath)
+            #contentbeats.append(filepath)
+
+            contentbass.append(filepath)
+
+        #if  filepath.endswith(".wav")  and ("EnoDrums" in str(filepath))   and ("ZZ Indie" not in str(filepath)): 
+
+            #contentperc.append(filepath)
 
         
 print("")

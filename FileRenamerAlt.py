@@ -24,6 +24,8 @@ tim = ("".join(list))
 
 rootdir = "C:\\Users\\mysti\\Desktop\\NewBad10.13.2021"
 
+rootdir = 'C:\\Users\\mysti\\Coding\\Fractalizer'
+
 filtyp = ".wav"
 
 print("")

@@ -27,15 +27,9 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("Amb" in str(filepath))  and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("ZZ Indie" not in str(filepath)): 
+        if  filepath.endswith(".wav")  and ("ZZ Indie" not in str(filepath)): 
 
             contentbeats.append(filepath)
-           
-            contentdrones.append(filepath)
-             
-            contentperc.append(filepath)
-             
-            contentorg.append(filepath)
              
             contentsax.append(filepath)
 
@@ -43,16 +37,13 @@ for subdir, dirs, files in os.walk(srchstr):
              
             contentpepper.append(filepath)
 
-            #contentperc.append(filepath)
-
-            contentbeats.append(filepath)
-
             contentbass.append(filepath)
-
-        if  filepath.endswith(".wav")  and ("EnoDrums" in str(filepath))   and ("ZZ Indie" not in str(filepath)): 
+               
+            contentdrones.append(filepath)
 
             contentperc.append(filepath)
 
+            contentorg.append(filepath)
         
 print("")
 
