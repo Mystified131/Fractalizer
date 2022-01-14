@@ -286,6 +286,9 @@ for ctr in range(trtot):
     oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
     newAudio2.export(oufil, format="wav")
 
+    oufil2 = "G:\\MP3DUMP\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".mp3"
+    newAudio2.export(oufil, format="mp3")
+
     #except:
 
     #print("")
