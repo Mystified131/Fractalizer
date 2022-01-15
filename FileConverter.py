@@ -2,6 +2,7 @@ import soundfile as sf
 from subprocess import call
 import os
 import shutil
+import datetime
 
 right_now = datetime.datetime.now().isoformat()
 list = []
@@ -14,7 +15,7 @@ tim = ("".join(list))
 
 contentops = []
 
-srstr = "F:\\OriginalAudio\\Sounds\\Acid_Loops\\Opera"
+srstr = "F:\\OriginalAudio\\Sounds\\Acid_Loops\\NewSound"
 
 for subdir, dirs, files in os.walk(srstr):
     for file in files:
