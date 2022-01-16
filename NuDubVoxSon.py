@@ -199,6 +199,7 @@ trtot = len(contentbeats)
 for ctr in range(trtot):
 
     try:
+
         atrack1 = contentbeats[ctr]
         atracknum2 = random_number2(0,len(contentgit))
         atrack2 = contentgit[atracknum2]
@@ -251,7 +252,6 @@ for ctr in range(trtot):
 
         newAudionear = newAudionear.fade_in(5000)
         newAudionear = newAudionear.fade_out(15000)
-
         
         attenuate_db = 0
         accentuate_db = .24
@@ -292,7 +292,9 @@ for ctr in range(trtot):
 
         print("")
 
-        print("Error during render. File not created.")
+        print("Process error. File not created.")
+
+
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
 

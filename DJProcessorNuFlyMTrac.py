@@ -349,7 +349,7 @@ for ctr in range(50):
 
             newAudioqq = newAudioz2 + newAudiov + newAudioz + newAudioz   
 
-        newAudioqr = newAudioqq * 3
+        newAudioqr = newAudioqq * 4
 
         newAudiog = newAudioqr - 2
 
@@ -391,7 +391,7 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
             newAudio = newAudio.fade_out(100)
-            sil1 = random_number2(12000, 17000)
+            sil1 = random_number2(5000, 6000)
             back = AudioSegment.silent(duration = sil1)
             newAudio = newAudio + back
         if solonum > 3 and solonum < 8:
@@ -406,8 +406,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number2(10000, 14000)
-            sil2 = random_number2(18000, 25000)
+            sil1 = random_number2(8000, 9000)
+            sil2 = random_number2(7000, 8000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -423,8 +423,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number2(22000, 25000)
-            sil2 = random_number2(13000, 18000)
+            sil1 = random_number2(2200, 2500)
+            sil2 = random_number2(1300, 1800)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -446,16 +446,16 @@ for ctr in range(50):
                 newAudio += addAudio
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number2(10000, 14000)
-            sil2 = random_number2(13000, 17000)
+            sil1 = random_number2(1000, 1400)
+            sil2 = random_number2(1300, 1700)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
 
         dic = random_number(10)
         if dic == 7:
-            sil1 = random_number(22000)
-            sil2 = random_number(18000)
+            sil1 = random_number(2000)
+            sil2 = random_number(8000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -507,8 +507,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number(12000)
-            sil2 = random_number(16000)
+            sil1 = random_number(2000)
+            sil2 = random_number(6000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -524,8 +524,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number(20000)
-            sil2 = random_number(22000)
+            sil1 = random_number(2000)
+            sil2 = random_number(5000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -547,8 +547,8 @@ for ctr in range(50):
                 newAudio += addAudio
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number(10000)
-            sil2 = random_number(14000)
+            sil1 = random_number(3000)
+            sil2 = random_number(5000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back

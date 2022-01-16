@@ -27,7 +27,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("ZZ Indie" not in str(filepath)) and ("Tech" in str(filepath)) or ("Glitch" in str(filepath)) or ("Eth" in str(filepath)) :  
+        if  filepath.endswith(".wav")  and ("ZZ Indie" not in str(filepath)) and ("World" in str(filepath)) or ("Glitch" in str(filepath)) or ("Amb" in str(filepath)) :  
              
             contentsax.append(filepath)
 

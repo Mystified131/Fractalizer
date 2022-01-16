@@ -146,7 +146,7 @@ while plist:
     plist = infile.readline()
 infile.close()
 
-trtot = 18
+trtot = 12
 
 suctot = 0
 
