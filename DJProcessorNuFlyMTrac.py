@@ -349,7 +349,7 @@ for ctr in range(50):
 
             newAudioqq = newAudioz2 + newAudiov + newAudioz + newAudioz   
 
-        newAudioqr = newAudioqq * 6
+        newAudioqr = newAudioqq * 3
 
         newAudiog = newAudioqr - 2
 

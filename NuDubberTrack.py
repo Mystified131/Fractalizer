@@ -677,9 +677,7 @@ for ctr in range(700):
 
             rep2 = prod - 3
 
-            rep = random_number2(rep2, prod)
-
-            newAudio4 = newAudio3 * rep
+            newAudio4 = newAudio3 * rep2
 
             newAudio4 = newAudio4.fade_in(9000)
 
