@@ -11,9 +11,41 @@ from PIL import Image
 def crop(image_path, coords, saved_location):
     image_obj = Image.open(image_path)
     #image_obj.show()
-    cropped_image = image_obj.crop(coords)
-    #cropped_image.show()
-    cropped_image.save(saved_location)
+    sizt = get_num_pixels(image_path)
+
+    print(image_path)
+
+    print(sizt)
+
+    m =  cv2.imread(image_path)
+
+    h,w,bpp = np.shape(m)
+
+    #coords = (0, 0, w, h)
+
+    coords = (100, 100, 600, 600)
+
+    try:
+
+        cropped_image = image_obj.crop(coords)
+        #cropped_image.show()
+        cropped_image.save(saved_location)
+
+    except:
+
+        print("")
+        print("Size Error")
+        print("")
+
+
+def get_num_pixels(filepath):
+    width, height = Image.open(filepath).size
+    dimen = 0
+    if width >= height:
+        dimen = height
+    if width < height:
+        dimen = width
+    return dimen
 
 Imgpt = "D:\\Visual\\VisualArt"
 
@@ -32,11 +64,13 @@ print(contentgraph)
 
 plen = len(contentgraph)
 
-for ctr in range(plen):
+plen == 40
+
+for ctr in range(40):
 
     elm = contentgraph[ctr]
 
-    nelm = str(ctr) + "_CROP.png"
+    nelm = str(ctr) + "_CROP.jpg"
 
     print(nelm)
 
@@ -72,7 +106,7 @@ for ctr in range(3):
     b = random_number2(50, 232)
     c = random_number2(50, 232)
 
-    for cotr in range(plen):
+    for cotr in range(40):
 
         print("")
 
