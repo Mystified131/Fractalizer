@@ -19,6 +19,6 @@ print("The designated files have been removed. Thank you.")
 
 print("")
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\RadThomas.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BadThomas.py"])
 
 ## THE GHOST OF THE SHADOW ##

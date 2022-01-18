@@ -184,8 +184,6 @@ for ctr in range(50):
         newAudio = newAudio.fade_out(10)
 
         newAudiob = AudioSegment.from_wav.reverse(btrack)
-
-        newAudiobr.reverse(newAudiob)
         
         #newvolb = random_number2(8,12)
         #newAudiob = newAudiob - newvolb
