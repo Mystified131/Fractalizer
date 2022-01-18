@@ -183,7 +183,9 @@ for ctr in range(50):
         newAudio = newAudio.fade_in(10)
         newAudio = newAudio.fade_out(10)
 
-        newAudiob = AudioSegment.from_wav(btrack)
+        newAudiob = AudioSegment.from_wav.reverse(btrack)
+
+        newAudiobr.reverse(newAudiob)
         
         #newvolb = random_number2(8,12)
         #newAudiob = newAudiob - newvolb
@@ -598,6 +600,6 @@ for ctr in range(50):
     except:
         print("File unreadable.")
 
-call(["python", "NuDubberTrack.py"])
+call(["python", "NuDubberRevTrack.py"])
 
 ## THE GHOST OF THE SHADOW ##

@@ -242,6 +242,8 @@ for ctr in range(trtot):
         newvol = 2
         newAudiobeat = newAudiobeat - newvol
 
+        newAudionear = newAudionear.reverse()
+
         if len(newAudiobeat) >= len(newAudioamb2):
 
             newAudionear = newAudioamb2.overlay(newAudiobeat)
