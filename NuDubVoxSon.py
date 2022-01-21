@@ -193,8 +193,11 @@ for x3 in range(25):
     except:
         print("File unreadable.")
 
+altot = 12
 
-trtot = len(contentbeats)
+tartot = 0
+
+trtot = 700
 
 for ctr in range(trtot):
 
@@ -287,6 +290,13 @@ for ctr in range(trtot):
 
         #oufil2 = "G:\\MP3DUMP\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".mp3"
         #newAudio2.export(oufil, format="mp3")
+
+        
+        tartot += 1
+
+        if tartot == altot:
+            break
+
 
     except:
 

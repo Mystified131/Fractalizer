@@ -183,7 +183,7 @@ for ctr in range(50):
         newAudio = newAudio.fade_in(10)
         newAudio = newAudio.fade_out(10)
 
-        newAudiob = AudioSegment.from_wav.reverse(btrack)
+        newAudiob = AudioSegment.from_wav(btrack)
         
         #newvolb = random_number2(8,12)
         #newAudiob = newAudiob - newvolb
@@ -553,13 +553,14 @@ for ctr in range(50):
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
 
-        dic = random_number(10)
-        if dic == 7:
-            sil1 = random_number(60000)
-            sil2 = random_number(50000)
-            front = AudioSegment.silent(duration = sil1)
-            back = AudioSegment.silent(duration = sil2)
-            newAudio = front + newAudio + back
+        #dic = random_number(10)
+        #if dic == 7:
+            #sil1 = random_number(60000)
+            #sil2 = random_number(50000)
+            #front = AudioSegment.silent(duration = sil1)
+            #back = AudioSegment.silent(duration = sil2)
+            #newAudio = front + newAudio + back
+            
         oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsamplepepper" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
@@ -598,6 +599,6 @@ for ctr in range(50):
     except:
         print("File unreadable.")
 
-call(["python", "NuDubberRevTrack.py"])
+call(["python", "NuDubberTrack.py"])
 
 ## THE GHOST OF THE SHADOW ##

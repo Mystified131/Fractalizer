@@ -27,7 +27,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("ZZ Indie" not in str(filepath)) and (("Glitch" in str(filepath)) or ("House" in str(filepath))) :  
+        if  filepath.endswith(".wav")  and ("Groove" in str(filepath)) or ("Jazz" in str(filepath)) or (("Orch" in str(filepath)) and ("Mod" not in str(filepath))) :  
 
             contentbeats.append(filepath)
              
@@ -51,7 +51,7 @@ print("Gathering Root Sounds.")
 
 x = len(contentbeats)
 
-for ctr in range(10):
+for ctr in range(80):
     y = random_number(x)
     atrack = contentbeats[y]
     trackname = atrack[-20:-4]
@@ -64,7 +64,7 @@ for ctr in range(10):
 
 x = len(contentdrones)
 
-for ctr in range(10):
+for ctr in range(120):
     y = random_number(x)
     atrack = contentdrones[y]
     trackname = atrack[-20:-4]
@@ -77,7 +77,7 @@ for ctr in range(10):
 
 x = len(contentperc)
 
-for ctr in range(10):
+for ctr in range(120):
     y = random_number(x)
     atrack = contentperc[y]
     trackname = atrack[-20:-4]
@@ -90,7 +90,7 @@ for ctr in range(10):
 
 x = len(contentpepper)
 
-for ctr in range(10):
+for ctr in range(150):
     y = random_number(x)
     atrack = contentpepper[y]
     trackname = atrack[-20:-4]
@@ -103,7 +103,7 @@ for ctr in range(10):
 
 x = len(contentbass)
 
-for ctr in range(10):
+for ctr in range(50):
     y = random_number(x)
     atrack = contentbass[y]
     trackname = atrack[-20:-4]
@@ -116,7 +116,7 @@ for ctr in range(10):
 
 x = len(contentorg)
 
-for ctr in range(10):
+for ctr in range(100):
     y = random_number(x)
     atrack = contentorg[y]
     trackname = atrack[-20:-4]
@@ -129,7 +129,7 @@ for ctr in range(10):
 
 x = len(contentsax)
 
-for ctr in range(10):
+for ctr in range(100):
     y = random_number(x)
     atrack = contentsax[y]
     trackname = atrack[-20:-4]
@@ -142,7 +142,7 @@ for ctr in range(10):
 
 x = len(contentgit)
 
-for ctr in range(10):
+for ctr in range(100):
     y = random_number(x)
     atrack = contentgit[y]
     trackname = atrack[-20:-4]
@@ -153,6 +153,6 @@ for ctr in range(10):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentgit[y], outstr)
 
-#call(["python", "DJProcessorNuFlyBad.py"])
+call(["python", "DJProcessorNuFlyMTrac.py"])
 
 ## THE GHOST OF THE SHADOW ##

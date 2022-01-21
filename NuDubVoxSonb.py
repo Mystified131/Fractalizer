@@ -42,7 +42,6 @@ def bass_line_freq(track):
 def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
-
 try:
 
     newpath = 'H:\\Spirit_Circuits\\NewAlbum' 
@@ -81,7 +80,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath) :
+        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath):
             contentgitr.append(str(file))
        
 print("")
@@ -185,7 +184,7 @@ for x3 in range(25):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-            newAudio = newAudio - 1
+            newAUdio = newAudio - 1
         oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\vsamp" + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
         titsamp = "vsamp" + str(ctr) + ".wav"
@@ -194,13 +193,16 @@ for x3 in range(25):
     except:
         print("File unreadable.")
 
+altot = 12
 
-trtot = len(contentbeats)
+tartot = 0
+
+trtot = 700
 
 for ctr in range(trtot):
 
     try:
-            
+
         atrack1 = contentbeats[ctr]
         atracknum2 = random_number2(0,len(contentgit))
         atrack2 = contentgit[atracknum2]
@@ -286,16 +288,22 @@ for ctr in range(trtot):
         oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
         newAudio2.export(oufil, format="wav")
 
-        #oufil2 = "H:\\MP3DUMP\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".mp3"
+        #oufil2 = "G:\\MP3DUMP\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".mp3"
         #newAudio2.export(oufil, format="mp3")
+
+        tartot += 1
+
+        if tartot == altot:
+            break
+
 
     except:
 
         print("")
 
-        print("Process error.")
-        
-        print("")
+        print("Process error. File not created.")
+
+
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
 
