@@ -28,8 +28,6 @@ for subdir, dirs, files in os.walk(srchstr):
         filepath = subdir + os.sep + file
         
         if  filepath.endswith(".wav")  and ("Groove" in str(filepath)) or ("Jazz" in str(filepath)) or (("Orch" in str(filepath)) and ("Mod" not in str(filepath))) :  
-
-            contentbeats.append(filepath)
              
             contentsax.append(filepath)
 
@@ -44,7 +42,11 @@ for subdir, dirs, files in os.walk(srchstr):
             contentorg.append(filepath)
 
             contentbass.append(filepath)
+
+        if  filepath.endswith(".wav")  and (("Groove" in str(filepath)) or ("Jazz" in str(filepath))) and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  :
         
+            contentbeats.append(filepath)
+
 print("")
 
 print("Gathering Root Sounds.")

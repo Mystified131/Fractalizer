@@ -255,54 +255,59 @@ for ctr in range(trtot):
 
         newAudionear = newAudionear.fade_in(5000)
         newAudionear = newAudionear.fade_out(15000)
-        
+
         attenuate_db = 0
         accentuate_db = .24
         goldsound = -18
-        stsound = -21
+        stsound = -23
 
         leng = len(newAudionear)
 
         startvol = get_loudness(newAudionear, leng)
 
-        #if startvol < -16 and startvol > -18.5:
+        if startvol < -16 and startvol > -18.5:
 
-        newAudio2 = reduce_volume(newAudionear, startvol)
+            newAudio2 = reduce_volume(newAudionear, startvol)
 
-        #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+            filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
-        #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+            newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
 
-        #loudn = get_loudness(newAudio3, leng)
+            loudn = get_loudness(newAudio3, leng)
 
-        print(startvol)
+            print(loudn)
 
-        #if loudn <= goldsound:
-            #chvol = (goldsound - loudn)
-            #newAudio3 = newAudio3 + chvol
+            if loudn <= goldsound:
+                chvol = (goldsound - loudn)
+                newAudio3 = newAudio3 + chvol
 
-        #if loudn > goldsound:
-            #chvol = (loudn - goldsound)
-            #newAudio3 = newAudio3 - chvol
+            if loudn > goldsound:
+                chvol = (loudn - goldsound)
+                newAudio3 = newAudio3 - chvol
 
-        oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
-        newAudio2.export(oufil, format="wav")
+            oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(tartot) + ".wav"
+            newAudio3.export(oufil, format="wav")
 
-        #oufil2 = "G:\\MP3DUMP\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".mp3"
-        #newAudio2.export(oufil, format="mp3")
+            tartot += 1
 
-        tartot += 1
+            if tartot == altot:
+                break
 
-        if tartot == altot:
-            break
+        if startvol > -16 and startvol < -18.5:
 
+            oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(tartot) + ".wav"
+            newAudio3.export(oufil, format="wav")
 
+            tartot += 1
+
+            if tartot == altot:
+                break    
+    
     except:
 
         print("")
 
         print("Process error. File not created.")
-
 
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])

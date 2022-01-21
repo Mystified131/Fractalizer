@@ -642,54 +642,60 @@ for ctr in range(700):
 
             newAudionear3= newAudiobeat.overlay(newAudioambq3)
 
-        newAudionear = newAudionear1 + newAudionear2 + newAudionear3 + newAudionear3 
+        newAudio3 = newAudionear1 + newAudionear2 + newAudionear3 + newAudionear3 
             
-        #attenuate_db = 0
-        #accentuate_db = .24
-        #goldsound = -18
-        #stsound = -23
-
-        #leng = len(newAudionear)
-
-        #startvol = get_loudness(newAudionear, leng)
-
-        #if startvol < -16 and startvol > -18.5:
-
-            #newAudio2 = reduce_volume(newAudionear, startvol)
-
-            #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
-
-            #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
-
-            #loudn = get_loudness(newAudio3, leng)
-
-            #print(loudn)
-
-            #if loudn <= goldsound:
-                #chvol = (goldsound - loudn)
-                #newAudio3 = newAudio3 + chvol
-
-            #if loudn > goldsound:
-                #chvol = (loudn - goldsound)
-                #newAudio3 = newAudio3 - chvol
-
         prod = int(400000 / (len(newAudio3)))
 
         rep2 = prod - 3
 
-        newAudio4 = newAudio3 * rep2
+        newAudionear = newAudio3 * rep2
+        
+        attenuate_db = 0
+        accentuate_db = .24
+        goldsound = -18
+        stsound = -23
 
-        newAudio4 = newAudio4.fade_in(9000)
+        leng = len(newAudionear)
 
-        newAudio4 = newAudio4.fade_out(9000)
+        startvol = get_loudness(newAudionear, leng)
 
-        oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
-        newAudio4.export(oufil, format="wav")
+        if startvol < -16 and startvol > -18.5:
 
-        suctot += 1
+            newAudio2 = reduce_volume(newAudionear, startvol)
 
-        if suctot == trtot:
-            break
+            filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+
+            newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+
+            loudn = get_loudness(newAudio3, leng)
+
+            print(loudn)
+
+            if loudn <= goldsound:
+                chvol = (goldsound - loudn)
+                newAudio3 = newAudio3 + chvol
+
+            if loudn > goldsound:
+                chvol = (loudn - goldsound)
+                newAudio3 = newAudio3 - chvol
+
+            oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
+            newAudio4.export(oufil, format="wav")
+
+            suctot += 1
+
+            if suctot == trtot:
+                break
+
+        if startvol > -16 and startvol < -18.5:
+
+            oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
+            newAudio4.export(oufil, format="wav")
+
+            suctot += 1
+
+            if suctot == trtot:
+                break
 
     except:
 
