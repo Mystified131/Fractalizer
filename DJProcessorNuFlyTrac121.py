@@ -316,7 +316,7 @@ for ctr in range(50):
 
             newAudiof2= newAudiof2[1:amt]
 
-        newAudiof2 = newAudiof2.fade_in(10)
+        ewAudiof2 = newAudiof2.fade_in(10)
         newAudiof2 = newAudiof2.fade_out(10)
 
         newAudiov = newAudiob.overlay(newAudio)
@@ -338,25 +338,30 @@ for ctr in range(50):
         det = random_number(3)
 
         if det == 0:
-
-            newAudioqq = newAudioz + newAudiov + newAudioz2 + newAudioz2
-
+            newAudioqq = newAudioz + newAudiov + newAudioz2 + newAudiov 
+        
         if det == 1:
+            newAudioqq = newAudiov + newAudioz2 + newAudiov + newAudioz2 
 
-            newAudioqq = newAudiov + newAudioz + newAudioz2 + newAudioz2
+        if det == 2: 
+            newAudioqq = newAudioz2 + newAudioz + newAudiov + newAudiov
+        
+        newAudiopp = newAudiodd.overlay(newAudioqq)
 
-        if det == 2:
+        #prod = int(360000 / (len(newAudiopp)))
 
-            newAudioqq = newAudioz2 + newAudiov + newAudioz + newAudioz   
+        #rep2 = prod - 3
 
-        newAudioqr = newAudioqq * 4
+        #rep = random_number2(rep2, prod)
 
-        newAudiog = newAudioqr - 2
+        #newAudiog = newAudiopp * rep
+
+        newAudiopp = newAudiopp - 2
 
         oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsamplebeat" + tracknam + str(ctr) + ".wav"
 
         #if int(os.stat(newAudiog).st_size) < sizlim:
-        newAudiog.export(oufil, format="wav")
+        newAudiopp.export(oufil, format="wav")
         
     except:
         print("File unreadable.")  
@@ -391,7 +396,7 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
             newAudio = newAudio.fade_out(100)
-            sil1 = random_number2(5000, 6000)
+            sil1 = random_number2(12000, 17000)
             back = AudioSegment.silent(duration = sil1)
             newAudio = newAudio + back
         if solonum > 3 and solonum < 8:
@@ -406,8 +411,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number2(8000, 9000)
-            sil2 = random_number2(7000, 8000)
+            sil1 = random_number2(10000, 14000)
+            sil2 = random_number2(18000, 25000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -423,8 +428,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number2(2200, 2500)
-            sil2 = random_number2(1300, 1800)
+            sil1 = random_number2(22000, 25000)
+            sil2 = random_number2(13000, 18000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -446,16 +451,16 @@ for ctr in range(50):
                 newAudio += addAudio
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number2(1000, 1400)
-            sil2 = random_number2(1300, 1700)
+            sil1 = random_number2(10000, 14000)
+            sil2 = random_number2(13000, 17000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
 
         dic = random_number(10)
         if dic == 7:
-            sil1 = random_number(2000)
-            sil2 = random_number(8000)
+            sil1 = random_number(22000)
+            sil2 = random_number(18000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -507,8 +512,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number(2000)
-            sil2 = random_number(6000)
+            sil1 = random_number(12000)
+            sil2 = random_number(16000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -524,8 +529,8 @@ for ctr in range(50):
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number(2000)
-            sil2 = random_number(5000)
+            sil1 = random_number(20000)
+            sil2 = random_number(22000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
@@ -547,20 +552,19 @@ for ctr in range(50):
                 newAudio += addAudio
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
-            sil1 = random_number(3000)
-            sil2 = random_number(5000)
+            sil1 = random_number(10000)
+            sil2 = random_number(14000)
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
 
-        #dic = random_number(10)
-        #if dic == 7:
-            #sil1 = random_number(60000)
-            #sil2 = random_number(50000)
-            #front = AudioSegment.silent(duration = sil1)
-            #back = AudioSegment.silent(duration = sil2)
-            #newAudio = front + newAudio + back
-            
+        dic = random_number(10)
+        if dic == 7:
+            sil1 = random_number(60000)
+            sil2 = random_number(50000)
+            front = AudioSegment.silent(duration = sil1)
+            back = AudioSegment.silent(duration = sil2)
+            newAudio = front + newAudio + back
         oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsamplepepper" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
@@ -599,6 +603,6 @@ for ctr in range(50):
     except:
         print("File unreadable.")
 
-call(["python", "NuDubberTrack.py"])
+call(["python", "NuDubber121.py"])
 
 ## THE GHOST OF THE SHADOW ##

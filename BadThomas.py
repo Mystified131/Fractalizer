@@ -27,7 +27,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("Groove" in str(filepath)) or ("Jazz" in str(filepath)) or (("Orch" in str(filepath)) and ("Mod" not in str(filepath))) :  
+        if  filepath.endswith(".wav")  and ("Hop" in str(filepath)) or ("House" in str(filepath)) or (("Dub" in str(filepath)) and ("tep" not in str(filepath))):  
              
             contentsax.append(filepath)
 
@@ -155,6 +155,6 @@ for ctr in range(100):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentgit[y], outstr)
 
-call(["python", "DJProcessorNuFlyMTrac.py"])
+call(["python", "DJProcessorNuFlyTrac121.py"])
 
 ## THE GHOST OF THE SHADOW ##

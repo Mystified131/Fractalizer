@@ -146,23 +146,179 @@ while plist:
     plist = infile.readline()
 infile.close()
 
-trtot = 12
+trtot = 18
 
 suctot = 0
 
 for ctr in range(700):
 
+    atracknum1 = random_number2(0,len(contentbeats))
+    atrack1 = contentbeats[atracknum1].strip()
+
     try:
 
-        atracknum1 = random_number2(0,len(contentbeats))
-        atrack1 = contentbeats[atracknum1].strip()
+        ####################################################### #1
+
+        atracknum2 = random_number2(0,len(contentgit))
+        atrack2 = contentgit[atracknum2].strip()
+        atracknum3 = random_number2(0,len(contentdrones))
+        atrack3 = contentdrones[atracknum3].strip()
+        atracknum4 = random_number2(0,len(contentdrones))
+        atrack4 = contentdrones[atracknum4].strip()
+        atracknum5 = random_number2(0,len(contentdrones))
+        atrack5 = contentdrones[atracknum5].strip()
+        atracknum6 = random_number2(0,len(contentdrones))
+        atrack6 = contentdrones[atracknum6].strip()
+        atracknum7 = random_number2(0,len(contentdrones))
+        atrack7 = contentdrones[atracknum7].strip()
+        atracknum8 = random_number2(0,len(contentpepper))
+        atrack8 = contentpepper[atracknum8].strip()
+        atracknum9 = random_number2(0,len(contentpepper))
+        atrack9 = contentpepper[atracknum9].strip()
+        atracknum10 = random_number2(0,len(contentpepper))
+        atrack10 = contentpepper[atracknum10].strip()
+        atracknum11 = random_number2(0,len(contentpepper))
+        atrack11 = contentpepper[atracknum11].strip()
+        atracknum12 = random_number2(0,len(contentpepper))
+        atrack12 = contentpepper[atracknum12].strip()
+        atracknum13 = random_number2(0,len(contentpepper))
+        atrack13 = contentpepper[atracknum13].strip()
+        atracknum14 = random_number2(0,len(contentpepper))
+        atrack14 = contentpepper[atracknum14].strip()
+        atracknum15 = random_number2(0,len(contentpepper))
+        atrack15 = contentpepper[atracknum15].strip()
+        atracknum16 = random_number2(0,len(contentpepper))
+
+        print("")
+
+        print("Layering tracks for track: ", (suctot + 1))
+
+
+        newAudio1 = AudioSegment.from_wav(atrack2)       
+        totlen = len(newAudio1)
+
+        newAudio2 = AudioSegment.from_wav(atrack3) 
+        l2 = len(newAudio2)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio2*rep
+
+        newAudiow2 = newAudio1.overlay(newAudiox)
+
+        newAudio3 = AudioSegment.from_wav(atrack4) 
+        l2 = len(newAudio3)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio3*rep
+
+        newAudiow3 = newAudiow2.overlay(newAudiox)
+
+        newAudio4 = AudioSegment.from_wav(atrack5) 
+        l2 = len(newAudio4)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio4*rep
+
+        newAudiow1 = newAudiow3.overlay(newAudiox)
+
+        newAudio5 = AudioSegment.from_wav(atrack6) 
+        l2 = len(newAudio5)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio5*rep
+
+        newAudiow2 = newAudiow1.overlay(newAudiox)
+
+        newAudio6 = AudioSegment.from_wav(atrack7) 
+        l2 = len(newAudio6)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio6*rep
+
+        newAudiow3 = newAudiow2.overlay(newAudiox)
+
+        newAudio7 = AudioSegment.from_wav(atrack8) 
+        l2 = len(newAudio7)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio7*rep
+
+        newAudiow1 = newAudiow3.overlay(newAudiox)
+
+        newAudio8 = AudioSegment.from_wav(atrack9) 
+        l2 = len(newAudio8)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio8*rep
+
+        newAudiow2 = newAudiow1.overlay(newAudiox)
+
+        newAudio9 = AudioSegment.from_wav(atrack10) 
+        l2 = len(newAudio9)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio9*rep
+
+        newAudiow3 = newAudiow2.overlay(newAudiox)
+
+        newAudio10 = AudioSegment.from_wav(atrack11) 
+        l2 = len(newAudio10)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio10*rep
+
+        newAudiow1 = newAudiow3.overlay(newAudiox)
+
+        newAudio11 = AudioSegment.from_wav(atrack12) 
+        l2 = len(newAudio11)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio11*rep
+
+        newAudiow2 = newAudiow1.overlay(newAudiox)
+
+        newAudio12 = AudioSegment.from_wav(atrack13) 
+        l2 = len(newAudio12)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio12*rep
+
+        newAudiow3 = newAudiow2.overlay(newAudiox)
+
+        newAudio13 = AudioSegment.from_wav(atrack14) 
+        l2 = len(newAudio13)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio13*rep
+
+        newAudiow1 = newAudiow3.overlay(newAudiox)
+
+        newAudio14 = AudioSegment.from_wav(atrack15) 
+        l2 = len(newAudio14)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio14*rep
+
+        newAudiow2 = newAudiow1.overlay(newAudiox)
+
+        newAudioamb1 = newAudiow2.fade_in(200)
+        newAudioamb2 = newAudioamb1.fade_out(200)
+
+        newAudioamb2 = newAudioamb2 * 8
 
         newAudiobeat = AudioSegment.from_wav(atrack1) 
 
-        #######
+        if len(newAudiobeat) >= len(newAudioamb2):
 
-        #atracknum1 = random_number2(0,len(contentbeats))
-        #atrack1 = contentbeats[atracknum1].strip()
+            newAudionear = newAudioamb2.overlay(newAudiobeat)
+        
+        if len(newAudiobeat) < len(newAudioamb2):
+
+            newAudionear1 = newAudiobeat.overlay(newAudioamb2)
+
+        ############################################################ #2
+
+        
         atracknum2 = random_number2(0,len(contentgit))
         atrack2 = contentgit[atracknum2].strip()
         atracknum3 = random_number2(0,len(contentdrones))
@@ -308,26 +464,21 @@ for ctr in range(700):
         newAudioamb1 = newAudiow2.fade_in(200)
         newAudioamb2 = newAudioamb1.fade_out(200)
 
-        newAudioambq1 = newAudioamb2 * 2
-
-        if len(newAudiobeat) >= len(newAudioambq1):
-
-            newAudionear1 = newAudioambq1.overlay(newAudiobeat)
-        
-        if len(newAudiobeat) < len(newAudioambq1):
-
-            newAudionear1 = newAudiobeat.overlay(newAudioambq1)
-
-        
-        atracknum1 = random_number2(0,len(contentbeats))
-        atrack1 = contentbeats[atracknum1].strip()
+        newAudioamb2 = newAudioamb2 * 8
 
         newAudiobeat = AudioSegment.from_wav(atrack1) 
 
-        #######
+        if len(newAudiobeat) >= len(newAudioamb2):
 
-        #atracknum1 = random_number2(0,len(contentbeats))
-        #atrack1 = contentbeats[atracknum1].strip()
+            newAudionear = newAudioamb2.overlay(newAudiobeat)
+        
+        if len(newAudiobeat) < len(newAudioamb2):
+
+            newAudionear2 = newAudiobeat.overlay(newAudioamb2)
+
+        ############################################################ #3
+
+        
         atracknum2 = random_number2(0,len(contentgit))
         atrack2 = contentgit[atracknum2].strip()
         atracknum3 = random_number2(0,len(contentdrones))
@@ -473,195 +624,50 @@ for ctr in range(700):
         newAudioamb1 = newAudiow2.fade_in(200)
         newAudioamb2 = newAudioamb1.fade_out(200)
 
-        newAudioambq2 = newAudioamb2 * 2
+        newAudioamb2 = newAudioamb2 * 8
 
-        if len(newAudiobeat) >= len(newAudioambq2):
+        newAudiobeat = AudioSegment.from_wav(atrack1) 
 
-            newAudionear2 = newAudioambq2.overlay(newAudiobeat)
+        if len(newAudiobeat) >= len(newAudioamb2):
+
+            newAudionear = newAudioamb2.overlay(newAudiobeat)
         
-        if len(newAudiobeat) < len(newAudioambq2):
+        if len(newAudiobeat) < len(newAudioamb2):
 
-            newAudionear2 = newAudiobeat.overlay(newAudioambq2)
+            newAudionear3 = newAudiobeat.overlay(newAudioamb2)
 
-        #######
+        ############################################################
 
-        #atracknum1 = random_number2(0,len(contentbeats))
-        #atrack1 = contentbeats[atracknum1].strip()
-        atracknum2 = random_number2(0,len(contentgit))
-        atrack2 = contentgit[atracknum2].strip()
-        atracknum3 = random_number2(0,len(contentdrones))
-        atrack3 = contentdrones[atracknum3].strip()
-        atracknum4 = random_number2(0,len(contentdrones))
-        atrack4 = contentdrones[atracknum4].strip()
-        atracknum5 = random_number2(0,len(contentdrones))
-        atrack5 = contentdrones[atracknum5].strip()
-        atracknum6 = random_number2(0,len(contentdrones))
-        atrack6 = contentdrones[atracknum6].strip()
-        atracknum7 = random_number2(0,len(contentdrones))
-        atrack7 = contentdrones[atracknum7].strip()
-        atracknum8 = random_number2(0,len(contentpepper))
-        atrack8 = contentpepper[atracknum8].strip()
-        atracknum9 = random_number2(0,len(contentpepper))
-        atrack9 = contentpepper[atracknum9].strip()
-        atracknum10 = random_number2(0,len(contentpepper))
-        atrack10 = contentpepper[atracknum10].strip()
-        atracknum11 = random_number2(0,len(contentpepper))
-        atrack11 = contentpepper[atracknum11].strip()
-        atracknum12 = random_number2(0,len(contentpepper))
-        atrack12 = contentpepper[atracknum12].strip()
-        atracknum13 = random_number2(0,len(contentpepper))
-        atrack13 = contentpepper[atracknum13].strip()
-        atracknum14 = random_number2(0,len(contentpepper))
-        atrack14 = contentpepper[atracknum14].strip()
-        atracknum15 = random_number2(0,len(contentpepper))
-        atrack15 = contentpepper[atracknum15].strip()
-        atracknum16 = random_number2(0,len(contentpepper))
+        newAudiomag = newAudionear1 + newAudionear2 + newAudionear3
 
-        print("")
-
-        print("Layering tracks for track: ", (suctot + 1))
-
-
-        newAudio1 = AudioSegment.from_wav(atrack2)       
-        totlen = len(newAudio1)
-
-        newAudio2 = AudioSegment.from_wav(atrack3) 
-        l2 = len(newAudio2)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio2*rep
-
-        newAudiow2 = newAudio1.overlay(newAudiox)
-
-        newAudio3 = AudioSegment.from_wav(atrack4) 
-        l2 = len(newAudio3)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio3*rep
-
-        newAudiow3 = newAudiow2.overlay(newAudiox)
-
-        newAudio4 = AudioSegment.from_wav(atrack5) 
-        l2 = len(newAudio4)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio4*rep
-
-        newAudiow1 = newAudiow3.overlay(newAudiox)
-
-        newAudio5 = AudioSegment.from_wav(atrack6) 
-        l2 = len(newAudio5)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio5*rep
-
-        newAudiow2 = newAudiow1.overlay(newAudiox)
-
-        newAudio6 = AudioSegment.from_wav(atrack7) 
-        l2 = len(newAudio6)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio6*rep
-
-        newAudiow3 = newAudiow2.overlay(newAudiox)
-
-        newAudio7 = AudioSegment.from_wav(atrack8) 
-        l2 = len(newAudio7)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio7*rep
-
-        newAudiow1 = newAudiow3.overlay(newAudiox)
-
-        newAudio8 = AudioSegment.from_wav(atrack9) 
-        l2 = len(newAudio8)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio8*rep
-
-        newAudiow2 = newAudiow1.overlay(newAudiox)
-
-        newAudio9 = AudioSegment.from_wav(atrack10) 
-        l2 = len(newAudio9)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio9*rep
-
-        newAudiow3 = newAudiow2.overlay(newAudiox)
-
-        newAudio10 = AudioSegment.from_wav(atrack11) 
-        l2 = len(newAudio10)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio10*rep
-
-        newAudiow1 = newAudiow3.overlay(newAudiox)
-
-        newAudio11 = AudioSegment.from_wav(atrack12) 
-        l2 = len(newAudio11)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio11*rep
-
-        newAudiow2 = newAudiow1.overlay(newAudiox)
-
-        newAudio12 = AudioSegment.from_wav(atrack13) 
-        l2 = len(newAudio12)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio12*rep
-
-        newAudiow3 = newAudiow2.overlay(newAudiox)
-
-        newAudio13 = AudioSegment.from_wav(atrack14) 
-        l2 = len(newAudio13)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio13*rep
-
-        newAudiow1 = newAudiow3.overlay(newAudiox)
-
-        newAudio14 = AudioSegment.from_wav(atrack15) 
-        l2 = len(newAudio14)
-        rep = int(totlen / l2)
-
-        newAudiox = newAudio14*rep
-
-        newAudiow2 = newAudiow1.overlay(newAudiox)
-
-        newAudioamb1 = newAudiow2.fade_in(200)
-        newAudioamb2 = newAudioamb1.fade_out(200)
-
-        newAudioambq3 = newAudioamb2 * 2
-
-        if len(newAudiobeat) >= len(newAudioambq3):
-
-            newAudionear3 = newAudioambq3.overlay(newAudiobeat)
-        
-        if len(newAudiobeat) < len(newAudioambq3):
-
-            newAudionear3= newAudiobeat.overlay(newAudioambq3)
-
-        newAudio3 = newAudionear1 + newAudionear2 + newAudionear3 + newAudionear3 
-            
-        prod = int(400000 / (len(newAudio3)))
+        prod = int(400000 / (len(newAudiomag)))
 
         rep2 = prod - 3
 
-        newAudionear = newAudio3 * rep2
-        
+        newAudiomag2 = newAudiomag * rep2
+
+        ############################################################
+
+
+        newAudiomag3 = newAudiomag2.fade_in(5000)
+        newAudiomag4 = newAudiomag3.fade_out(15000)
+
+
+        #########################################################
+
+                
         attenuate_db = 0
         accentuate_db = .24
         goldsound = -18
         stsound = -23
 
-        leng = len(newAudionear)
+        leng = len(newAudiomag4)
 
-        startvol = get_loudness(newAudionear, leng)
+        startvol = get_loudness(newAudiomag4, leng)
 
         if startvol < -16 and startvol > -18.5:
 
-            newAudio2 = reduce_volume(newAudionear, startvol)
+            newAudio2 = reduce_volume(newAudiomag4, startvol)
 
             filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
@@ -680,23 +686,13 @@ for ctr in range(700):
                 newAudio3 = newAudio3 - chvol
 
             oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
-            newAudio4.export(oufil, format="wav")
+            newAudio3.export(oufil, format="wav")
 
             suctot += 1
 
             if suctot == trtot:
                 break
-
-        if startvol > -16 and startvol < -18.5:
-
-            oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
-            newAudio4.export(oufil, format="wav")
-
-            suctot += 1
-
-            if suctot == trtot:
-                break
-
+        
     except:
 
         print("")
@@ -716,7 +712,6 @@ print("The designated files have been removed. Thank you.")
 
 print("")
 
-
-#call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BadThomas.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BadThomas.py"])
 
 ## THE GHOST OF THE SHADOW ##
