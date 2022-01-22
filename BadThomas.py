@@ -27,7 +27,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("Hop" in str(filepath)) or ("House" in str(filepath)) or (("Dub" in str(filepath)) and ("tep" not in str(filepath))):  
+        if  filepath.endswith(".wav")  and ("Hop" in str(filepath)) or ("House" in str(filepath)) or (("Dub" in str(filepath)) and ("tep" not in str(filepath))) and ("Drum" not in str(filepath)) and ("Beat" not in str(filepath)):  
              
             contentsax.append(filepath)
 
@@ -41,9 +41,11 @@ for subdir, dirs, files in os.walk(srchstr):
 
             contentorg.append(filepath)
 
+        if  filepath.endswith(".wav")  and  (("Hop" in str(filepath))) and ("Bass" in str(filepath))):
+
             contentbass.append(filepath)
 
-        if  filepath.endswith(".wav")  and (("Groove" in str(filepath)) or ("Jazz" in str(filepath))) and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  :
+        if  filepath.endswith(".wav")  and  (("Elec" in str(filepath))) and (("Beat" in str(filepath)) or ("Drum" in str(filepath)))  :
         
             contentbeats.append(filepath)
 
@@ -155,6 +157,6 @@ for ctr in range(100):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentgit[y], outstr)
 
-call(["python", "DJProcessorNuFlyTrac121.py"])
+call(["python", "DJProcessorNuFlyRev121.py"])
 
 ## THE GHOST OF THE SHADOW ##
