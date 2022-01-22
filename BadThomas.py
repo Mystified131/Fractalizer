@@ -41,7 +41,7 @@ for subdir, dirs, files in os.walk(srchstr):
 
             contentorg.append(filepath)
 
-        if  filepath.endswith(".wav")  and  (("Hop" in str(filepath))) and ("Bass" in str(filepath))):
+        if  filepath.endswith(".wav")  and  (("Hop" in str(filepath))) and ("Bass" in str(filepath)):
 
             contentbass.append(filepath)
 
