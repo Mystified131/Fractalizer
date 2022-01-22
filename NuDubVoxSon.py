@@ -44,7 +44,7 @@ def get_loudness(sound, slice_size):
 
 try:
 
-    newpath = 'H:\\Spirit_Circuits\\NewAlbum' 
+    newpath = 'G:\\Spirit_Circuits\\NewAlbum' 
     if not os.path.exists(newpath):
         os.makedirs(newpath)
 
