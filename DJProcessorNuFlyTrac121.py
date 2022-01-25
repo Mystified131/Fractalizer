@@ -319,7 +319,7 @@ for ctr in range(50):
         ewAudiof2 = newAudiof2.fade_in(10)
         newAudiof2 = newAudiof2.fade_out(10)
 
-        newAudiov = newAudiob.overlay(newAudio)
+        newAudiov = newAudio.overlay(newAudiob)
 
         newAudiof = newAudiof.overlay(newAudiov)
 

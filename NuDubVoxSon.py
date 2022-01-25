@@ -45,8 +45,7 @@ def get_loudness(sound, slice_size):
 try:
 
     newpath = 'G:\\Spirit_Circuits\\NewAlbum' 
-    if not os.path.exists(newpath):
-        os.makedirs(newpath)
+    os.makedirs(newpath)
 
 except:
 
@@ -193,16 +192,12 @@ for x3 in range(25):
     except:
         print("File unreadable.")
 
-altot = 12
 
-tartot = 0
-
-trtot = 700
+trtot = len(contentbeats)
 
 for ctr in range(trtot):
 
     try:
-
         atrack1 = contentbeats[ctr]
         atracknum2 = random_number2(0,len(contentgit))
         atrack2 = contentgit[atracknum2]
@@ -256,59 +251,44 @@ for ctr in range(trtot):
         newAudionear = newAudionear.fade_in(5000)
         newAudionear = newAudionear.fade_out(15000)
 
+        
         attenuate_db = 0
         accentuate_db = .24
         goldsound = -18
-        stsound = -23
+        stsound = -21
 
         leng = len(newAudionear)
 
         startvol = get_loudness(newAudionear, leng)
 
-        if startvol < -16 and startvol > -18.5:
+        #if startvol < -16 and startvol > -18.5:
 
-            newAudio2 = reduce_volume(newAudionear, startvol)
+        newAudio2 = reduce_volume(newAudionear, startvol)
 
-            filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+        #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
-            newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+        #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
 
-            loudn = get_loudness(newAudio3, leng)
+        #loudn = get_loudness(newAudio3, leng)
 
-            print(loudn)
+        print(startvol)
 
-            if loudn <= goldsound:
-                chvol = (goldsound - loudn)
-                newAudio3 = newAudio3 + chvol
+        #if loudn <= goldsound:
+            #chvol = (goldsound - loudn)
+            #newAudio3 = newAudio3 + chvol
 
-            if loudn > goldsound:
-                chvol = (loudn - goldsound)
-                newAudio3 = newAudio3 - chvol
+        #if loudn > goldsound:
+            #chvol = (loudn - goldsound)
+            #newAudio3 = newAudio3 - chvol
 
-            oufil = "G:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(tartot) + ".wav"
-            newAudio3.export(oufil, format="wav")
+        oufil = "G:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
+        newAudio2.export(oufil, format="wav")
 
-            tartot += 1
-
-            if tartot == altot:
-                break
-
-        if startvol > -16 and startvol < -18.5:
-
-            oufil = "G:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(tartot) + ".wav"
-            newAudio3.export(oufil, format="wav")
-
-            tartot += 1
-
-            if tartot == altot:
-                break    
-    
     except:
 
         print("")
 
-        print("Process error. File not created.")
-
+        print("Error during render. File not created.")
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
 

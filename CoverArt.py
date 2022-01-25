@@ -18,7 +18,9 @@ tim = ("".join(list))
 
 #Imgpt = "F:\\Visual\\VisualArt"
 
-Imgpt = "F:\\Visual\\VariousImages\\Polaroid\PolArt"
+#Imgpt = "F:\\Visual\\VariousImages\\Polaroid\PolArt"
+
+Imgpt = "F:\\PolArt"
 
 contentgraph = []
 

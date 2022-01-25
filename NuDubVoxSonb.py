@@ -42,11 +42,12 @@ def bass_line_freq(track):
 def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
+
 try:
 
     newpath = 'H:\\Spirit_Circuits\\NewAlbum' 
-    if not os.path.exists(newpath):
-        os.makedirs(newpath)
+
+    os.makedirs(newpath)
 
 except:
 
@@ -80,7 +81,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath):
+        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath) :
             contentgitr.append(str(file))
        
 print("")
@@ -184,7 +185,7 @@ for x3 in range(25):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-            newAUdio = newAudio - 1
+            newAudio = newAudio - 1
         oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\vsamp" + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
         titsamp = "vsamp" + str(ctr) + ".wav"
@@ -193,122 +194,103 @@ for x3 in range(25):
     except:
         print("File unreadable.")
 
-altot = 12
 
-tartot = 0
-
-trtot = 700
+trtot = len(contentbeats)
 
 for ctr in range(trtot):
 
-    try:
-
-        atrack1 = contentbeats[ctr]
-        atracknum2 = random_number2(0,len(contentgit))
-        atrack2 = contentgit[atracknum2]
-        atracknum3 = random_number2(0,len(contentgit))
-        atrack3 = contentgit[atracknum3]
-        atracknum4 = random_number2(0,len(contentgit))
-        atrack4 = contentgit[atracknum4]
-
-
-        print("")
-
-        print("Layering tracks for track: ", (ctr+ 1))
+    #try:
+    atrack1 = contentbeats[ctr]
+    atracknum2 = random_number2(0,len(contentgit))
+    atrack2 = contentgit[atracknum2]
+    atracknum3 = random_number2(0,len(contentgit))
+    atrack3 = contentgit[atracknum3]
+    atracknum4 = random_number2(0,len(contentgit))
+    atrack4 = contentgit[atracknum4]
 
 
-        newAudio1 = AudioSegment.from_wav(atrack2)       
-        totlen = len(newAudio1)
+    print("")
 
-        newAudio2 = AudioSegment.from_wav(atrack3) 
-        l2 = len(newAudio2)
-        rep = int(totlen / l2)
+    print("Layering tracks for track: ", (ctr+ 1))
 
-        newAudiox = newAudio2*rep
 
-        newAudiow2 = newAudio1.overlay(newAudiox)
+    newAudio1 = AudioSegment.from_wav(atrack2)       
+    totlen = len(newAudio1)
 
-        newAudio3 = AudioSegment.from_wav(atrack4) 
-        l2 = len(newAudio3)
-        rep = int(totlen / l2)
+    newAudio2 = AudioSegment.from_wav(atrack3) 
+    l2 = len(newAudio2)
+    rep = int(totlen / l2)
 
-        newAudiox = newAudio3*rep
+    newAudiox = newAudio2*rep
 
-        newAudiow3 = newAudiow2.overlay(newAudiox)
+    newAudiow2 = newAudio1.overlay(newAudiox)
 
-        newAudioamb1 = newAudiow3.fade_in(200)
-        newAudioamb2 = newAudioamb1.fade_out(200)
+    newAudio3 = AudioSegment.from_wav(atrack4) 
+    l2 = len(newAudio3)
+    rep = int(totlen / l2)
 
-        newAudioamb2 = newAudioamb2 * 8
+    newAudiox = newAudio3*rep
 
-        newAudiobeat = AudioSegment.from_wav(atrack1) 
-        newvol = 2
-        newAudiobeat = newAudiobeat - newvol
+    newAudiow3 = newAudiow2.overlay(newAudiox)
 
-        if len(newAudiobeat) >= len(newAudioamb2):
+    newAudioamb1 = newAudiow3.fade_in(200)
+    newAudioamb2 = newAudioamb1.fade_out(200)
 
-            newAudionear = newAudioamb2.overlay(newAudiobeat)
-        
-        if len(newAudiobeat) < len(newAudioamb2):
+    newAudioamb2 = newAudioamb2 * 8
 
-            newAudionear = newAudiobeat.overlay(newAudioamb2)
+    newAudiobeat = AudioSegment.from_wav(atrack1) 
+    newvol = 2
+    newAudiobeat = newAudiobeat - newvol
 
-        newAudionear = newAudionear.fade_in(5000)
-        newAudionear = newAudionear.fade_out(15000)
+    if len(newAudiobeat) >= len(newAudioamb2):
 
-        attenuate_db = 0
-        accentuate_db = .24
-        goldsound = -18
-        stsound = -23
-
-        leng = len(newAudionear)
-
-        startvol = get_loudness(newAudionear, leng)
-
-        if startvol < -16 and startvol > -18.5:
-
-            newAudio2 = reduce_volume(newAudionear, startvol)
-
-            filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
-
-            newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
-
-            loudn = get_loudness(newAudio3, leng)
-
-            print(loudn)
-
-            if loudn <= goldsound:
-                chvol = (goldsound - loudn)
-                newAudio3 = newAudio3 + chvol
-
-            if loudn > goldsound:
-                chvol = (loudn - goldsound)
-                newAudio3 = newAudio3 - chvol
-
-            oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(tartot) + ".wav"
-            newAudio3.export(oufil, format="wav")
-
-            tartot += 1
-
-            if tartot == altot:
-                break
-
-        if startvol > -16 and startvol < -18.5:
-
-            oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(tartot) + ".wav"
-            newAudio3.export(oufil, format="wav")
-
-            tartot += 1
-
-            if tartot == altot:
-                break    
+        newAudionear = newAudioamb2.overlay(newAudiobeat)
     
-    except:
+    if len(newAudiobeat) < len(newAudioamb2):
 
-        print("")
+        newAudionear = newAudiobeat.overlay(newAudioamb2)
 
-        print("Process error. File not created.")
+    newAudionear = newAudionear.fade_in(5000)
+    newAudionear = newAudionear.fade_out(15000)
 
+    
+    attenuate_db = 0
+    accentuate_db = .24
+    goldsound = -18
+    stsound = -21
+
+    leng = len(newAudionear)
+
+    startvol = get_loudness(newAudionear, leng)
+
+    #if startvol < -16 and startvol > -18.5:
+
+    newAudio2 = reduce_volume(newAudionear, startvol)
+
+    #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+
+    #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+
+    #loudn = get_loudness(newAudio3, leng)
+
+    print(startvol)
+
+    #if loudn <= goldsound:
+        #chvol = (goldsound - loudn)
+        #newAudio3 = newAudio3 + chvol
+
+    #if loudn > goldsound:
+        #chvol = (loudn - goldsound)
+        #newAudio3 = newAudio3 - chvol
+
+    oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
+    newAudio2.export(oufil, format="wav")
+
+    #except:
+
+    #print("")
+
+    #print("Error during render. File not created.")
 
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
 

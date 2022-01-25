@@ -712,6 +712,8 @@ print("The designated files have been removed. Thank you.")
 
 print("")
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BadThomas.py"])
+#call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\StartTrackEvolvingHere.py"])
+
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\StartTrackEvolvingHere.py"])
 
 ## THE GHOST OF THE SHADOW ##
