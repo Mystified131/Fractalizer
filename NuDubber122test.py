@@ -349,10 +349,6 @@ for ctr in range(700):
         atrack15 = contentpepper[atracknum15].strip()
         atracknum16 = random_number2(0,len(contentpepper))
 
-        print("")
-
-        print("Layering tracks for track: ", (suctot + 1))
-
 
         newAudio1 = AudioSegment.from_wav(atrack2)       
         totlen = len(newAudio1)
@@ -509,10 +505,6 @@ for ctr in range(700):
         atrack15 = contentpepper[atracknum15].strip()
         atracknum16 = random_number2(0,len(contentpepper))
 
-        print("")
-
-        print("Layering tracks for track: ", (suctot + 1))
-
 
         newAudio1 = AudioSegment.from_wav(atrack2)       
         totlen = len(newAudio1)
@@ -624,36 +616,33 @@ for ctr in range(700):
         newAudioamb1 = newAudiow2.fade_in(200)
         newAudioamb2 = newAudioamb1.fade_out(200)
 
-        newAudioamb2 = newAudioamb2 * 8
+        newAudioamb2 = newAudioamb2 * 6
 
         newAudiobeat = AudioSegment.from_wav(atrack1) 
 
-        if len(newAudiobeat) >= len(newAudioamb2):
+        #if len(newAudiobeat) >= len(newAudioamb2):
 
-            newAudionear = newAudioamb2.overlay(newAudiobeat)
+        #newAudionear3 = newAudioamb2.overlay(newAudiobeat)
         
-        if len(newAudiobeat) < len(newAudioamb2):
+        #if len(newAudiobeat) < len(newAudioamb2):
 
-            newAudionear3 = newAudiobeat.overlay(newAudioamb2)
-
-        ############################################################
-
-        newAudiomag = newAudionear1 + newAudionear2 + newAudionear3
-
-        prod = int(400000 / (len(newAudiomag)))
-
-        rep2 = prod - 3
-
-        newAudiomag2 = newAudiomag * rep2
+        newAudionear3 = newAudiobeat.overlay(newAudioamb2)
 
         ############################################################
 
+        newAudiomag = newAudionear1 + newAudionear1 +  newAudionear2 + newAudionear3 + newAudionear3
 
-        newAudiomag3 = newAudiomag2.fade_in(5000)
-        newAudiomag4 = newAudiomag3.fade_out(15000)
+        try: 
+            newAudiomag = newAudiomag * 3
+
+        except:
+            newAudiomag = newAudiomag * 2
+
+        if len(newAudiomag) > 340000:
+            newAudiomag = newAudiomag[0 : 340000]
 
 
-        #########################################################
+        ############################################################
 
                 
         attenuate_db = 0
@@ -661,13 +650,13 @@ for ctr in range(700):
         goldsound = -18
         stsound = -23
 
-        leng = len(newAudiomag4)
+        leng = len(newAudiomag)
 
-        startvol = get_loudness(newAudiomag4, leng)
+        startvol = get_loudness(newAudiomag, leng)
 
-        if startvol < -16 and startvol > -18.5:
+        if (startvol < -11 and startvol > -18.5) and leng > 100000:
 
-            newAudio2 = reduce_volume(newAudiomag4, startvol)
+            newAudio2 = reduce_volume(newAudiomag, startvol)
 
             filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
@@ -685,14 +674,26 @@ for ctr in range(700):
                 chvol = (loudn - goldsound)
                 newAudio3 = newAudio3 - chvol
 
+            newAudio3 = newAudio3.fade_in(5000)
+            newAudio3 = newAudio3.fade_out(7000)
+
             oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
             newAudio3.export(oufil, format="wav")
+
+        #if not (startvol < -11 and startvol > -18.5):
+
+            #loudn = get_loudness(newAudiomag4, leng)
+
+            #print(loudn)
+
+            #oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
+            #newAudiomag4.export(oufil, format="wav")
 
             suctot += 1
 
             if suctot == trtot:
                 break
-        
+    
     except:
 
         print("")

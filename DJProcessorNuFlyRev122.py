@@ -184,8 +184,6 @@ for ctr in range(50):
         newAudio = newAudio.fade_out(10)
 
         newAudiob = AudioSegment.from_wav(btrack)
-
-        newAudiob = newAudiob * 4
         
         #newvolb = random_number2(8,12)
         #newAudiob = newAudiob - newvolb
@@ -321,6 +319,8 @@ for ctr in range(50):
         ewAudiof2 = newAudiof2.fade_in(10)
         newAudiof2 = newAudiof2.fade_out(10)
 
+        #newAudiov = newAudiob.overlay(newAudio)
+
         newAudiov = newAudio.overlay(newAudiob)
 
         newAudiof = newAudiof.overlay(newAudiov)
@@ -350,6 +350,8 @@ for ctr in range(50):
         
         newAudiopp = newAudiodd.overlay(newAudioqq)
 
+        newAudiorr = newAudiopp + newAudiopp
+
         #prod = int(360000 / (len(newAudiopp)))
 
         #rep2 = prod - 3
@@ -358,12 +360,12 @@ for ctr in range(50):
 
         #newAudiog = newAudiopp * rep
 
-        newAudiopp = newAudiopp - 2
+        newAudiorr = newAudiorr - 2
 
         oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsamplebeat" + tracknam + str(ctr) + ".wav"
 
         #if int(os.stat(newAudiog).st_size) < sizlim:
-        newAudiopp.export(oufil, format="wav")
+        newAudiorr.export(oufil, format="wav")
         
     except:
         print("File unreadable.")  
@@ -604,8 +606,6 @@ for ctr in range(50):
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")
-
-#call(["python", "NuDubber121.py"])
 
 call(["python", "NuDubber122.py"])
 

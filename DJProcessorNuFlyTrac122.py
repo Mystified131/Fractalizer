@@ -177,178 +177,78 @@ for ctr in range(50):
     try:
 
         newAudio = AudioSegment.from_wav(atrack)
-        
-        newvol = random_number2(3,6)
-        newAudio = newAudio - newvol
-        newAudio = newAudio.fade_in(10)
-        newAudio = newAudio.fade_out(10)
+             
 
         newAudiob = AudioSegment.from_wav(btrack)
 
         newAudiob = newAudiob * 4
         
-        #newvolb = random_number2(8,12)
-        #newAudiob = newAudiob - newvolb
-        newAudiob = newAudiob.fade_in(10)
-        newAudiob = newAudiob.fade_out(10)
-
-        if len(newAudio) < len(newAudiob):
-
-            amt = len(newAudio)
-
-            newAudiob = newAudiob[1:amt]
-
+    
         newAudioc = AudioSegment.from_wav(ctrack)
         
         newvolc = random_number2(12,15)
         newAudioc = newAudioc - newvolc
-        if len(newAudio) <= len(newAudioc):
-            baulen = len(newAudio)
-        if len(newAudio) > len(newAudioc):
-            baulen = len(newAudioc)
-        q1 = ((random_number(4) / 10))
-        q2 = ((random_number(3) / 10) + q1)
-        baulen1 = int(baulen * q1)
-        baulen2 = int(baulen * q2)
-        newAudioc = newAudioc[baulen1:baulen2]
 
-        if len(newAudio) < len(newAudioc):
-
-            amt = len(newAudio)
-
-            newAudioc = newAudioc[1:amt]
 
         newAudioc2 = AudioSegment.from_wav(ctrack2)
         
         newvolc = random_number2(12,15)
         newAudioc2 = newAudioc2 - newvolc
-        if len(newAudio) <= len(newAudioc2):
-            baulen = len(newAudio)
-        if len(newAudio) > len(newAudioc2):
-            baulen = len(newAudioc)
-        baulen = len(newAudio)
-        q1 = ((random_number(4) / 10))
-        q2 = ((random_number(3) / 10) + q1)
-        baulen1 = int(baulen * q1)
-        baulen2 = int(baulen * q2)
-        newAudioc2 = newAudioc2[baulen1:baulen2]
 
-        if len(newAudio) < len(newAudioc2):
-
-            amt = len(newAudio)
-
-            newAudioc2 = newAudioc2[1:amt]
+        newAudioc2 = newAudioc2 * 2
 
         newAudiod = AudioSegment.from_wav(dtrack)
 
-        newvold = random_number2(8,12)
+        newvold = random_number2(12,18)
         newAudiod = newAudiod - newvold
 
-        if len(newAudio) < len(newAudiod):
-
-            amt = len(newAudio)
-
-            newAudiod = newAudiod[1:amt]
-
-        newAudiod = newAudiod.fade_in(1000)
-        newAudiod = newAudiod.fade_out(1000)
       
         newAudioe = AudioSegment.from_wav(etrack)
         
         newvole = random_number2(10,12)
         newAudioe = newAudioe - newvole
-        detl = len(newAudio) / 2
-        if len(newAudioe) <= detl:
-            newAudioe = newAudioe * 2
 
-        if len(newAudio) < len(newAudioe):
-
-            amt = len(newAudio)
-
-            newAudioe = newAudioe[1:amt]
-
-        newAudioe = newAudioe.fade_in(10)
-        newAudioe = newAudioe.fade_out(10)
+        newAudioe = newAudioe * 4
+       
 
         newAudioe2 = AudioSegment.from_wav(etrack2)
         
         newvole = random_number2(10,12)
         newAudioe2 = newAudioe2 - newvole
-        detl = len(newAudio) / 2
-        if len(newAudioe2) <= detl:
-            newAudioe2 = newAudioe2 * 2
 
-        if len(newAudio) < len(newAudioe2):
-
-            amt = len(newAudio)
-
-            newAudioe2 = newAudioe2[1:amt]
-
-        newAudioe2 = newAudioe2.fade_in(10)
-        newAudioe2 = newAudioe2.fade_out(10)
+        newAudioe2 = newAudioe2 * 2
+    
 
         newAudiof = AudioSegment.from_wav(ftrack)
         
         newvolf = random_number2(12, 14)
         newAudiof = newAudiof - newvolf
-        detl = len(newAudio) / 2
-        if len(newAudiof) <= detl:
-            newAudiof = newAudiof * 2
-
-        if len(newAudio) < len(newAudiof):
-
-            amt = len(newAudio)
-
-            newAudiof= newAudiof[1:amt]
-
-        newAudiof = newAudiof.fade_in(10)
-        newAudiof = newAudiof.fade_out(10)
+       
 
         newAudiof2 = AudioSegment.from_wav(ftrack2)
         
         newvolf = random_number2(12, 14)
         newAudiof2 = newAudiof2 - newvolf
-        detl = len(newAudio) / 2
-        if len(newAudiof2) <= detl:
-            newAudiof2 = newAudiof2 * 2
+      
+        newAudiof2 = newAudiof2 * 4
 
-        if len(newAudio) < len(newAudiof2):
+        newAudio1 = newAudiof2.overlay(newAudiof)
 
-            amt = len(newAudio)
+        newAudio2 = newAudioe2.overlay(newAudio1)
 
-            newAudiof2= newAudiof2[1:amt]
+        newAudio3 = newAudioe.overlay(newAudio2)
 
-        ewAudiof2 = newAudiof2.fade_in(10)
-        newAudiof2 = newAudiof2.fade_out(10)
+        newAudio4 = newAudiod.overlay(newAudio3)
 
-        newAudiov = newAudio.overlay(newAudiob)
+        newAudio5 = newAudioc2.overlay(newAudio4)
 
-        newAudiof = newAudiof.overlay(newAudiov)
+        newAudio6 = newAudioc.overlay(newAudio5)
 
-        newAudioe = newAudioe.overlay(newAudiof)
+        newAudio7 = newAudiob.overlay(newAudio6)
 
-        newAudioz = newAudioc.overlay(newAudioe)
+        newAudio8 = newAudio.overlay(newAudio7)
 
-        newAudiof2 = newAudiof2.overlay(newAudiov)
-
-        newAudioe2 = newAudioe2.overlay(newAudiof2)
-
-        newAudioz2 = newAudioc2.overlay(newAudioe2)
-
-        newAudiodd = newAudiod * 4
-        
-        det = random_number(3)
-
-        if det == 0:
-            newAudioqq = newAudioz + newAudiov + newAudioz2 + newAudiov 
-        
-        if det == 1:
-            newAudioqq = newAudiov + newAudioz2 + newAudiov + newAudioz2 
-
-        if det == 2: 
-            newAudioqq = newAudioz2 + newAudioz + newAudiov + newAudiov
-        
-        newAudiopp = newAudiodd.overlay(newAudioqq)
+        newAudiopp = newAudio8 * 4
 
         #prod = int(360000 / (len(newAudiopp)))
 
