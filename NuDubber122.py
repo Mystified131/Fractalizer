@@ -713,8 +713,8 @@ print("The designated files have been removed. Thank you.")
 
 print("")
 
-#call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\StartTrackEvolvingHere.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\StartTrackEvolvingHere.py"])
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BatchDeleter.py"])
+#call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BatchDeleter.py"])
 
 ## THE GHOST OF THE SHADOW ##

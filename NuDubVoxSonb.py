@@ -45,7 +45,7 @@ def get_loudness(sound, slice_size):
 
 try:
 
-    newpath = 'H:\\Spirit_Circuits\\NewAlbum' 
+    newpath = 'H:\\NewBadBeats\\NewAlbum' 
 
     os.makedirs(newpath)
 
@@ -283,7 +283,7 @@ for ctr in range(trtot):
         #chvol = (loudn - goldsound)
         #newAudio3 = newAudio3 - chvol
 
-    oufil = "H:\\Spirit_Circuits\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
+    oufil = "H:\\NewBadBeats\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
     newAudio2.export(oufil, format="wav")
 
     #except:
