@@ -131,7 +131,7 @@ print("")
 
 print(mainstr)
 
-oustr = "H:\\Spirit_Circuits\\NewAlbum\\ZZ_Liner_Notes_" + str(tim) + ".txt"
+oustr = "H:\\NewBadBeats\\NewAlbum\\ZZ_Liner_Notes_" + str(tim) + ".txt"
 
 outfile = open(oustr, "w")
 
@@ -167,10 +167,10 @@ print("Your document is saved in the same folder as this code.")
 
 print("")
 
-instr = "H:\\Spirit_Circuits\\NewAlbum"
+instr = "H:\\NewBadBeats\\NewAlbum"
 #instr = "C:\\Users\\mysti\\Desktop\\NewAlbum"
 
-outstr = "H:\\Spirit_Circuits\\" + titstr
+outstr = "H:\\NewBadBeats\\" + titstr
 #outstr = "C:\\Users\\mysti\\Desktop\\" + titstr
 
 try:

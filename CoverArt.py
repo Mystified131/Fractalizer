@@ -20,7 +20,13 @@ tim = ("".join(list))
 
 #Imgpt = "F:\\Visual\\VariousImages\\Polaroid\PolArt"
 
-Imgpt = "F:\\PolArt"
+try:
+
+    Imgpt = "F:\\PolArt"
+
+except:
+
+    Imgpt = "E:\\PolArt"
 
 contentgraph = []
 
@@ -72,7 +78,7 @@ for ctr in range(20):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath = "G:\\Spirit_Circuits\\NewAlbum\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
+            outpath = "G:\\NewBadBeats\\NewAlbum\\ZZZ_Cover_" + str(tim) + str(numi) +".jpg"
 
             #cv2.imshow('matrix', bi)
             #cv2.waitKey(0)

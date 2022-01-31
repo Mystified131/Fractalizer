@@ -292,6 +292,7 @@ for ctr in range(trtot):
 
     #print("Error during render. File not created.")
 
+
 call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
 
 ## THE GHOST OF THE SHADOW ##

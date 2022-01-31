@@ -120,10 +120,20 @@ for phrs in range(lx + 1):
 
 for ctr in range(lx):
 
-    astr = fillst[ctr]
-    bstr =  fillrt[ctr] + phraselist[ctr] + filltyp[ctr] 
+    try:
 
-    os.rename(astr, bstr) 
+        astr = fillst[ctr]
+        bstr =  fillrt[ctr] + phraselist[ctr] + filltyp[ctr] 
+
+        os.rename(astr, bstr) 
+
+    except:
+
+        astr = fillst[ctr]
+        bastr = "rocket_launch_" + str(ctr)
+        bstr =  fillrt[ctr] + bastr+ filltyp[ctr] 
+
+        os.rename(astr, bstr) 
 
 titstr = phraselist[lx + 1]
 
