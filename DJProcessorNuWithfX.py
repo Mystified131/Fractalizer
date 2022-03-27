@@ -163,7 +163,7 @@ for ctr in range(50):
         
     songch = random_number2(0,len(contentbeats))
     atrack = contentbeats[songch]
-    trackname = atrack[-16:]
+    trackname = atrack[-12:]
     tracknam = ""
     for x in trackname:
         if x.isalnum():
