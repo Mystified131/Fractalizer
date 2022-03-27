@@ -162,6 +162,6 @@ for ctr in range(100):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentgit[y], outstr)
 
-call(["python", "DJProcessorNuWithFX.py"])
+call(["python", "DJProcessorNuWith2FX.py"])
 
 ## THE GHOST OF THE SHADOW ##
