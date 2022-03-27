@@ -72,7 +72,7 @@ def add_stutter(newAudio):
 
 contentbeats = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -82,7 +82,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentdrones = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -92,7 +92,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentperc = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -102,7 +102,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentpepper = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -112,7 +112,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentbass = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -122,7 +122,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentorg = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -132,7 +132,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentsax = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -142,7 +142,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
 
 contentgit = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -163,7 +163,7 @@ for ctr in range(50):
         
     songch = random_number2(0,len(contentbeats))
     atrack = contentbeats[songch]
-    trackname = atrack[-12:]
+    trackname = atrack[-16:]
     tracknam = ""
     for x in trackname:
         if x.isalnum():
@@ -323,7 +323,7 @@ for ctr in range(50):
 
         newAudiopp = newAudiopp - 2
 
-        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsamplebeat" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsamplebeat" + tracknam + str(ctr) + ".wav"
 
         #if int(os.stat(newAudiog).st_size) < sizlim:
         newAudiopp.export(oufil, format="wav")
@@ -433,7 +433,7 @@ for ctr in range(50):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsampledrone" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsampledrone" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")
@@ -535,7 +535,7 @@ for ctr in range(50):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsamplepepper" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsamplepepper" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")
@@ -575,7 +575,7 @@ for ctr in range(50):
         
         newAudio = newAudio + back
         
-        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsampleguitar" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsampleguitar" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")
