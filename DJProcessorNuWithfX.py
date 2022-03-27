@@ -68,7 +68,7 @@ def add_stutter(newAudio):
 
             return altAudio
 
-        return altAudio
+    return altAudio
 
 contentbeats = []
 
@@ -359,7 +359,7 @@ for ctr in range(50):
                 newAudio = newAudio[t1:t2]
             stutdic = random_number(10)
             if stutdic > 7:
-            newAudio = add_stutter(newAudio)
+                newAudio = add_stutter(newAudio)
             newvol = random_number2(14,20)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
