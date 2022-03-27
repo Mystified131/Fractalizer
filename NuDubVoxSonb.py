@@ -42,11 +42,9 @@ def bass_line_freq(track):
 def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
-
 try:
 
     newpath = 'H:\\NewBadBeats\\NewAlbum' 
-
     os.makedirs(newpath)
 
 except:
@@ -81,7 +79,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath) :
+        if filepath.endswith(".wav") and "Generated_voxraw" in str(filepath) or "GeneFX" in str(filepath) or "GenCh" in str(filepath):
             contentgitr.append(str(file))
        
 print("")
@@ -113,7 +111,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(12,16)
+            newvol = random_number2(8,11)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
             newAudio = newAudio.fade_out(100)
@@ -128,7 +126,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(10,14)
+            newvol = random_number2(7,11)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -145,7 +143,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(8, 16)
+            newvol = random_number2(8, 10)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -162,7 +160,7 @@ for x3 in range(25):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(9 ,12)
+            newvol = random_number2(9 ,10)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -185,7 +183,7 @@ for x3 in range(25):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-            newAudio = newAudio - 1
+            newAUdio = newAudio - 1
         oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\vsamp" + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
         titsamp = "vsamp" + str(ctr) + ".wav"
@@ -199,100 +197,99 @@ trtot = len(contentbeats)
 
 for ctr in range(trtot):
 
-    #try:
-    atrack1 = contentbeats[ctr]
-    atracknum2 = random_number2(0,len(contentgit))
-    atrack2 = contentgit[atracknum2]
-    atracknum3 = random_number2(0,len(contentgit))
-    atrack3 = contentgit[atracknum3]
-    atracknum4 = random_number2(0,len(contentgit))
-    atrack4 = contentgit[atracknum4]
+    try:
+        atrack1 = contentbeats[ctr]
+        atracknum2 = random_number2(0,len(contentgit))
+        atrack2 = contentgit[atracknum2]
+        atracknum3 = random_number2(0,len(contentgit))
+        atrack3 = contentgit[atracknum3]
+        atracknum4 = random_number2(0,len(contentgit))
+        atrack4 = contentgit[atracknum4]
 
 
-    print("")
+        print("")
 
-    print("Layering tracks for track: ", (ctr+ 1))
-
-
-    newAudio1 = AudioSegment.from_wav(atrack2)       
-    totlen = len(newAudio1)
-
-    newAudio2 = AudioSegment.from_wav(atrack3) 
-    l2 = len(newAudio2)
-    rep = int(totlen / l2)
-
-    newAudiox = newAudio2*rep
-
-    newAudiow2 = newAudio1.overlay(newAudiox)
-
-    newAudio3 = AudioSegment.from_wav(atrack4) 
-    l2 = len(newAudio3)
-    rep = int(totlen / l2)
-
-    newAudiox = newAudio3*rep
-
-    newAudiow3 = newAudiow2.overlay(newAudiox)
-
-    newAudioamb1 = newAudiow3.fade_in(200)
-    newAudioamb2 = newAudioamb1.fade_out(200)
-
-    newAudioamb2 = newAudioamb2 * 8
-
-    newAudiobeat = AudioSegment.from_wav(atrack1) 
-    newvol = 2
-    newAudiobeat = newAudiobeat - newvol
-
-    if len(newAudiobeat) >= len(newAudioamb2):
-
-        newAudionear = newAudioamb2.overlay(newAudiobeat)
-    
-    if len(newAudiobeat) < len(newAudioamb2):
-
-        newAudionear = newAudiobeat.overlay(newAudioamb2)
-
-    newAudionear = newAudionear.fade_in(5000)
-    newAudionear = newAudionear.fade_out(15000)
-
-    
-    attenuate_db = 0
-    accentuate_db = .24
-    goldsound = -18
-    stsound = -21
-
-    leng = len(newAudionear)
-
-    startvol = get_loudness(newAudionear, leng)
-
-    #if startvol < -16 and startvol > -18.5:
-
-    newAudio2 = reduce_volume(newAudionear, startvol)
-
-    #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
-
-    #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
-
-    #loudn = get_loudness(newAudio3, leng)
-
-    print(startvol)
-
-    #if loudn <= goldsound:
-        #chvol = (goldsound - loudn)
-        #newAudio3 = newAudio3 + chvol
-
-    #if loudn > goldsound:
-        #chvol = (loudn - goldsound)
-        #newAudio3 = newAudio3 - chvol
-
-    oufil = "H:\\NewBadBeats\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
-    newAudio2.export(oufil, format="wav")
-
-    #except:
-
-    #print("")
-
-    #print("Error during render. File not created.")
+        print("Layering tracks for track: ", (ctr+ 1))
 
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamerb.py"])
+        newAudio1 = AudioSegment.from_wav(atrack2)       
+        totlen = len(newAudio1)
+
+        newAudio2 = AudioSegment.from_wav(atrack3) 
+        l2 = len(newAudio2)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio2*rep
+
+        newAudiow2 = newAudio1.overlay(newAudiox)
+
+        newAudio3 = AudioSegment.from_wav(atrack4) 
+        l2 = len(newAudio3)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio3*rep
+
+        newAudiow3 = newAudiow2.overlay(newAudiox)
+
+        newAudioamb1 = newAudiow3.fade_in(200)
+        newAudioamb2 = newAudioamb1.fade_out(200)
+
+        newAudioamb2 = newAudioamb2 * 8
+
+        newAudiobeat = AudioSegment.from_wav(atrack1) 
+        newvol = 2
+        newAudiobeat = newAudiobeat - newvol
+
+        if len(newAudiobeat) >= len(newAudioamb2):
+
+            newAudionear = newAudioamb2.overlay(newAudiobeat)
+        
+        if len(newAudiobeat) < len(newAudioamb2):
+
+            newAudionear = newAudiobeat.overlay(newAudioamb2)
+
+        newAudionear = newAudionear.fade_in(5000)
+        newAudionear = newAudionear.fade_out(15000)
+
+        
+        attenuate_db = 0
+        accentuate_db = .24
+        goldsound = -18
+        stsound = -21
+
+        leng = len(newAudionear)
+
+        startvol = get_loudness(newAudionear, leng)
+
+        #if startvol < -16 and startvol > -18.5:
+
+        newAudio2 = reduce_volume(newAudionear, startvol)
+
+        #filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+
+        #newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
+
+        #loudn = get_loudness(newAudio3, leng)
+
+        print(startvol)
+
+        #if loudn <= goldsound:
+            #chvol = (goldsound - loudn)
+            #newAudio3 = newAudio3 + chvol
+
+        #if loudn > goldsound:
+            #chvol = (loudn - goldsound)
+            #newAudio3 = newAudio3 - chvol
+
+        oufil = "H:\\NewBadBeats\\NewAlbum\\Track" + tim + "_" + str(ctr) + ".wav"
+        newAudio2.export(oufil, format="wav")
+
+    except:
+
+        print("")
+
+        print("Error during render. File not created.")
+
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\FileRenamer.py"])
 
 ## THE GHOST OF THE SHADOW ##

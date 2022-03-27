@@ -7,9 +7,72 @@ from subprocess import call
 from RandFunct import random_number
 from RandFunct2 import random_number2
 
+def add_stutter(newAudio):
+
+    right_now = datetime.datetime.now().isoformat()
+    list = []
+
+    for i in right_now:
+        if i.isnumeric():
+            list.append(i)
+
+    tim = ("".join(list))
+
+    print("")
+
+    print("Please wait. Working on: " + atrack)
+
+    print("")
+    
+    audlen = len(newAudio)
+
+    slen = random_number2(1000,3000)
+
+    slctot = (int(audlen/slen))
+
+    slpt = 0
+
+    altAudio = newAudio[0:0]
+
+    for ctr in range(slctot):
+
+        try:
+
+            slen = random_number2(1000,3000)
+
+            slend = slpt + slen
+
+            altAudio = altAudio + newAudio[slpt:slend]
+
+            sttr = random_number2(50, 225)
+
+            sttrinc = random_number2(3, 6)
+
+            sval = slend - sttr
+
+            stutAud = newAudio[sval:slend]
+
+            for ctr in range(sttrinc):
+
+                altAudio = altAudio + stutAud
+
+            slpt  += slen
+
+        except:
+
+            print("")
+
+            print("Process Termination")
+
+            print("")
+
+            return altAudio
+
+        return altAudio
+
 contentbeats = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -19,7 +82,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentdrones = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -29,7 +92,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentperc = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -39,7 +102,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentpepper = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -49,7 +112,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentbass = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -59,7 +122,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentorg = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -69,7 +132,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentsax = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -79,7 +142,7 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
 
 contentgit = []
 
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\Fractalizer'):
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\RadioRadio2022'):
     for file in files:
         filepath = subdir + os.sep + file
 
@@ -260,7 +323,7 @@ for ctr in range(50):
 
         newAudiopp = newAudiopp - 2
 
-        oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsamplebeat" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsamplebeat" + tracknam + str(ctr) + ".wav"
 
         #if int(os.stat(newAudiog).st_size) < sizlim:
         newAudiopp.export(oufil, format="wav")
@@ -294,6 +357,9 @@ for ctr in range(50):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
+            stutdic = random_number(10)
+            if stutdic > 7:
+            newAudio = add_stutter(newAudio)
             newvol = random_number2(14,20)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(100)
@@ -367,7 +433,7 @@ for ctr in range(50):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-        oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsampledrone" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsampledrone" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")
@@ -469,7 +535,7 @@ for ctr in range(50):
             front = AudioSegment.silent(duration = sil1)
             back = AudioSegment.silent(duration = sil2)
             newAudio = front + newAudio + back
-        oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsamplepepper" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsamplepepper" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")
@@ -496,6 +562,11 @@ for ctr in range(50):
         newAudio = newAudio.fade_in(100)
         newAudio = newAudio.fade_out(100)
 
+        stutdic = random_number(10)
+
+        if stutdic > 6:
+            newAudio = add_stutter(newAudio)
+
         sil2 = random_number2(18000,26000)
 
         back = AudioSegment.silent(duration = sil2)
@@ -504,7 +575,7 @@ for ctr in range(50):
         
         newAudio = newAudio + back
         
-        oufil = "C:\\Users\\mysti\\Coding\Fractalizer\\newsampleguitar" + tracknam + str(ctr) + ".wav"
+        oufil = "C:\\Users\\mysti\\Coding\\RadioRadio2022\\newsampleguitar" + tracknam + str(ctr) + ".wav"
         newAudio.export(oufil, format="wav")
     except:
         print("File unreadable.")

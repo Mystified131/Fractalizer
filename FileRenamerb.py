@@ -20,7 +20,7 @@ for i in right_now:
 tim = ("".join(list))
 
 
-rootdir = "H:\\Spirit_Circuits\\NewAlbum"
+rootdir = "H:\\NewBadBeats\\NewAlbum"
 
 filtyp = ".wav"
 

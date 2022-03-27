@@ -20,13 +20,8 @@ tim = ("".join(list))
 
 #Imgpt = "F:\\Visual\\VariousImages\\Polaroid\PolArt"
 
-try:
 
-    Imgpt = "F:\\PolArt"
-
-except:
-
-    Imgpt = "E:\\PolArt"
+Imgpt = "E:\\PolArt"
 
 contentgraph = []
 
@@ -38,6 +33,21 @@ for subdir, dirs, files in os.walk(Imgpt):
             contentgraph.append(str(filepath))
 
 plen = len(contentgraph)
+
+if plen == 0:
+
+    Imgpt = "F:\\PolArt"
+
+    contentgraph = []
+
+    for subdir, dirs, files in os.walk(Imgpt):
+        for file in files:
+            filepath = subdir + os.sep + file
+
+            if filepath.endswith(".jpg") and "lw" in str(filepath):
+                contentgraph.append(str(filepath))
+
+    plen = len(contentgraph)
 
 numi = 0
 
@@ -97,7 +107,7 @@ print("Images created and saved in the output folder.")
 
 print("")
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\LinerNotes.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\LinerNotesb.py"])
 
 ## THE GHOST OF THE SHADOW ##
 
