@@ -139,7 +139,9 @@ for citr in range(8):
 
     voxch = random_number(len(voxlst))
 
-    voxstr = voxlst[voxch]
+    #voxstr = voxlst[voxch]
+
+    voxstr = 'Brian'
 
     outaud = "GeneratedAudioMix_" + voxstr +  "_" + tim + ".mp3"
 

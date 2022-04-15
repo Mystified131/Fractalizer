@@ -27,7 +27,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav")  and ("Str"in str(filepath)) and ("Mod"in str(filepath))  and ("Drum" not in str(filepath)) and ("Beat" not in str(filepath)):  
+        if  filepath.endswith(".wav")  and ("Latin"in str(filepath))  and ("Drum" not in str(filepath)) and ("Beat" not in str(filepath)):  
              
             contentsax.append(filepath)
 
@@ -37,19 +37,19 @@ for subdir, dirs, files in os.walk(srchstr):
 
             contentorg.append(filepath) 
 
-        if  filepath.endswith(".wav")  and ("Organ" in str(filepath)) and (("Pad" in str(filepath)) or  ("Drone" in str(filepath)) ):  
+        if  filepath.endswith(".wav")  and ("Pop" in str(filepath)) and ("Pad" in str(filepath)) :  
 
             contentdrones.append(filepath)
 
-        if  filepath.endswith(".wav")  and  ("String" in str(filepath))  and  ("Bass" in str(filepath)) :
+        if  filepath.endswith(".wav")  and  ("Fretless" in str(filepath))  and  ("Bass" in str(filepath)) :
 
             contentbass.append(filepath)
 
-        if  filepath.endswith(".wav")  and (("Drum" in str(filepath)) or ("Beat" in str(filepath))):  
+        if  filepath.endswith(".wav")  and ("Industrial" in str(filepath))  and  (("Drum" in str(filepath)) or ("Beat" in str(filepath))):  
                    
             contentbeats.append(filepath)
 
-        if  filepath.endswith(".wav")  and ("Elect" in str(filepath)) : 
+        if  filepath.endswith(".wav")  and ("MeanFlowPurpleWind" in str(filepath)) : 
             
             contentperc.append(filepath)
 

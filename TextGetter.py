@@ -16,7 +16,7 @@ def GetWebText():
 
     print("")
 
-    sites = ['https://en.wikipedia.org/wiki/Portal:Technology', 'https://en.wikipedia.org/wiki/Special:RandomInCategory/All_portals', 'https://en.wikipedia.org/wiki/Special:Random']
+    sites = ['https://en.wikipedia.org/wiki/Can_(band)', 'https://en.wikipedia.org/wiki/Can_(band)', 'https://en.wikipedia.org/wiki/Can_(band)']
 
     ln = len(sites)
 
