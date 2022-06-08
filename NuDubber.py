@@ -647,24 +647,24 @@ for ctr in range(700):
                 
         attenuate_db = 0
         accentuate_db = .24
-        goldsound = -14
+        goldsound = -17
         stsound = -23
 
         leng = len(newAudiomag)
 
         startvol = get_loudness(newAudiomag, leng)
 
-        if (startvol < -11 or startvol > -18.5) and leng > 100000:
+        if startvol <= goldsound:
+            chvol = (goldsound - startvol)
+            newAudio2 = newAudiomag + chvol
 
-            newAudio2 = reduce_volume(newAudiomag, startvol)
+        if startvol > goldsound:
+            chvol = (startvol - goldsound)
+            newAudio2 = newAudiomag - chvol
 
-            filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
+        filtered = newAudio2.low_pass_filter(bass_line_freq(newAudio2.get_array_of_samples()))
 
-            newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
-
-        if not ((startvol < -11 or startvol > -18.5) and leng > 100000):
-
-            newAudio3 = newAudiomag       
+        newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)     
 
         loudn = get_loudness(newAudio3, leng)
 
@@ -677,6 +677,8 @@ for ctr in range(700):
         if loudn > goldsound:
             chvol = (loudn - goldsound)
             newAudio3 = newAudio3 - chvol
+
+        print(chvol)
 
         newAudio3 = newAudio3.fade_in(10000)
         newAudio3 = newAudio3.fade_out(30000)
@@ -693,10 +695,10 @@ for ctr in range(700):
             #oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
             #newAudiomag4.export(oufil, format="wav")
 
-            suctot += 1
+        suctot += 1
 
-            if suctot == trtot:
-                break
+        if suctot == trtot:
+            break
     
     except:
 

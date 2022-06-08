@@ -27,7 +27,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
          
-        if  filepath.endswith(".wav")  and ("Secantcut" in str(filepath)) : 
+        if  filepath.endswith(".wav")  and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Bass" not in str(filepath)) : 
              
             contentsax.append(filepath)
 
@@ -35,24 +35,21 @@ for subdir, dirs, files in os.walk(srchstr):
              
             contentpepper.append(filepath)
 
-            contentorg.append(filepath) 
-
-        if  filepath.endswith(".wav")  and  ("Low" in str(filepath)) and ("Drone" in str(filepath))   :
+        if  filepath.endswith(".wav")  and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Bass" not in str(filepath)) and (("Pad" in str(filepath)) or ("Drone" in str(filepath)) or ("String" in str(filepath))): 
 
             contentdrones.append(filepath)
 
             contentorg.append(filepath) 
 
-        if  filepath.endswith(".wav")  and  ("Secantcut" in str(filepath))  :
+        if  filepath.endswith(".wav")  and ("Bass" in str(filepath)) and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath))  :
 
             contentbass.append(filepath)
 
-        #if  filepath.endswith(".wav")  and ("Afrobeat" in str(filepath)) and (("Drum" in str(filepath)) or ("Beat" in str(filepath))):      
-        if  filepath.endswith(".wav")  and ("Secantcut" in str(filepath)) :                 
+        if  filepath.endswith(".wav")  and (("Drum" in str(filepath)) or ("Beat" in str(filepath))):                    
                    
             contentbeats.append(filepath)
 
-        if  filepath.endswith(".wav") and ("Perc" in str(filepath)) : 
+        if  filepath.endswith(".wav") and  ("Perc" in str(filepath)): 
             
             contentperc.append(filepath)
 
