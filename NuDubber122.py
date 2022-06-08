@@ -647,14 +647,14 @@ for ctr in range(700):
                 
         attenuate_db = 0
         accentuate_db = .24
-        goldsound = -18
+        goldsound = -14
         stsound = -23
 
         leng = len(newAudiomag)
 
         startvol = get_loudness(newAudiomag, leng)
 
-        if (startvol < -11 and startvol > -18.5) and leng > 100000:
+        if (startvol < -11 or startvol > -18.5) and leng > 100000:
 
             newAudio2 = reduce_volume(newAudiomag, startvol)
 
@@ -662,23 +662,27 @@ for ctr in range(700):
 
             newAudio3 = (newAudio2 - attenuate_db).overlay(filtered + accentuate_db)
 
-            loudn = get_loudness(newAudio3, leng)
+        if not ((startvol < -11 or startvol > -18.5) and leng > 100000):
 
-            print(loudn)
+            newAudio3 = newAudiomag       
 
-            if loudn <= goldsound:
-                chvol = (goldsound - loudn)
-                newAudio3 = newAudio3 + chvol
+        loudn = get_loudness(newAudio3, leng)
 
-            if loudn > goldsound:
-                chvol = (loudn - goldsound)
-                newAudio3 = newAudio3 - chvol
+        print(loudn)
 
-            newAudio3 = newAudio3.fade_in(10000)
-            newAudio3 = newAudio3.fade_out(30000)
+        if loudn <= goldsound:
+            chvol = (goldsound - loudn)
+            newAudio3 = newAudio3 + chvol
 
-            oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
-            newAudio3.export(oufil, format="wav")
+        if loudn > goldsound:
+            chvol = (loudn - goldsound)
+            newAudio3 = newAudio3 - chvol
+
+        newAudio3 = newAudio3.fade_in(10000)
+        newAudio3 = newAudio3.fade_out(30000)
+
+        oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
+        newAudio3.export(oufil, format="wav")
 
         #if not (startvol < -11 and startvol > -18.5):
 
