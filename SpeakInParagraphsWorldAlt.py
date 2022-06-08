@@ -141,7 +141,7 @@ for citr in range(8):
 
     #voxstr = voxlst[voxch]
 
-    voxstr = 'Brian'
+    voxstr = 'Matthew'
 
     outaud = "GeneratedAudioMix_" + voxstr +  "_" + tim + ".mp3"
 

@@ -674,8 +674,8 @@ for ctr in range(700):
                 chvol = (loudn - goldsound)
                 newAudio3 = newAudio3 - chvol
 
-            newAudio3 = newAudio3.fade_in(5000)
-            newAudio3 = newAudio3.fade_out(7000)
+            newAudio3 = newAudio3.fade_in(10000)
+            newAudio3 = newAudio3.fade_out(30000)
 
             oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
             newAudio3.export(oufil, format="wav")

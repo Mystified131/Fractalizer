@@ -24,9 +24,9 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav") and ("Glitch" and "Pad" in filepath) or ("HomeLoops" in filepath):  
-             
-             
+        if  filepath.endswith(".wav") and ("String" in filepath) and (("Pad" in filepath) or ("Drone" in filepath)):  
+        #if  filepath.endswith(".wav") and (("Chant" in filepath) or  ("HomeLoops2022" in filepath)) and  (("Pad"in filepath) or ("Strings" in filepath)):  
+                         
             contentpepper.append(filepath)
 
             contentgit.append(filepath)
@@ -80,4 +80,7 @@ for ctr in range(100):
 
 call(["python", "DJProcessorNuAmb.py"])
 
+
 ## THE GHOST OF THE SHADOW ##
+
+
