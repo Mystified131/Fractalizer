@@ -42,7 +42,7 @@ def bass_line_freq(track):
 def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
-repper = 4
+repper = 3
 
 right_now = datetime.datetime.now().isoformat()
 list = []
