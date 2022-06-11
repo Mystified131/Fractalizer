@@ -18,18 +18,14 @@ contentdrones = []
 
 contentpepper = []
 
-contentgit = []
-
 for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav") and ("String" in filepath) and (("Pad" in filepath) or ("Drone" in filepath)):  
+        if  filepath.endswith(".wav") and ("Ambient" in filepath) and  ("Drone" in filepath):  
         #if  filepath.endswith(".wav") and (("Chant" in filepath) or  ("HomeLoops2022" in filepath)) and  (("Pad"in filepath) or ("Strings" in filepath)):  
                          
             contentpepper.append(filepath)
-
-            contentgit.append(filepath)
 
             contentdrones.append(filepath)
 
@@ -64,19 +60,6 @@ for ctr in range(150):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundpepper' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentpepper[y], outstr)
 
-
-x = len(contentgit)
-
-for ctr in range(100):
-    y = random_number(x)
-    atrack = contentgit[y]
-    trackname = atrack[-20:-4]
-    tracknam = ""
-    for m in trackname:
-        if m.isalnum():
-            tracknam += m
-    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
-    shutil.copy(contentgit[y], outstr)
 
 call(["python", "DJProcessorNuAmb.py"])
 

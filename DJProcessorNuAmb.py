@@ -107,16 +107,6 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
             cline = str(file)
             contentpepper.append(cline)
 
-contentgit = []
-
-for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
-    for file in files:
-        filepath = subdir + os.sep + file
-
-        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "guitar" in str(filepath):
-            cline = str(file)
-            contentgit.append(cline)
-
 print("Extracting samples. Please wait.")
 
 print("")
@@ -347,45 +337,6 @@ for ctr in range(50):
     except:
         print("File unreadable.")
 
-for ctr in range(50):
-
-    astr = ("Guitar Sample: " + str(ctr + 1))
-    print(astr)
-        
-    songch = random_number2(0,len(contentgit))
-    atrack = contentgit[songch]
-    trackname = atrack[-16:]
-    tracknam = ""
-    for x in trackname:
-        if x.isalnum():
-            tracknam += x
-
-    try:
-        newAudio = AudioSegment.from_wav(atrack)
-        
-        newvol = random_number2(15, 18)
-        newAudio = newAudio - newvol
-        newAudio = newAudio 
-        newAudio = newAudio.fade_in(100)
-        newAudio = newAudio.fade_out(100)
-
-        stutdic = random_number(10)
-
-        if stutdic > 6:
-            newAudio = add_stutter(newAudio)
-
-        sil2 = random_number2(18000,26000)
-
-        back = AudioSegment.silent(duration = sil2)
-
-        newAudio = newAudio -8
-        
-        newAudio = newAudio + back
-        
-        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsampleguitar" + tracknam + str(ctr) + ".wav"
-        newAudio.export(oufil, format="wav")
-    except:
-        print("File unreadable.")
 
 #call(["python", "NuDubber121.py"])
 
