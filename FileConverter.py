@@ -3,6 +3,15 @@ from subprocess import call
 import os
 import shutil
 import datetime
+import soundfile as sf
+
+
+def bitratetoredbook(filepath, outpath):
+
+    # Read wav with default
+    #fn_wav = os.path.join('..', 'data', 'B', 'FMP_B_Note-C4_Piano.wav')
+    x, Fs = sf.read(filepath)
+    outpath(x=x,Fs=Fs,text='WAV file (default): ')
 
 right_now = datetime.datetime.now().isoformat()
 list = []

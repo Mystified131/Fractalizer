@@ -104,8 +104,15 @@ for phrs in range(lx):
 
 for ctr in range(lx):
 
+    nume = ""
+
+    if (ctr + 1) > 9:
+        nume = str(ctr + 1)
+    if (ctr + 1) < 10:
+        nume = "0" + str(ctr + 1)
+
     astr = fillst[ctr]
-    bstr =  fillrt[ctr] + phraselist[ctr] + filltyp[ctr] 
+    bstr =  fillrt[ctr] + nume + "_"  + phraselist[ctr] + filltyp[ctr] 
 
     os.rename(astr, bstr) 
 

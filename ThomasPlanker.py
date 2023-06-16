@@ -12,7 +12,11 @@ from RandFunct2 import random_number2
 
 #srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
 
-srchstr = 'E:\\Acid_Loops'
+#srchstr = "C:\\Users\\mysti\\Desktop\\PianoWarp"
+
+#srchstr= 'C:\\Users\\mysti\\Desktop\\LouPerc_01232023'
+
+srchstr = 'E:\\Acid_Loops\\'
 
 contentbeats = []
 contentdrones = []
@@ -27,38 +31,65 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
          
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Guit" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath))) :
+        if  filepath.endswith(".wav")  and ( ("Acoustic" in str(filepath)) and ("Drone" in str(filepath)) ): 
 
-            contentgit.append(filepath)
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Pad" in str(filepath)) and  (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath))):
-             
-            contentdrones.append(filepath)  
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
-
-            contentpepper.append(filepath)
-         
-            contentsax.append(filepath)  
+            contentdrones.append(filepath)
 
             contentorg.append(filepath) 
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Bass" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
 
-            contentbass.append(filepath)
+        if  filepath.endswith(".wav")  and  ("Urban_Sounds_Saint_Louis_01242023" in str(filepath))   : 
 
-        #if  filepath.endswith(".wav")  and ("Drum" in str(filepath)) and ("BackwardsLoops" in str(filepath))   : 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and (("Drums" in str(filepath)) and ("Beat" in str(filepath))) and ("Bass" not in str(filepath)) and ("Guit" not in str(filepath)) :                   
-                   
-            contentbeats.append(filepath)
+            contentsax.append(filepath) 
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath))  and ("Perc" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
-            
+            contentpepper.append(filepath)
+
+            contentgit.append(filepath)
+
+        if  filepath.endswith(".wav")  and  ("Perc" in str(filepath))  :     
+
             contentperc.append(filepath)
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Bass" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
+        if  filepath.endswith(".wav")  and  (("Beat" in str(filepath)) or  ("Drum" in str(filepath)))  :     
 
-            contentbass.append(filepath)
+            contentbeats.append(filepath)
+
+        if  filepath.endswith(".wav")  and  ("kelele" in str(filepath)) and  ("Bass" not in str(filepath)) and (  ("Drum" not in str(filepath))  and  ("Beat " not in str(filepath))):     
+
+            contentbass.append(filepath)   
+
+        #if  filepath.endswith(".wav")  and ("Beat" in str(filepath)) and ("Dub" in str(filepath)) and  ("Bass" not in str(filepath)) :
+
+            #contentbeats.append(filepath)
+             
+
+        #if  filepath.endswith(".wav")  and ("Ukelele" in str(filepath))   : 
+
+            #contentgit.append(filepath)
+
+        #if  filepath.endswith(".wav")  and ("WorldEthnic" in str(filepath))  : 
+             
+            #contentpepper.append(filepath)
+
+        #if  filepath.endswith(".wav")  and ("Deep" in str(filepath)) and ("Drone" in str(filepath))   : 
+
+            #contentdrones.append(filepath)
+
+        #if  filepath.endswith(".wav")  and (("Key" in str(filepath)) or ("Vo" in str(filepath))) and ("Glitch" in str(filepath))   : 
+
+            #contentorg.append(filepath) 
+
+        #if  filepath.endswith(".wav")  and ("Bass" in str(filepath)) and  ("Trip" in str(filepath)): 
+
+            #contentbass.append(filepath)            
+
+        #if  filepath.endswith(".wav")  and (("Beat" in str(filepath)) or ("Drum" in str(filepath))) and ("Trip" in str(filepath)) :     
+                   
+            #contentbeats.append(filepath)
+            
+        #if  filepath.endswith(".wav")  and ("Perc" in str(filepath)) and ("Glitch" in str(filepath))   : 
+
+            #contentperc.append(filepath)
 
 
 print("")
@@ -169,6 +200,6 @@ for ctr in range(100):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentgit[y], outstr)
 
-call(["python", "DJProcessorNuWith2FX.py"])
+call(["python", "DJProcessorPlanker.py"])
 
 ## THE GHOST OF THE SHADOW ##

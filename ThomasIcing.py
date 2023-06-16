@@ -12,32 +12,55 @@ from RandFunct2 import random_number2
 
 #srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
 
-srchstr = "C:\\Users\\mysti\\Desktop\\archback"
+#srchstr = "C:\\Users\\mysti\\Desktop\\PianoWarp"
 
-#srchstr = 'E:\\Acid_Loops\\'
+#srchstr= 'C:\\Users\\mysti\\Desktop\\LouPerc_01232023'
 
-contentbeats = []
+#srchstr = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw"
+
+srchstr = 'E:\\Acid_Loops\\'
+
+#contentbeats = []
 contentdrones = []
-contentperc = []
+#contentperc = []
 contentpepper = []
-contentbass = []
-contentorg = []
-contentsax = []
+#contentbass = []
+#contentorg = []
+#contentsax = []
 contentgit = []
 
 for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
-         
-        #if  filepath.endswith(".wav")  and ("Current_Cassarole" in str(filepath))    : 
 
-        
-        if  filepath.endswith(".wav"):
+        if  filepath.endswith(".wav")  and  ("Tabla" in str(filepath))  : 
+
+            #contentsax.append(filepath) 
 
             contentdrones.append(filepath)
 
+            #contentpepper.append(filepath)
+
+            contentgit.append(filepath)
+
+        if  filepath.endswith(".wav")  and  ("Thomas_Singing_Bowls" in str(filepath))  :   
+
             contentpepper.append(filepath)
 
+        #if  filepath.endswith(".wav")  and  ("Urban_Sounds_Saint_Louis_01242023" in str(filepath)) and  ("LouPercSess" in str(filepath))  :     
+
+            #contentperc.append(filepath)
+
+            #contentbeats.append(filepath)
+
+        #if  filepath.endswith(".wav")  and  ("Bass" in str(filepath)) and ("Industrial" in str(filepath)) and (("Drum" not in str(filepath)) and ("Beat" not in str(filepath)))  :
+
+            #ontentbass.append(filepath)   
+
+        #if  filepath.endswith(".wav")  and ("Beat" in str(filepath)) and ("Dub" in str(filepath)) and  ("Bass" not in str(filepath)) :
+
+            #contentbeats.append(filepath)
+             
 
         #if  filepath.endswith(".wav")  and ("Ukelele" in str(filepath))   : 
 
@@ -66,7 +89,6 @@ for subdir, dirs, files in os.walk(srchstr):
         #if  filepath.endswith(".wav")  and ("Perc" in str(filepath)) and ("Glitch" in str(filepath))   : 
 
             #contentperc.append(filepath)
-
 
 print("")
 
@@ -98,7 +120,19 @@ for ctr in range(150):
     outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundpepper' + str(ctr) + tracknam + ".wav"
     shutil.copy(contentpepper[y], outstr)
 
+x = len(contentgit)
 
-call(["python", "DJProcessorNuAmb.py"])
+for ctr in range(100):
+    y = random_number(x)
+    atrack = contentgit[y]
+    trackname = atrack[-20:-4]
+    tracknam = ""
+    for m in trackname:
+        if m.isalnum():
+            tracknam += m
+    outstr = 'C:\\Users\\mysti\\Coding\\Fractalizer\\newsoundguitar' + str(ctr) + tracknam + ".wav"
+    shutil.copy(contentgit[y], outstr)
+
+call(["python", "DJProcessorIcing.py"])
 
 ## THE GHOST OF THE SHADOW ##

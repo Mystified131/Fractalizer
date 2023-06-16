@@ -7,6 +7,40 @@ from subprocess import call
 from RandFunct import random_number
 from RandFunct2 import random_number2
 
+def PyPlanker(newAudio):
+   
+        audlen = len(newAudio)
+
+        audseg = int(audlen / 1000) 
+
+        segnum = int(audseg * 2)
+
+        sllen = int(20) + 7
+        
+        audlen = int(audlen / segnum)
+
+        SilAudio = AudioSegment.silent(duration = sllen)
+
+        OutAud = newAudio[0:0]
+
+        for iter in range(segnum):
+
+            stval = iter * audlen
+            enval2 = stval + audlen
+            enval = stval + (audlen - sllen)
+
+            SlicAud = newAudio[stval:enval]
+
+            Slic1Aud = SlicAud.fade_in(5)
+
+            Slic2Aud = Slic1Aud.fade_out(2)
+
+            CutAud = Slic2Aud + SilAudio
+
+            OutAud += CutAud
+
+        return OutAud
+
 def add_stutter(newAudio):
     
     audlen = len(newAudio)
@@ -53,9 +87,7 @@ def add_stutter(newAudio):
 
             return altAudio
 
-    #return altAudio
-
-    return newAudio
+    return altAudio
 
 def add_deelay(newAudio):
    
@@ -89,6 +121,16 @@ def add_deelay(newAudio):
 
     return newAudio
 
+contentbeats = []
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "beat" in str(filepath):
+            cline = str(file)
+            contentbeats.append(cline)
+
 contentdrones = []
 
 for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
@@ -98,6 +140,16 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
         if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "drone" in str(filepath):
             cline = str(file)
             contentdrones.append(cline)
+
+contentperc = []
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "perc" in str(filepath):
+            cline = str(file)
+            contentperc.append(cline)
 
 contentpepper = []
 
@@ -109,11 +161,231 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
             cline = str(file)
             contentpepper.append(cline)
 
+contentbass = []
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "bass" in str(filepath):
+            cline = str(file)
+            contentbass.append(cline)
+
+contentorg = []
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "organ" in str(filepath):
+            cline = str(file)
+            contentorg.append(cline)
+
+contentsax = []
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "sax" in str(filepath):
+            cline = str(file)
+            contentsax.append(cline)
+
+contentgit = []
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "guitar" in str(filepath):
+            cline = str(file)
+            contentgit.append(cline)
+
 print("Extracting samples. Please wait.")
 
 print("")
 
 sizlim = 15000000
+
+for ctr in range(50):
+
+    astr = ("Beat Sample: " + str(ctr + 1))
+    print(astr)
+        
+    songch = random_number2(0,len(contentbeats))
+    atrack = contentbeats[songch]
+    trackname = atrack[-16:]
+    tracknam = ""
+    for x in trackname:
+        if x.isalnum():
+            tracknam += x
+
+    bstr = ("Bass Sample: " + str(ctr + 1))
+    print(bstr)
+        
+    songchb = random_number2(0,len(contentbass))
+    btrack = contentbass[songchb]
+
+    cstr = ("Organ Sample: " + str(ctr + 1))
+    print(cstr)
+        
+    songchc = random_number2(0,len(contentorg))
+    songchc2 = random_number2(0,len(contentdrones))
+
+    det = random_number(2)
+    if det == 0:
+        ctrack = contentorg[songchc]      
+    if det == 1:
+        ctrack = contentdrones[songchc2] 
+
+    cstr = ("Organ Sample 2: " + str(ctr + 1))
+    print(cstr)
+        
+    songchc = random_number2(0,len(contentorg))
+    songchc2 = random_number2(0,len(contentdrones))
+
+    det = random_number(2)
+    if det == 0:
+        ctrack2 = contentorg[songchc]      
+    if det == 1:
+        ctrack2 = contentdrones[songchc2] 
+
+    dstr = ("Stab Sample: " + str(ctr + 1))
+    print(dstr)
+        
+    songchd = random_number2(0,len(contentsax))
+    dtrack = contentsax[songchd]   
+
+    estr = ("Perc Sample: " + str(ctr + 1))
+    print(estr)
+        
+    songche = random_number2(0,len(contentperc))
+    etrack = contentperc[songche]   
+
+    estr = ("Perc Sample 2: " + str(ctr + 1))
+    print(estr)
+        
+    songche = random_number2(0,len(contentperc))
+    etrack2 = contentperc[songche]   
+
+    fstr = ("Perc Sample 3: " + str(ctr + 1))
+    print(fstr)
+        
+    songchf = random_number2(0,len(contentperc))
+    ftrack = contentperc[songchf] 
+
+    fstr = ("Perc Sample 4: " + str(ctr + 1))
+    print(fstr)
+        
+    songchf = random_number2(0,len(contentperc))
+    ftrack2 = contentperc[songchf] 
+
+    if etrack == ftrack:
+        try:
+            ftrack = contentperc[songchf + 1] 
+
+        except:
+            ftrack = contentperc[songchf - 1] 
+
+    try:
+
+        newAudio = AudioSegment.from_wav(atrack)
+
+        newAudio = newAudio - 2
+             
+
+        newAudiob = AudioSegment.from_wav(btrack)
+
+        newAudiob = newAudiob - 2
+
+        newAudiob = newAudiob * 4
+        
+    
+        newAudioc = AudioSegment.from_wav(ctrack)
+        
+        newvolc = random_number2(12,15)
+        newAudioc = newAudioc - newvolc
+
+
+        newAudioc2 = AudioSegment.from_wav(ctrack2)
+        
+        newvolc = random_number2(12,15)
+        newAudioc2 = newAudioc2 - newvolc
+
+        newAudioc2 = newAudioc2 * 2
+
+        newAudiod = AudioSegment.from_wav(dtrack)
+
+        newvold = random_number2(12,18)
+        newAudiod = newAudiod - newvold
+
+      
+        newAudioe = AudioSegment.from_wav(etrack)
+        
+        newvole = random_number2(10,12)
+        newAudioe = newAudioe - newvole
+
+        newAudioe = newAudioe * 4
+       
+
+        newAudioe2 = AudioSegment.from_wav(etrack2)
+        
+        newvole = random_number2(10,12)
+        newAudioe2 = newAudioe2 - newvole
+
+        newAudioe2 = newAudioe2 * 2
+    
+
+        newAudiof = AudioSegment.from_wav(ftrack)
+        
+        newvolf = random_number2(12, 14)
+        newAudiof = newAudiof - newvolf
+       
+
+        newAudiof2 = AudioSegment.from_wav(ftrack2)
+        
+        newvolf = random_number2(12, 14)
+        newAudiof2 = newAudiof2 - newvolf
+      
+        newAudiof2 = newAudiof2 * 4
+
+        newAudio1 = newAudiof2.overlay(newAudiof)
+
+        newAudio2 = newAudioe2.overlay(newAudio1)
+
+        newAudio3 = newAudioe.overlay(newAudio2)
+
+        newAudio4 = newAudiod.overlay(newAudio3)
+
+        newAudio5 = newAudioc2.overlay(newAudio4)
+
+        newAudio6 = newAudioc.overlay(newAudio5)
+
+        newAudio7 = newAudiob.overlay(newAudio6)
+
+        newAudio8 = newAudio.overlay(newAudio7)
+
+        newAudio9 = PyPlanker(newAudio8)
+
+        newAudiopp = newAudio9 * 4
+
+        #prod = int(360000 / (len(newAudiopp)))
+
+        #rep2 = prod - 3
+
+        #rep = random_number2(rep2, prod)
+
+        #newAudiog = newAudiopp * rep
+
+        newAudiopp = newAudiopp - 2
+
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsamplebeat" + tracknam + str(ctr) + ".wav"
+
+        #if int(os.stat(newAudiog).st_size) < sizlim:
+        newAudiopp.export(oufil, format="wav")
+        
+    except:
+        print("File unreadable.")  
 
 print("Overlaying recording.")
 
@@ -162,7 +434,7 @@ for ctr in range(50):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(18,22)
+            newvol = random_number2(14,17)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -339,9 +611,48 @@ for ctr in range(50):
     except:
         print("File unreadable.")
 
+for ctr in range(50):
+
+    astr = ("Guitar Sample: " + str(ctr + 1))
+    print(astr)
+        
+    songch = random_number2(0,len(contentgit))
+    atrack = contentgit[songch]
+    trackname = atrack[-16:]
+    tracknam = ""
+    for x in trackname:
+        if x.isalnum():
+            tracknam += x
+
+    try:
+        newAudio = AudioSegment.from_wav(atrack)
+        
+        newvol = random_number2(15, 18)
+        newAudio = newAudio - newvol
+        newAudio = newAudio 
+        newAudio = newAudio.fade_in(100)
+        newAudio = newAudio.fade_out(100)
+
+        stutdic = random_number(10)
+
+        if stutdic > 6:
+            newAudio = add_stutter(newAudio)
+
+        sil2 = random_number2(18000,26000)
+
+        back = AudioSegment.silent(duration = sil2)
+
+        newAudio = newAudio -3
+        
+        newAudio = newAudio + back
+        
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsampleguitar" + tracknam + str(ctr) + ".wav"
+        newAudio.export(oufil, format="wav")
+    except:
+        print("File unreadable.")
 
 #call(["python", "NuDubber121.py"])
 
-call(["python", "NuDubberAmbb.py"])
+call(["python", "NuDubberPlanker.py"])
 
 ## THE GHOST OF THE SHADOW ##

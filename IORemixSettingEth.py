@@ -27,38 +27,32 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
          
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Guit" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath))) :
+        if  filepath.endswith(".wav")  and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Bass" not in str(filepath)) and ("Afr" in str(filepath)) : 
+             
+            contentsax.append(filepath)
 
             contentgit.append(filepath)
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Pad" in str(filepath)) and  (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath))):
              
-            contentdrones.append(filepath)  
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
-
             contentpepper.append(filepath)
-         
-            contentsax.append(filepath)  
+
+        if  filepath.endswith(".wav")  and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Bass" not in str(filepath)) and ("Jazz" in str(filepath)): 
+
+            contentdrones.append(filepath)
 
             contentorg.append(filepath) 
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Bass" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
+        if  filepath.endswith(".wav")  and ("Bass" in str(filepath)) and ("Beat" not in str(filepath)) and ("Drum" not in str(filepath))  and ("Hip" not in str(filepath)) :
 
             contentbass.append(filepath)
 
-        #if  filepath.endswith(".wav")  and ("Drum" in str(filepath)) and ("BackwardsLoops" in str(filepath))   : 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and (("Drums" in str(filepath)) and ("Beat" in str(filepath))) and ("Bass" not in str(filepath)) and ("Guit" not in str(filepath)) :                   
+        # if  filepath.endswith(".wav")  and (("Drum" in str(filepath)) or ("Beat" in str(filepath))) and  ("Chess" in str(filepath)): 
+        if  filepath.endswith(".wav")  and ("Afr" in str(filepath)) and (("Drum" in str(filepath)) or ("Beat" in str(filepath)) or ("Groove" in str(filepath))):                    
                    
             contentbeats.append(filepath)
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath))  and ("Perc" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
+        if  filepath.endswith(".wav") and  ("Perc" in str(filepath)): 
             
             contentperc.append(filepath)
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Bass" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
-
-            contentbass.append(filepath)
 
 
 print("")

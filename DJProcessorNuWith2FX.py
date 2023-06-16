@@ -257,9 +257,13 @@ for ctr in range(50):
     try:
 
         newAudio = AudioSegment.from_wav(atrack)
+
+        newAudio = newAudio - 2
              
 
         newAudiob = AudioSegment.from_wav(btrack)
+
+        newAudiob = newAudiob - 2
 
         newAudiob = newAudiob * 4
         
@@ -614,6 +618,6 @@ for ctr in range(50):
 
 #call(["python", "NuDubber121.py"])
 
-call(["python", "NuDubber122.py"])
+call(["python", "NuDubberHipHop.py"])
 
 ## THE GHOST OF THE SHADOW ##

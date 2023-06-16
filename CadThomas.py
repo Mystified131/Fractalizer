@@ -12,7 +12,9 @@ from RandFunct2 import random_number2
 
 #srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
 
-srchstr = 'E:\\Acid_Loops'
+srchstr = 'C:\\Users\\mysti\\Downloads\\wetransfer_drones_bright_2022-11-06_1019\\Karsten_Drones_Bright'
+
+#srchstr = "C:\\Users\\mysti\\Desktop\\Resonance"
 
 contentdrones = []
 
@@ -22,12 +24,16 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
         
-        if  filepath.endswith(".wav") and ("Ambient" in filepath) and  ("Drone" in filepath):  
+        #if  filepath.endswith(".wav") and( ("Jazz" in filepath) and (("Drum" not  in filepath)) and ("Beat" not  in filepath) and  ("Bass" not  in filepath))  :  
+        #if  filepath.endswith(".wav") and ("Min" in str(filepath)) or (("Synth" in str(filepath)) and ("Analog" in str(filepath))) and   (("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Bass" not in str(filepath))) :                          
         #if  filepath.endswith(".wav") and (("Chant" in filepath) or  ("HomeLoops2022" in filepath)) and  (("Pad"in filepath) or ("Strings" in filepath)):  
+        if  filepath.endswith(".wav"):
                          
             contentpepper.append(filepath)
 
             contentdrones.append(filepath)
+
+            print(filepath)
 
 print("")
 

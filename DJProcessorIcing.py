@@ -7,6 +7,40 @@ from subprocess import call
 from RandFunct import random_number
 from RandFunct2 import random_number2
 
+def PyPlanker(newAudio):
+   
+        audlen = len(newAudio)
+
+        audseg = int(audlen / 1000) 
+
+        segnum = int(audseg * 2)
+
+        sllen = int(20) + 7
+        
+        audlen = int(audlen / segnum)
+
+        SilAudio = AudioSegment.silent(duration = sllen)
+
+        OutAud = newAudio[0:0]
+
+        for iter in range(segnum):
+
+            stval = iter * audlen
+            enval2 = stval + audlen
+            enval = stval + (audlen - sllen)
+
+            SlicAud = newAudio[stval:enval]
+
+            Slic1Aud = SlicAud.fade_in(5)
+
+            Slic2Aud = Slic1Aud.fade_out(2)
+
+            CutAud = Slic2Aud + SilAudio
+
+            OutAud += CutAud
+
+        return OutAud
+
 def add_stutter(newAudio):
     
     audlen = len(newAudio)
@@ -53,9 +87,7 @@ def add_stutter(newAudio):
 
             return altAudio
 
-    #return altAudio
-
-    return newAudio
+    return altAudio
 
 def add_deelay(newAudio):
    
@@ -89,6 +121,7 @@ def add_deelay(newAudio):
 
     return newAudio
 
+
 contentdrones = []
 
 for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
@@ -109,11 +142,15 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
             cline = str(file)
             contentpepper.append(cline)
 
-print("Extracting samples. Please wait.")
+contentgit = []
 
-print("")
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
 
-sizlim = 15000000
+        if filepath.endswith(".wav") and ("newsample" not in str(filepath)) and "guitar" in str(filepath):
+            cline = str(file)
+            contentgit.append(cline)
 
 print("Overlaying recording.")
 
@@ -162,7 +199,7 @@ for ctr in range(50):
                 t1 = random_number(sampst)
                 t2 = (t1 + samplen)
                 newAudio = newAudio[t1:t2]
-            newvol = random_number2(18,22)
+            newvol = random_number2(14,17)
             newAudio = newAudio - newvol
             newAudio = newAudio.fade_in(3000)
             newAudio = newAudio.fade_out(3000)
@@ -339,9 +376,48 @@ for ctr in range(50):
     except:
         print("File unreadable.")
 
+for ctr in range(50):
+
+    astr = ("Guitar Sample: " + str(ctr + 1))
+    print(astr)
+        
+    songch = random_number2(0,len(contentgit))
+    atrack = contentgit[songch]
+    trackname = atrack[-16:]
+    tracknam = ""
+    for x in trackname:
+        if x.isalnum():
+            tracknam += x
+
+    try:
+        newAudio = AudioSegment.from_wav(atrack)
+        
+        newvol = random_number2(15, 18)
+        newAudio = newAudio - newvol
+        newAudio = newAudio 
+        newAudio = newAudio.fade_in(100)
+        newAudio = newAudio.fade_out(100)
+
+        stutdic = random_number(10)
+
+        if stutdic > 6:
+            newAudio = add_stutter(newAudio)
+
+        sil2 = random_number2(18000,26000)
+
+        back = AudioSegment.silent(duration = sil2)
+
+        newAudio = newAudio -3
+        
+        newAudio = newAudio + back
+        
+        oufil = "C:\\Users\\mysti\\Coding\\Fractalizer\\newsampleguitar" + tracknam + str(ctr) + ".wav"
+        newAudio.export(oufil, format="wav")
+    except:
+        print("File unreadable.")
 
 #call(["python", "NuDubber121.py"])
 
-call(["python", "NuDubberAmbb.py"])
+#call(["python", "NuDubberIcing.py"])
 
 ## THE GHOST OF THE SHADOW ##

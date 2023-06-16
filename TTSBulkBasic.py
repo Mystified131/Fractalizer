@@ -169,7 +169,7 @@ for cot in range(cont):
 
         #voxlst = ['Joanna']
 
-        voxlst = ['Brian']
+        voxlst = ['Nicole']
 
         voxch = random_number(len(voxlst))
 

@@ -38,7 +38,7 @@ tommy = turtle.Turtle()
 
 tommy.speed(1000)
 
-for reps in range(3):
+for reps in range(1):
 
     print("")
 
@@ -115,7 +115,7 @@ for reps in range(3):
 
     ts = turtle.getscreen()
 
-    filnm = "E:\\Spirit_Circuits\\NewAlbum\\00_GenText_CoverElement_" + tim + ".eps"
+    filnm = 'C:\\Users\\mysti\\Coding\\GenArt_' + tim + ".eps"
 
     ts.getcanvas().postscript(file=filnm)
 
@@ -123,6 +123,6 @@ turtle.clearscreen()
     
 turtle.bye()
 
-call(["python", "BatchDeleter.py"])
+#call(["python", "BatchDeleter.py"])
 
 ## THE GHOST OF THE SHADOW ##

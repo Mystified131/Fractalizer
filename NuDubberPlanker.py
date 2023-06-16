@@ -42,7 +42,6 @@ def bass_line_freq(track):
 def get_loudness(sound, slice_size):
     return max(chunk.dBFS for chunk in make_chunks(sound, slice_size))
 
-repper = 3
 
 right_now = datetime.datetime.now().isoformat()
 list = []
@@ -52,6 +51,33 @@ for i in right_now:
         list.append(i)
 
 tim = ("".join(list))
+
+outfile = open('AutoPlayListBeats.m3u', "w")
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if (filepath.endswith(".mp3") or filepath.endswith(".wav") or filepath.endswith(".ogg")) and "newsamplebeat" in str(filepath) :
+            cline = str(os.sep + file)
+            bline = cline[1:]
+            outfile.write(bline + '\n')
+
+outfile.close()
+
+outfile = open('AutoPlayListDrones.m3u', "w")
+
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
+
+        if (filepath.endswith(".mp3") or filepath.endswith(".wav") or filepath.endswith(".ogg")) and "newsampledrone" in str(filepath):
+            cline = str(os.sep + file)
+            bline = cline[1:]
+            outfile.write(bline + '\n')
+
+outfile.close()
+
 
 outfile = open('AutoPlayListPepper.m3u', "w")
 
@@ -67,19 +93,28 @@ for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
 outfile.close()
 
 
-outfile = open('AutoPlayListDrones.m3u', "w")
+outfile = open('AutoPlayListGit.m3u', "w")
 
 for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if (filepath.endswith(".mp3") or filepath.endswith(".wav") or filepath.endswith(".ogg")) and "newsampledrone" in str(filepath):
+        if (filepath.endswith(".mp3") or filepath.endswith(".wav") or filepath.endswith(".ogg")) and "guitar" in str(filepath)  and "newsound" not in str(filepath):
             cline = str(os.sep + file)
             bline = cline[1:]
             outfile.write(bline + '\n')
 
 outfile.close()
 
+infile = open("AutoPlayListBeats.m3u", "r")
+
+contentbeats = []
+
+plist = infile.readline()
+while plist:
+    contentbeats.append(plist)
+    plist = infile.readline()
+infile.close()
 
 infile = open("AutoPlayListDrones.m3u", "r")
 
@@ -101,16 +136,31 @@ while plist:
     plist = infile.readline()
 infile.close()
 
+infile = open("AutoPlayListGit.m3u", "r")
+
+contentgit = []
+
+plist = infile.readline()
+while plist:
+    contentgit.append(plist)
+    plist = infile.readline()
+infile.close()
+
 trtot = 18
 
 suctot = 0
 
 for ctr in range(700):
 
+    atracknum1 = random_number2(0,len(contentbeats))
+    atrack1 = contentbeats[atracknum1].strip()
+
     try:
 
         ####################################################### #1
 
+        atracknum2 = random_number2(0,len(contentgit))
+        atrack2 = contentgit[atracknum2].strip()
         atracknum3 = random_number2(0,len(contentdrones))
         atrack3 = contentdrones[atracknum3].strip()
         atracknum4 = random_number2(0,len(contentdrones))
@@ -143,12 +193,17 @@ for ctr in range(700):
 
         print("Layering tracks for track: ", (suctot + 1))
 
-        
+
+        newAudio1 = AudioSegment.from_wav(atrack2)       
+        totlen = len(newAudio1)
+
         newAudio2 = AudioSegment.from_wav(atrack3) 
         l2 = len(newAudio2)
+        rep = int(totlen / l2)
 
-        newAudiow2 = newAudio2 * repper
-        totlen = len(newAudio2)
+        newAudiox = newAudio2*rep
+
+        newAudiow2 = newAudio1.overlay(newAudiox)
 
         newAudio3 = AudioSegment.from_wav(atrack4) 
         l2 = len(newAudio3)
@@ -249,10 +304,23 @@ for ctr in range(700):
         newAudioamb1 = newAudiow2.fade_in(200)
         newAudioamb2 = newAudioamb1.fade_out(200)
 
-        newAudionear1 = newAudioamb2 * 2
+        newAudioamb2 = newAudioamb2 * 8
+
+        newAudiobeat = AudioSegment.from_wav(atrack1) 
+
+        if len(newAudiobeat) >= len(newAudioamb2):
+
+            newAudionear = newAudioamb2.overlay(newAudiobeat)
+        
+        if len(newAudiobeat) < len(newAudioamb2):
+
+            newAudionear1 = newAudiobeat.overlay(newAudioamb2)
 
         ############################################################ #2
 
+        
+        atracknum2 = random_number2(0,len(contentgit))
+        atrack2 = contentgit[atracknum2].strip()
         atracknum3 = random_number2(0,len(contentdrones))
         atrack3 = contentdrones[atracknum3].strip()
         atracknum4 = random_number2(0,len(contentdrones))
@@ -281,11 +349,17 @@ for ctr in range(700):
         atrack15 = contentpepper[atracknum15].strip()
         atracknum16 = random_number2(0,len(contentpepper))
 
+
+        newAudio1 = AudioSegment.from_wav(atrack2)       
+        totlen = len(newAudio1)
+
         newAudio2 = AudioSegment.from_wav(atrack3) 
         l2 = len(newAudio2)
+        rep = int(totlen / l2)
 
-        newAudiow2 = newAudio2 * repper
-        totlen = len(newAudio2)
+        newAudiox = newAudio2*rep
+
+        newAudiow2 = newAudio1.overlay(newAudiox)
 
         newAudio3 = AudioSegment.from_wav(atrack4) 
         l2 = len(newAudio3)
@@ -386,12 +460,23 @@ for ctr in range(700):
         newAudioamb1 = newAudiow2.fade_in(200)
         newAudioamb2 = newAudioamb1.fade_out(200)
 
-        newAudionear2 = newAudioamb2 * 2
+        newAudioamb2 = newAudioamb2 * 8
 
+        newAudiobeat = AudioSegment.from_wav(atrack1) 
+
+        if len(newAudiobeat) >= len(newAudioamb2):
+
+            newAudionear = newAudioamb2.overlay(newAudiobeat)
+        
+        if len(newAudiobeat) < len(newAudioamb2):
+
+            newAudionear2 = newAudiobeat.overlay(newAudioamb2)
 
         ############################################################ #3
 
-
+        
+        atracknum2 = random_number2(0,len(contentgit))
+        atrack2 = contentgit[atracknum2].strip()
         atracknum3 = random_number2(0,len(contentdrones))
         atrack3 = contentdrones[atracknum3].strip()
         atracknum4 = random_number2(0,len(contentdrones))
@@ -420,11 +505,17 @@ for ctr in range(700):
         atrack15 = contentpepper[atracknum15].strip()
         atracknum16 = random_number2(0,len(contentpepper))
 
+
+        newAudio1 = AudioSegment.from_wav(atrack2)       
+        totlen = len(newAudio1)
+
         newAudio2 = AudioSegment.from_wav(atrack3) 
         l2 = len(newAudio2)
-        
-        newAudiow2 = newAudio2 * repper
-        totlen = len(newAudio2)
+        rep = int(totlen / l2)
+
+        newAudiox = newAudio2*rep
+
+        newAudiow2 = newAudio1.overlay(newAudiox)
 
         newAudio3 = AudioSegment.from_wav(atrack4) 
         l2 = len(newAudio3)
@@ -525,47 +616,94 @@ for ctr in range(700):
         newAudioamb1 = newAudiow2.fade_in(200)
         newAudioamb2 = newAudioamb1.fade_out(200)
 
-        newAudionear3 = newAudioamb2 * 2
+        newAudioamb2 = newAudioamb2 * 6
 
+        newAudiobeat = AudioSegment.from_wav(atrack1) 
+
+        #if len(newAudiobeat) >= len(newAudioamb2):
+
+        #newAudionear3 = newAudioamb2.overlay(newAudiobeat)
+        
+        #if len(newAudiobeat) < len(newAudioamb2):
+
+        newAudionear3 = newAudiobeat.overlay(newAudioamb2)
 
         ############################################################
 
+        newAudiomag = newAudionear1 + newAudionear1 +  newAudionear2 + newAudionear3 + newAudionear3
 
-        oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Atmos_1_" + tim + "." + str(suctot) + ".wav"
-        newAudionear1.export(oufil, format="wav")
+        try: 
+            newAudiomag = newAudiomag * 3
 
-        oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Atmos_2_" + tim + "." + str(suctot) + ".wav"
-        newAudionear2.export(oufil, format="wav")
+        except:
+            newAudiomag = newAudiomag * 2
 
-        oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Atmos_3_" + tim + "." + str(suctot) + ".wav"
-        newAudionear3.export(oufil, format="wav")
+        if len(newAudiomag) > 340000:
+            newAudiomag = newAudiomag[0 : 340000]
+
+
+        ############################################################
+                
+        attenuate_db = 0
+        accentuate_db = .24
+        goldsound = -17
+        stsound = -23
+
+        leng = len(newAudiomag)
+    
+        loudn = get_loudness(newAudiomag, leng)
+
+        print(loudn)
+
+        if loudn <= goldsound:
+            chvol = (goldsound - loudn)
+            #newAudio3 = newAudio3 + chvol
+            newAudiomag = newAudiomag + chvol
+
+        if loudn > goldsound:
+            chvol = (loudn - goldsound)
+            newAudiomag = newAudiomag - chvol
+
+        print(chvol)
+
+        oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
+        newAudiomag.export(oufil, format="wav")
+
+        #if not (startvol < -11 and startvol > -18.5):
+
+            #loudn = get_loudness(newAudiomag4, leng)
+
+            #print(loudn)
+
+            #oufil = "C:\\Users\\mysti\\Desktop\\AutoProd\\Raw\\Mastered_Track" + tim + "." + str(suctot) + ".wav"
+            #newAudiomag4.export(oufil, format="wav")
 
         suctot += 1
 
         if suctot == trtot:
             break
-
+    
     except:
 
         print("")
 
         print("Error during render. File not created.")
 
-#for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
-    #for file in files:
-        #filepath = subdir + os.sep + file
+for subdir, dirs, files in os.walk('C:\\Users\\mysti\\Coding\\Fractalizer'):
+    for file in files:
+        filepath = subdir + os.sep + file
 
-        #if (filepath.endswith(".ogg")) or (filepath.endswith(".wav")) or (filepath.endswith(".txt")) or (filepath.endswith(".sfk"))   and ("Generate" in str(filepath))  or ("GenCh" in str(filepath)) or ("vsamp" in str(filepath)) or ("newsound" in str(filepath)):
-            #os. remove(filepath) 
+        if (filepath.endswith(".ogg")) or (filepath.endswith(".wav")) or (filepath.endswith(".txt")) or (filepath.endswith(".sfk"))   and ("Generate" in str(filepath))  or ("GenCh" in str(filepath)) or ("vsamp" in str(filepath)) or ("newsound" in str(filepath)):
+            os. remove(filepath) 
 
 print("")
 
-#print("The designated files have been removed. Thank you.")
+print("The designated files have been removed. Thank you.")
 
-#print("")
+print("")
 
 #call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\StartTrackEvolvingHere.py"])
 
-call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\BadThomas.py"])
+call(["python", "C:\\Users\\mysti\\Coding\\Fractalizer\\ThomasAllure.py"])
 
 ## THE GHOST OF THE SHADOW ##

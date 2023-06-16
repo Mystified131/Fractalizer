@@ -105,7 +105,9 @@ for citr in range(8):
         except: 
             print("Text error-- passing over line.")
 
-    accessKey = accessKey[20:41].strip()
+    #accessKey = accessKey[20:41].strip()
+
+    accessKey = 'AKIAYIIUUHJCHNJ2VS5L'
 
     infile.close()
 
@@ -120,7 +122,9 @@ for citr in range(8):
         except: 
             print("Text error-- passing over line.")
 
-    secretKey = secretKey[37:77].strip()
+    #secretKey = secretKey[37:77].strip()
+
+    secretKey = 'bEoQGMrzDgKhBTfAQJLWWjXafTw/S+brGMSrRzgO'
 
     infile.close()
 

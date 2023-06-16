@@ -12,7 +12,7 @@ from RandFunct2 import random_number2
 
 #srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
 
-srchstr = 'E:\\Acid_Loops'
+srchstr = 'H:\\Acid_Loops'
 
 contentbeats = []
 contentdrones = []
@@ -26,39 +26,33 @@ contentgit = []
 for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
+
+        #if  filepath.endswith(".wav")  and  ("Field" in str(filepath)) or (("Synth" in str(filepath)) and ("Analog" in str(filepath))) and   (("Beat" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Bass" not in str(filepath))) :                          
          
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Guit" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath))) :
+        if  filepath.endswith(".wav") and ("Pop" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drum" not in str(filepath)) and ("Beat" not in str(filepath)) and ("Rock" not in str(filepath)) and  ("Bass" not in str(filepath)))  :
 
             contentgit.append(filepath)
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Pad" in str(filepath)) and  (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath))):
              
-            contentdrones.append(filepath)  
+            contentpepper.append(filepath)  
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
-
-            contentpepper.append(filepath)
+            contentdrones.append(filepath)
          
             contentsax.append(filepath)  
 
             contentorg.append(filepath) 
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Bass" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
+        if  filepath.endswith(".wav")  and ("Bass" in str(filepath)) and ("Soul" in str(filepath)) :
 
             contentbass.append(filepath)
 
         #if  filepath.endswith(".wav")  and ("Drum" in str(filepath)) and ("BackwardsLoops" in str(filepath))   : 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and (("Drums" in str(filepath)) and ("Beat" in str(filepath))) and ("Bass" not in str(filepath)) and ("Guit" not in str(filepath)) :                   
+        if  filepath.endswith(".wav")  and ("Pop" in str(filepath)) and (("Drum" in str(filepath)) or ("Beat" in str(filepath))):                    
                    
             contentbeats.append(filepath)
 
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath))  and ("Perc" in str(filepath)) and (("Bass" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
+        if  filepath.endswith(".wav") and ("Pop" in str(filepath)) and  ("Perc" in str(filepath))  :
             
             contentperc.append(filepath)
-
-        if  filepath.endswith(".wav") and ("Acid" in str(filepath)) and ("Bass" in str(filepath)) and (("Guit" not in str(filepath)) and ("Drums" not in str(filepath)) and ("Beat" not in str(filepath)))  :
-
-            contentbass.append(filepath)
 
 
 print("")
