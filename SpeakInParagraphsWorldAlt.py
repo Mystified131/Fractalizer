@@ -107,8 +107,6 @@ for citr in range(8):
 
     #accessKey = accessKey[20:41].strip()
 
-    accessKey = 'AKIAYIIUUHJCHNJ2VS5L'
-
     infile.close()
 
     infile = open("C:\\Users\\mysti\\Coding\\Fractalizer\\datatex.m3u", "r")
@@ -123,8 +121,6 @@ for citr in range(8):
             print("Text error-- passing over line.")
 
     #secretKey = secretKey[37:77].strip()
-
-    secretKey = 'bEoQGMrzDgKhBTfAQJLWWjXafTw/S+brGMSrRzgO'
 
     infile.close()
 
